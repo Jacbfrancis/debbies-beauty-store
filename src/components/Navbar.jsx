@@ -1,59 +1,50 @@
 import { useState } from "react";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "motion/react";
 import Navmenu from "./Navmenu";
 
 function Navbar() {
   const [isNavmenuOpen, setIsNavmenuOpn] = useState(false);
+  const [currentHover, setCurrentHover] = useState(null);
+
+  const navItems = [
+    "Makeup",
+    "Skincare (Face/Neck)",
+    "Bath & Body",
+    "Hair Care",
+    "Fragrance",
+  ];
 
   return (
     <nav>
-      <div className="bg-[#070405] text-[#fff] text-center py-3 hidden lg:block">
+      <div className="bg-[#e94a6d] text-[#fff] text-center py-2 hidden lg:block">
         <p>Welcome to Debbie's Beauty Store</p>
       </div>
 
       <div className="flex justify-between items-center py-6 px-6 lg:px-20">
-        <span
-          className="block lg:hidden"
-          onClick={() => setIsNavmenuOpn((prev) => !prev)}
-        >
-          {isNavmenuOpen ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M18 6 6 18" />
-              <path d="m6 6 12 12" />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#000000"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M4 5h16" />
-              <path d="M4 12h16" />
-              <path d="M4 19h16" />
-            </svg>
-          )}
+        <span className="block lg:hidden" onClick={() => setIsNavmenuOpn(true)}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#000000"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M4 5h16" />
+            <path d="M4 12h16" />
+            <path d="M4 19h16" />
+          </svg>
         </span>
 
         <span className="cursor-pointer">
           <img src="/vite.svg" alt="" />
         </span>
 
-        <div className="bg-[#f3f3f3] w-[50%] px-5 hidden rounded-3xl justify-between items-center lg:flex">
+        <div className="bg-[#fff] border-1 w-[50%] px-5 hidden rounded-3xl justify-between items-center lg:flex">
           <span className="inline-block cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,17 +64,34 @@ function Navbar() {
           </span>
           <input
             className="text-slate-700 text-[1.2rem] h-[3rem] w-full px-6 focus:outline-none"
-            placeholder="Search products"
+            placeholder="Search for products"
             type="text"
             name="search"
           />
         </div>
 
-        <div className="flex justify-between items-center gap-10">
+        <div className="flex justify-between items-center gap-5">
           <div className="text-[1.15rem] font-semibold hidden lg:flex justify-between items-center gap-8">
-            <h3 className="cursor-pointer">Register</h3>
-            <h3 className="cursor-pointer">Sign in</h3>
+            <h3 className="cursor-pointer hover:text-[#e94a6d]">Register</h3>
+            <h3 className="cursor-pointer hover:text-[#e94a6d]">Sign in</h3>
           </div>
+
+          <span className="lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </span>
           <span className="inline-block cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -102,11 +110,11 @@ function Navbar() {
             </svg>
           </span>
         </div>
-        <span className="bg-[#070405] text-[#fff] py-[0.05rem] px-[0.5rem] rounded-4xl absolute top-2.5 right-2 lg:top-17 lg:right-17">
+        <span className="bg-[#e94a6d] text-[#fff] py-[0.05rem] px-[0.5rem] rounded-4xl absolute top-2.5 right-2.5 lg:top-17 lg:right-17">
           {0}
         </span>
       </div>
-      <div className="bg-[#f3f3f3] px-5 flex justify-between items-center lg:hidden">
+      <div className="bg-[#fdf5f7] px-5 border-1 border-[#e94a6d] flex justify-between items-center lg:hidden">
         <span className="inline-block">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -125,21 +133,37 @@ function Navbar() {
           </svg>
         </span>
         <input
-          className="text-slate-700 text-[1.2rem] h-[3rem] w-full px-6 focus:outline-none"
-          placeholder="Search products"
+          className="text-[1.2rem] h-[3rem] w-full px-6 focus:outline-none"
+          placeholder="Search for products"
           type="text"
           name="search"
         />
       </div>
-      {isNavmenuOpen && <Navmenu />}
 
-      <div className="hidden text-center lg:block">
-        <ul className="flex justify-center items-center gap-8 py-5">
-          <li className="cursor-pointer">Makeup </li>
-          <li className="cursor-pointer">Skincare (Face/Neck)</li>
-          <li className="cursor-pointer">Bath & Body</li>
-          <li className="cursor-pointer">Hair Care </li>
-          <li className="cursor-pointer">Fragrance</li>
+      {isNavmenuOpen && <Navmenu setIsNavmenuOpn={setIsNavmenuOpn} />}
+
+      <div className="hidden bg-[#fdf5f7] text-center lg:block">
+        <ul className="text-[1rem] font-light tracking-wide flex justify-center items-center gap-10 py-3">
+          {navItems.map((item) => (
+            <li
+              key={item}
+              className="cursor-pointer"
+              onMouseOver={() => setCurrentHover(item)}
+              onMouseOut={() => setCurrentHover(null)}
+            >
+              {item}
+              <motion.div
+                initial={{ width: 0, opacity: 0 }}
+                animate={
+                  currentHover === item
+                    ? { width: "100%", opacity: 1 }
+                    : { width: 0, opacity: 0 }
+                }
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="h-[2px] w-full bg-[#e94a6d] rounded"
+              />
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
