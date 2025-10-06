@@ -2,9 +2,12 @@ import { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
 import Navmenu from "./Navmenu";
+import { useNavMenu } from "../store/useNavMenuStore";
 
 function Navbar() {
-  const [isNavmenuOpen, setIsNavmenuOpn] = useState(false);
+  const isNavMenuOpen = useNavMenu((state) => state.isNavMenuOpen);
+  const openNavMenu = useNavMenu((state) => state.openNavMenu);
+
   const [currentHover, setCurrentHover] = useState(null);
 
   const navItems = [
@@ -22,7 +25,7 @@ function Navbar() {
       </div>
 
       <div className="flex justify-between items-center py-6 px-6 lg:px-20">
-        <span className="block lg:hidden" onClick={() => setIsNavmenuOpn(true)}>
+        <span className="block lg:hidden" onClick={openNavMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -140,7 +143,7 @@ function Navbar() {
         />
       </div>
 
-      {isNavmenuOpen && <Navmenu setIsNavmenuOpn={setIsNavmenuOpn} />}
+      {isNavMenuOpen && <Navmenu />}
 
       <div className="hidden bg-[#fdf5f7] text-center lg:block">
         <ul className="text-[1rem] font-light tracking-wide flex justify-center items-center gap-10 py-3">
