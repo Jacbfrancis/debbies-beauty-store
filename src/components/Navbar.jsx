@@ -21,7 +21,7 @@ function Navbar() {
   return (
     <nav>
       <div className="bg-[#e94a6d] text-[#fff] text-center py-2 hidden lg:block">
-        <p>Welcome to Debbie's Beauty Store</p>
+        <p>Welcome to Debbies Beauty Store</p>
       </div>
 
       <div className="flex justify-between items-center py-6 px-6 lg:px-20">
