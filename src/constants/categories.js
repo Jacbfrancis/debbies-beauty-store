@@ -6,7 +6,7 @@ export const Categories = [
   },
   {
     category: "Bath & Body",
-    icon: "/public/images/category icons/bathbody_icon.webp",
+    icon: "/images/category icons/bathbody_icon.webp",
   },
   { category: "Hair Care", icon: "/images/category icons/haircare_icon.webp" },
   { category: "Fragrance", icon: "/images/category icons/fragrance_icon.webp" },
