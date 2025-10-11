@@ -3,13 +3,9 @@ import "./App.css";
 import Homepage from "./pages/Homepage";
 
 function App() {
-  //const [isNavmenuOpen, setIsNavmenuOpen] = useState(false);
   return (
     <div>
-      <Homepage
-      // isNavmenuOpen={isNavmenuOpen}
-      // setIsNavmenuOpen={setIsNavmenuOpen}
-      />
+      <Homepage />
     </div>
   );
 }

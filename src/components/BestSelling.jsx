@@ -7,14 +7,16 @@ function BestSelling() {
   const active = true;
 
   return (
-    <div className="mt-10 pb-90 px-6 xl:px-20">
-      <h1 className="text-center text-[2.2rem] mt-8">Hot Selling Products</h1>
+    <div className="mt-10 px-6 xl:px-20">
+      <h1 className="text-center text-[2.2rem] mt-8 mb-5">
+        Hot Selling Products
+      </h1>
       <div className="flex justify-end items-center mb-8">
         <span className="text-center font-semibold block w-[5.5rem] border-1 rounded-4xl px-3 py-1 hover:bg-black hover:text-white">
           View all
         </span>
       </div>
-      <div className="overflow-scroll [scrollbar-width:none] whitespace-nowrap">
+      <div className="overflow-x-scroll [scrollbar-width:none] whitespace-nowrap">
         <div className="flex justify-start items-start gap-4">
           {products.slice(0, 4).map((product, index) => (
             <div

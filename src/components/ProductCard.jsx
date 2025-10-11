@@ -2,8 +2,6 @@
 import { motion } from "motion/react";
 
 function ProductCard({ productName, productPrice, productImage, active }) {
-  //console.log(currentIndex);
-
   return (
     <div className="text-center cursor-pointer">
       <div className="bg-[#f0f0f0] rounded-md py-4 px-3 w-[20rem] lg:w-[19rem]">
@@ -12,7 +10,7 @@ function ProductCard({ productName, productPrice, productImage, active }) {
             initial={{ opacity: 0, x: 10 }}
             animate={active ? { opacity: 1, x: 0 } : { opacity: 0, x: 10 }}
             transition={{ duration: 0.4 }}
-            className="bg-[#e94a6d] shadow-md text-[#fff] w-[2rem] rounded-md flex justify-center items-center py-1.5 px-1.5"
+            className="bg-[#e94a6d] shadow-md text-[#fff] w-[2rem] rounded-md justify-center items-center py-1.5 px-1.5 hidden lg:flex"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -37,11 +35,16 @@ function ProductCard({ productName, productPrice, productImage, active }) {
           src={productImage}
           alt="product_image"
         />
+
+        <button className="bg-[#e94a6d] text-[#fff] shadow-md w-full rounded-md m-auto py-2.5 cursor-pointer lg:hidden">
+          Quick Cart
+        </button>
+
         <motion.button
           initial={{ opacity: 0, y: 20 }}
           animate={active ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="bg-[#e94a6d] text-[#fff] shadow-md w-full rounded-md m-auto py-2.5 hover:bg-[#f4335d] cursor-pointer"
+          className="bg-[#e94a6d] text-[#fff] shadow-md w-full rounded-md m-auto py-2.5 lg:hover:bg-[#f4335d] cursor-pointer hidden lg:block"
         >
           Quick Cart
         </motion.button>

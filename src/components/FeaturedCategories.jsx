@@ -1,0 +1,43 @@
+import { useState } from "react";
+// eslint-disable-next-line no-unused-vars
+import { easeIn, easeInOut, motion } from "motion/react";
+import { Categories } from "../constants/categories";
+
+function FeaturedCategories() {
+  const [currentIndex, setCurrentIndex] = useState(null);
+
+  return (
+    <div className="pb-90 px-6 lg:px-20">
+      <h1 className="text-center text-[2.2rem] mt-16 mb-18">
+        Featured Categories
+      </h1>
+
+      <div className="flex justify-between items-start gap-8 overflow-x-scroll [scrollbar-width:none] whitespace-nowrap lg:gap-0 lg:px-30">
+        {Categories.map((category, index) => (
+          <motion.div
+            key={index}
+            className="flex flex-col justify-center items-center"
+            onMouseOver={() => setCurrentIndex(index)}
+            onMouseOut={() => setCurrentIndex(null)}
+          >
+            <span className="bg-[#f0f0f0] rounded-full w-[7rem]">
+              <motion.img
+                initial={{ scale: 1 }}
+                animate={
+                  currentIndex === index ? { scale: 0.85 } : { scale: 1 }
+                }
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="rounded-full"
+                src={category.icon}
+                alt=""
+              />
+            </span>
+            <p>{category.category}</p>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default FeaturedCategories;

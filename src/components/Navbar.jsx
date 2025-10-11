@@ -3,20 +3,13 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import Navmenu from "./Navmenu";
 import { useNavMenu } from "../store/useNavMenuStore";
+import { Categories } from "../constants/categories";
 
 function Navbar() {
   const isNavMenuOpen = useNavMenu((state) => state.isNavMenuOpen);
   const openNavMenu = useNavMenu((state) => state.openNavMenu);
 
   const [currentHover, setCurrentHover] = useState(null);
-
-  const navItems = [
-    "Makeup",
-    "Skincare (Face/Neck)",
-    "Bath & Body",
-    "Hair Care",
-    "Fragrance",
-  ];
 
   return (
     <nav>
@@ -147,18 +140,18 @@ function Navbar() {
 
       <div className="hidden bg-[#fdf5f7] text-center lg:block">
         <ul className="text-[1rem] font-light tracking-wide flex justify-center items-center gap-10 py-3">
-          {navItems.map((item) => (
+          {Categories.map((category, index) => (
             <li
-              key={item}
+              key={index}
               className="cursor-pointer"
-              onMouseOver={() => setCurrentHover(item)}
+              onMouseOver={() => setCurrentHover(index)}
               onMouseOut={() => setCurrentHover(null)}
             >
-              {item}
+              {category.category}
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
                 animate={
-                  currentHover === item
+                  currentHover === index
                     ? { width: "100%", opacity: 1 }
                     : { width: 0, opacity: 0 }
                 }
