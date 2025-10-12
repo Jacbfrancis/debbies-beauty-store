@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 function ProductCard({ productName, productPrice, productImage, active }) {
   return (
     <div className="text-center cursor-pointer">
-      <div className="bg-[#f0f0f0] rounded-md py-4 px-3 w-[20rem] lg:w-[19rem]">
+      <div className="bg-[#f0f0f0] rounded-md py-4 px-3 w-[15rem] lg:w-[19rem]">
         <div className="flex justify-end items-center">
           <motion.span
             initial={{ opacity: 0, x: 10 }}
@@ -36,7 +36,7 @@ function ProductCard({ productName, productPrice, productImage, active }) {
           alt="product_image"
         />
 
-        <button className="bg-[#e94a6d] text-[#fff] shadow-md w-full rounded-md m-auto py-2.5 cursor-pointer lg:hidden">
+        <button className="bg-[#e94a6d] text-[#fff] shadow-md w-[90%] rounded-md m-auto py-2 cursor-pointer lg:hidden">
           Quick Cart
         </button>
 
@@ -49,7 +49,7 @@ function ProductCard({ productName, productPrice, productImage, active }) {
           Quick Cart
         </motion.button>
       </div>
-      <div className=" mx-auto my-4 px-9">
+      <div className=" mx-auto my-4">
         <p className="mb-3 font-medium hover:text-[#e94a6d]">{productName}</p>
         <p className="text-gray-700 text-[1.2rem]">${productPrice}</p>
       </div>
