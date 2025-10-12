@@ -7,8 +7,8 @@ function FeaturedCategories() {
   const [currentIndex, setCurrentIndex] = useState(null);
 
   return (
-    <div className="pb-90 px-6 lg:px-20">
-      <h1 className="text-center text-[1.8rem] mt-16 mb-14 lg:text-[2.2rem]">
+    <div className="mt-12 px-6 lg:px-20">
+      <h1 className="text-center text-[1.8rem] mb-14 lg:text-[2.2rem]">
         Featured Categories
       </h1>
 
@@ -20,7 +20,7 @@ function FeaturedCategories() {
             onMouseOver={() => setCurrentIndex(index)}
             onMouseOut={() => setCurrentIndex(null)}
           >
-            <span className="bg-[#f0f0f0] rounded-full w-[7rem]">
+            <span className="bg-[#f0f0f0] rounded-full w-[5rem]">
               <motion.img
                 initial={{ scale: 1 }}
                 animate={

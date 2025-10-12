@@ -49,7 +49,7 @@ function ProductCard({ productName, productPrice, productImage, active }) {
           Quick Cart
         </motion.button>
       </div>
-      <div className=" mx-auto my-4">
+      <div className="mx-auto my-4">
         <p className="mb-3 font-medium hover:text-[#e94a6d]">{productName}</p>
         <p className="text-gray-700 text-[1.2rem]">${productPrice}</p>
       </div>
