@@ -36,8 +36,8 @@ function Navbar() {
           </svg>
         </span>
 
-        <span className="cursor-pointer">
-          <img src="/vite.svg" alt="" />
+        <span className="cursor-pointer w-[10%] lg:w-[5%]">
+          <img src="/images/logo.png" alt="" />
         </span>
 
         <div className="bg-[#fff] border-1 w-[50%] px-5 hidden rounded-3xl justify-between items-center lg:flex">
