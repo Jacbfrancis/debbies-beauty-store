@@ -1,6 +1,6 @@
 import { useState } from "react";
 // eslint-disable-next-line no-unused-vars
-import { easeIn, easeInOut, motion } from "motion/react";
+import { easeInOut, motion } from "motion/react";
 import { Categories } from "../constants/categories";
 
 function FeaturedCategories() {
@@ -8,7 +8,7 @@ function FeaturedCategories() {
 
   return (
     <div className="pb-90 px-6 lg:px-20">
-      <h1 className="text-center text-[2.2rem] mt-16 mb-18">
+      <h1 className="text-center text-[1.8rem] mt-16 mb-14 lg:text-[2.2rem]">
         Featured Categories
       </h1>
 
