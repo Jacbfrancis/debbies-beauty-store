@@ -36,7 +36,7 @@ function Navbar() {
           </svg>
         </span>
 
-        <span className="cursor-pointer w-[10%] lg:w-[5%]">
+        <span className="cursor-pointer w-[15%] lg:w-[5%]">
           <img src="/images/logo.png" alt="" />
         </span>
 
@@ -106,7 +106,7 @@ function Navbar() {
             </svg>
           </span>
         </div>
-        <span className="bg-[#e94a6d] text-[#fff] py-[0.05rem] px-[0.5rem] rounded-4xl absolute top-2.5 right-2.5 lg:top-17 lg:right-17">
+        <span className="bg-[#e94a6d] text-[#fff] py-[0.05rem] px-[0.5rem] rounded-4xl absolute top-6 right-2.5 lg:top-17 lg:right-17">
           {0}
         </span>
       </div>
