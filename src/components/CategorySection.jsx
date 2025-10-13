@@ -55,7 +55,7 @@ function CategorySection() {
                   </svg>
                 </motion.span>
               </div>
-              <span className="p-8 block">
+              <span className="p-4 lg:p-8 block">
                 <motion.img
                   initial={{ scale: 1 }}
                   animate={
