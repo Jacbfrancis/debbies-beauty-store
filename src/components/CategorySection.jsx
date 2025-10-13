@@ -1,17 +1,14 @@
 import { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
-import { useProductCategory } from "../store/useProductCategoryStore";
 
-function CategorySection() {
-  const makeup = useProductCategory((state) => state.makeup);
-
+function CategorySection({ category, title }) {
   const [currentIndex, setCurrentIndex] = useState(null);
 
   return (
-    <div className="mt-14 pb-90 px-6 lg:px-20">
-      <h1 className="text-center text-[1.8rem] mt-8 mb-5 lg:text-[2.2rem]">
-        Makeup
+    <div className="mt-14 px-6 lg:px-20">
+      <h1 className="text-center text-[1.8rem] mt-8 mb-5 lg:mb-0 lg:text-[2.2rem]">
+        {title}
       </h1>
       <div className="hidden justify-end items-center mb-8 lg:flex">
         <button className="text-center font-semibold w-[5.5rem] border-1 rounded-4xl px-3 py-1 cursor-pointer hover:bg-black hover:text-white">
@@ -20,7 +17,7 @@ function CategorySection() {
       </div>
 
       <div className="grid grid-cols-2 gap-4 lg:flex lg:justify-start lg:items-start">
-        {makeup.slice(0, 4).map((product, index) => (
+        {category.slice(0, 4).map((product, index) => (
           <div
             key={product.id}
             className="text-center cursor-pointer"
@@ -78,7 +75,7 @@ function CategorySection() {
               >
                 QuickCart
               </motion.button>
-              <button className="bg-[#e94a6d] text-[#fff] shadow-md w-[90%] rounded-md m-auto py-2 cursor-pointer lg:hidden">
+              <button className="bg-[#e94a6d] text-[#fff] shadow-md w-[90%] rounded-md m-auto py-1.5 cursor-pointer lg:hidden">
                 Quick Cart
               </button>
             </div>
