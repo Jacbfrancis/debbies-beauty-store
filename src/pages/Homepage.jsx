@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import CategorySection from "../components/CategorySection";
 import { useProductCategory } from "../store/useProductCategoryStore";
+import Banner from "../components/Banner";
 
 function Homepage() {
   const makeup = useProductCategory((state) => state.makeup);
@@ -18,6 +19,7 @@ function Homepage() {
       <CategoryCarousel />
       <BestSelling />
       <FeaturedCategories />
+      <Banner />
       <CategorySection category={makeup} title={"Makeup"} />
       <CategorySection category={skincare} title={"Skincare"} />
       <CategorySection category={haircare} title={"Haircare"} />

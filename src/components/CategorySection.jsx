@@ -92,7 +92,7 @@ function CategorySection({ category, title }) {
       </div>
 
       <div className="flex justify-center items-center lg:hidden">
-        <button className="text-center font-semibold w-[5.5rem] border-1 rounded-4xl px-3 py-1 cursor-pointer hover:bg-black hover:text-white">
+        <button className="text-[#e94a6d] text-center font-semibold w-[5.5rem] cursor-pointer">
           View all
         </button>
       </div>

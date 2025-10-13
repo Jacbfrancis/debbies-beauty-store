@@ -11,11 +11,7 @@ function BestSelling() {
       <h1 className="text-center text-[1.8rem] mt-8 mb-10 lg:text-[2.2rem]">
         Hot Selling Products
       </h1>
-      <div className="justify-end items-center mb-8 hidden lg:flex">
-        <span className="text-center font-semibold block w-[5.5rem] border-1 rounded-4xl px-3 py-1 hover:bg-black hover:text-white">
-          View all
-        </span>
-      </div>
+
       <div className="overflow-x-scroll [scrollbar-width:none] whitespace-nowrap">
         <div className="flex justify-start items-start gap-4 snap-x">
           {products.slice(0, 5).map((product, index) => (
@@ -35,11 +31,6 @@ function BestSelling() {
             </div>
           ))}
         </div>
-      </div>
-      <div className="flex justify-center items-center mt-5 lg:hidden">
-        <button className="text-center font-semibold w-[5.5rem] border-1 rounded-4xl px-3 py-1 cursor-pointer hover:bg-black hover:text-white">
-          View all
-        </button>
       </div>
     </div>
   );
