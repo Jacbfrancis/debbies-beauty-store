@@ -2,7 +2,7 @@ export const products = [
   {
     id: "1",
     productName: "Rose Water Hydrating Face Mist",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx4.png",
     brand: "Botanical Glow",
     category: "Skincare",
     originalPrice: 24.99,
@@ -13,7 +13,7 @@ export const products = [
   {
     id: "2",
     productName: "Velvet Matte Lipstick",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx2.png",
     brand: "LuxeCharm",
     category: "Makeup",
     originalPrice: 16.5,
@@ -24,7 +24,7 @@ export const products = [
   {
     id: "3",
     productName: "Argan Oil Repair Hair Serum",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx3.png",
     brand: "SilkEssence",
     category: "Haircare",
     originalPrice: 32.0,
@@ -35,7 +35,7 @@ export const products = [
   {
     id: "4",
     productName: "Soothing Aloe Vera Gel",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx8.png",
     brand: "PureRadiance",
     category: "Skincare",
     originalPrice: 18.75,
@@ -46,7 +46,7 @@ export const products = [
   {
     id: "5",
     productName: "Lavender Shea Body Lotion",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx5.png",
     brand: "CalmNest",
     category: "Bodycare",
     originalPrice: 21.0,
@@ -57,7 +57,7 @@ export const products = [
   {
     id: "6",
     productName: "Coconut Moisture Hair Mask",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx6.png",
     brand: "TropiSilk",
     category: "Haircare",
     originalPrice: 27.5,
@@ -68,7 +68,7 @@ export const products = [
   {
     id: "7",
     productName: "Citrus Refresh Body Wash",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx7.png",
     brand: "FreshAura",
     category: "Bodycare",
     originalPrice: 14.25,
@@ -79,7 +79,7 @@ export const products = [
   {
     id: "8",
     productName: "Radiant Glow Highlighter Palette",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx8.png",
     brand: "GlamVibe",
     category: "Makeup",
     originalPrice: 28.9,
@@ -101,7 +101,7 @@ export const products = [
   {
     id: "10",
     productName: "Soft Touch Beauty Blender",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx2.png",
     brand: "Blendify",
     category: "Beauty Tools",
     originalPrice: 9.99,
@@ -112,7 +112,7 @@ export const products = [
   {
     id: "11",
     productName: "Silky Night Repair Face Cream",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx4.png",
     brand: "MoonDew",
     category: "Skincare",
     originalPrice: 35.0,
@@ -123,7 +123,7 @@ export const products = [
   {
     id: "12",
     productName: "Berry Tint Lip Balm",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx5.png",
     brand: "SweetLips",
     category: "Makeup",
     originalPrice: 8.5,
@@ -134,7 +134,7 @@ export const products = [
   {
     id: "13",
     productName: "Nourish & Shine Hair Oil",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx3.png",
     brand: "GlowStrand",
     category: "Haircare",
     originalPrice: 25.0,
@@ -145,7 +145,7 @@ export const products = [
   {
     id: "14",
     productName: "Vanilla Orchid Body Butter",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx6.png",
     brand: "SilkWhip",
     category: "Bodycare",
     originalPrice: 23.5,
@@ -156,7 +156,7 @@ export const products = [
   {
     id: "15",
     productName: "Blossom Breeze Eau de Parfum",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx7.png",
     brand: "Scentelier",
     category: "Fragrance",
     originalPrice: 48.0,
@@ -167,7 +167,7 @@ export const products = [
   {
     id: "16",
     productName: "Amber Wood Perfume Mist",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx8.png",
     brand: "MystiScents",
     category: "Fragrance",
     originalPrice: 30.0,
@@ -178,7 +178,7 @@ export const products = [
   {
     id: "17",
     productName: "Precision Brow Pencil",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx7.png",
     brand: "ArchCraft",
     category: "Makeup",
     originalPrice: 12.75,
@@ -200,7 +200,7 @@ export const products = [
   {
     id: "19",
     productName: "Classic Paddle Hair Brush",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx2.png",
     brand: "TameTress",
     category: "Beauty Tools",
     originalPrice: 15.0,
@@ -211,7 +211,7 @@ export const products = [
   {
     id: "20",
     productName: "Rose Gold Eyelash Curler",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx2.png",
     brand: "LashLuxe",
     category: "Beauty Tools",
     originalPrice: 11.25,
@@ -222,7 +222,7 @@ export const products = [
   {
     id: "21",
     productName: "HydraGlow Vitamin C Serum",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx3.png",
     brand: "LumiSkin",
     category: "Skincare",
     originalPrice: 34.99,
@@ -233,7 +233,7 @@ export const products = [
   {
     id: "22",
     productName: "Velvet Finish Setting Spray",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx4.png",
     brand: "GlowFix",
     category: "Makeup",
     originalPrice: 19.5,
@@ -244,7 +244,7 @@ export const products = [
   {
     id: "23",
     productName: "Keratin Smooth Shampoo",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx5.png",
     brand: "SilkTreat",
     category: "Haircare",
     originalPrice: 22.0,
@@ -255,7 +255,7 @@ export const products = [
   {
     id: "24",
     productName: "Vanilla Bean Body Scrub",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx6.png",
     brand: "SugarBloom",
     category: "Bodycare",
     originalPrice: 20.0,
@@ -266,7 +266,7 @@ export const products = [
   {
     id: "25",
     productName: "Precision Contour Brush",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx7.png",
     brand: "Blendify",
     category: "Beauty Tools",
     originalPrice: 12.99,
@@ -277,7 +277,7 @@ export const products = [
   {
     id: "26",
     productName: "Peony Dream Eau de Parfum",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx8.png",
     brand: "AromaLuxe",
     category: "Fragrance",
     originalPrice: 52.0,
@@ -288,7 +288,7 @@ export const products = [
   {
     id: "27",
     productName: "Charcoal Detox Clay Mask",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx2.png",
     brand: "PureZen",
     category: "Skincare",
     originalPrice: 26.75,
@@ -299,7 +299,7 @@ export const products = [
   {
     id: "28",
     productName: "Creamy Nude Lip Gloss",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx3.png",
     brand: "LushTint",
     category: "Makeup",
     originalPrice: 14.99,
@@ -332,7 +332,7 @@ export const products = [
   {
     id: "31",
     productName: "Rose Quartz Facial Roller",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx4.png",
     brand: "GlowStone",
     category: "Beauty Tools",
     originalPrice: 25.0,
@@ -343,7 +343,7 @@ export const products = [
   {
     id: "32",
     productName: "Midnight Oud Perfume Mist",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx5.png",
     brand: "NoirEssence",
     category: "Fragrance",
     originalPrice: 36.5,
@@ -354,7 +354,7 @@ export const products = [
   {
     id: "33",
     productName: "Daily Hydration Face Moisturizer",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx6.png",
     brand: "AquaLeaf",
     category: "Skincare",
     originalPrice: 19.99,
@@ -365,7 +365,7 @@ export const products = [
   {
     id: "34",
     productName: "Satin Finish Foundation",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx7.png",
     brand: "VelviTone",
     category: "Makeup",
     originalPrice: 27.0,
@@ -376,7 +376,7 @@ export const products = [
   {
     id: "35",
     productName: "Avocado Repair Hair Mask",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx8.png",
     brand: "NutriSilk",
     category: "Haircare",
     originalPrice: 28.5,
@@ -398,7 +398,7 @@ export const products = [
   {
     id: "37",
     productName: "Soft Blend Makeup Sponge Set",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx2.png",
     brand: "ProBlend",
     category: "Beauty Tools",
     originalPrice: 14.75,
@@ -409,7 +409,7 @@ export const products = [
   {
     id: "38",
     productName: "Amber Noir Eau de Toilette",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx3.png",
     brand: "VelvetAura",
     category: "Fragrance",
     originalPrice: 42.0,
@@ -420,7 +420,7 @@ export const products = [
   {
     id: "39",
     productName: "Green Clay Purifying Mask",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx4.png",
     brand: "EarthGlow",
     category: "Skincare",
     originalPrice: 20.5,
@@ -431,7 +431,7 @@ export const products = [
   {
     id: "40",
     productName: "Tint & Glow BB Cream",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx5.png",
     brand: "SkinMuse",
     category: "Makeup",
     originalPrice: 22.0,
@@ -442,7 +442,7 @@ export const products = [
   {
     id: "41",
     productName: "Caffeine Infused Eye Cream",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx6.png",
     brand: "BrightEyes",
     category: "Skincare",
     originalPrice: 24.99,
@@ -453,7 +453,7 @@ export const products = [
   {
     id: "42",
     productName: "Sheer Blush Compact",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx7.png",
     brand: "RosyHue",
     category: "Makeup",
     originalPrice: 18.75,
@@ -464,7 +464,7 @@ export const products = [
   {
     id: "43",
     productName: "Mint & Tea Tree Scalp Scrub",
-    productImage: "/images/productEx.png",
+    productImage: "/images/productEx8.png",
     brand: "ScalpPure",
     category: "Haircare",
     originalPrice: 26.0,

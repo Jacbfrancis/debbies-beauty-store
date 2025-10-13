@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
 
-function ProductCard({ productName, productPrice, productImage, active }) {
+function CategoryCard({ productName, productPrice, productImage, active }) {
   return (
     <div className="text-center cursor-pointer">
       <div className="bg-[#f0f0f0] rounded-md py-4 px-3 w-[15rem] lg:w-[19rem]">
@@ -28,13 +28,15 @@ function ProductCard({ productName, productPrice, productImage, active }) {
             </svg>
           </motion.span>
         </div>
-        <motion.img
-          initial={{ scale: 1 }}
-          animate={active ? { scale: 1.15 } : { scale: 1 }}
-          transition={{ duration: 0.4 }}
-          src={productImage}
-          alt="product_image"
-        />
+        <span className="block w-[15rem] m-auto p-8">
+          <motion.img
+            initial={{ scale: 1 }}
+            animate={active ? { scale: 1.15 } : { scale: 1 }}
+            transition={{ duration: 0.4 }}
+            src={productImage}
+            alt="product_image"
+          />
+        </span>
 
         <button className="bg-[#e94a6d] text-[#fff] shadow-md w-[90%] rounded-md m-auto py-2 cursor-pointer lg:hidden">
           Quick Cart
@@ -57,4 +59,4 @@ function ProductCard({ productName, productPrice, productImage, active }) {
   );
 }
 
-export default ProductCard;
+export default CategoryCard;

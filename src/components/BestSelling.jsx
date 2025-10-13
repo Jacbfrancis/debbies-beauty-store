@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ProductCard from "./ProductCard";
+import CategoryCard from "./CategoryCard";
 import { products } from "../ProductsArray";
 
 function BestSelling() {
@@ -8,7 +8,7 @@ function BestSelling() {
 
   return (
     <div className="mt-10 px-6 xl:px-20">
-      <h1 className="text-center text-[1.8rem] mt-8 mb-5 lg:text-[2.2rem]">
+      <h1 className="text-center text-[1.8rem] mt-8 mb-10 lg:text-[2.2rem]">
         Hot Selling Products
       </h1>
       <div className="justify-end items-center mb-8 hidden lg:flex">
@@ -25,7 +25,7 @@ function BestSelling() {
               onMouseLeave={() => setCurrentIndex(null)}
               className="snap-center"
             >
-              <ProductCard
+              <CategoryCard
                 productName={product.productName}
                 productPrice={product.originalPrice}
                 productImage={product.productImage}
@@ -36,7 +36,7 @@ function BestSelling() {
           ))}
         </div>
       </div>
-      <div className="flex justify-center items-center lg:hidden">
+      <div className="flex justify-center items-center mt-5 lg:hidden">
         <button className="text-center font-semibold w-[5.5rem] border-1 rounded-4xl px-3 py-1 cursor-pointer hover:bg-black hover:text-white">
           View all
         </button>

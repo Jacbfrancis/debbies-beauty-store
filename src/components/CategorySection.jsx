@@ -1,8 +1,12 @@
+import { useState } from "react";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "motion/react";
 import { useProductCategory } from "../store/useProductCategoryStore";
 
 function CategorySection() {
   const makeup = useProductCategory((state) => state.makeup);
-  console.log(makeup);
+
+  const [currentIndex, setCurrentIndex] = useState(null);
 
   return (
     <div className="mt-14 pb-90 px-6 lg:px-20">
@@ -15,20 +19,81 @@ function CategorySection() {
         </button>
       </div>
 
-      <div className="grid grid-cols-2 lg:flex lg:justify-start lg:items-start">
-        {makeup.slice(0, 4).map((product) => (
-          <div key={product.id}>
-            <div className="text-center py-4 px-3 lg:[19rem]">
-              <span className="bg-[#f0f0f0] block rounded-xl">
-                <img src={product.productImage} alt="" />
-              </span>
-              <div className="mx-auto my-4">
-                <p>{product.productName}</p>
+      <div className="grid grid-cols-2 gap-4 lg:flex lg:justify-start lg:items-start">
+        {makeup.slice(0, 4).map((product, index) => (
+          <div
+            key={product.id}
+            className="text-center cursor-pointer"
+            onMouseOver={() => setCurrentIndex(index)}
+            onMouseOut={() => setCurrentIndex(null)}
+          >
+            <div className="bg-[#f0f0f0] py-4 px-3 lg:[19rem] rounded-xl">
+              <div className="flex justify-end items-center">
+                <motion.span
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={
+                    currentIndex === index
+                      ? { opacity: 1, x: 0 }
+                      : { opacity: 0, x: 10 }
+                  }
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="bg-[#e94a6d] shadow-md text-[#fff] w-[2rem] rounded-md justify-center items-center py-1.5 px-1.5 hidden lg:flex"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </motion.span>
               </div>
+              <span className="p-8 block">
+                <motion.img
+                  initial={{ scale: 1 }}
+                  animate={
+                    currentIndex === index ? { scale: 1.15 } : { scale: 1 }
+                  }
+                  transition={{ duration: 0.4 }}
+                  src={product.productImage}
+                  alt=""
+                />
+              </span>
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={
+                  currentIndex === index
+                    ? { opacity: 1, y: 0 }
+                    : { opacity: 0, y: 20 }
+                }
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="bg-[#e94a6d] text-[#fff] shadow-md w-full rounded-md m-auto py-2.5 lg:hover:bg-[#f4335d] cursor-pointer hidden lg:block"
+              >
+                QuickCart
+              </motion.button>
+              <button className="bg-[#e94a6d] text-[#fff] shadow-md w-[90%] rounded-md m-auto py-2 cursor-pointer lg:hidden">
+                Quick Cart
+              </button>
+            </div>
+            <div className="mx-auto my-4">
+              <p className="font-semibold hover:text-[#e94a6d]">
+                {product.productName}
+              </p>
+              <p className="text-gray-700 text-[1.2rem]">
+                {product.originalPrice}
+              </p>
             </div>
           </div>
         ))}
       </div>
+
       <div className="flex justify-center items-center lg:hidden">
         <button className="text-center font-semibold w-[5.5rem] border-1 rounded-4xl px-3 py-1 cursor-pointer hover:bg-black hover:text-white">
           View all
