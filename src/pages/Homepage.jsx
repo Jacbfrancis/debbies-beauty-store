@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import CategorySection from "../components/CategorySection";
 import { useProductCategory } from "../store/useProductCategoryStore";
 import Banner from "../components/Banner";
+import CustomerAssurance from "../components/CustomerAssurance";
 
 function Homepage() {
   const makeup = useProductCategory((state) => state.makeup);
@@ -23,6 +24,7 @@ function Homepage() {
       <CategorySection category={makeup} title={"Makeup"} />
       <CategorySection category={skincare} title={"Skincare"} />
       <CategorySection category={haircare} title={"Haircare"} />
+      <CustomerAssurance />
     </div>
   );
 }

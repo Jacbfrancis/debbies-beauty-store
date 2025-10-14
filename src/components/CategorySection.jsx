@@ -6,7 +6,7 @@ function CategorySection({ category, title }) {
   const [currentIndex, setCurrentIndex] = useState(null);
 
   return (
-    <div className="mt-14 px-6 lg:px-20">
+    <div className="mt-16 px-6 lg:px-20">
       <h1 className="text-center text-[1.8rem] mt-8 mb-5 lg:mb-0 lg:text-[2.2rem]">
         {title}
       </h1>
@@ -84,7 +84,7 @@ function CategorySection({ category, title }) {
                 {product.productName}
               </p>
               <p className="text-gray-700 text-[1.2rem]">
-                {product.originalPrice}
+                ₦ {product.originalPrice}
               </p>
             </div>
           </div>

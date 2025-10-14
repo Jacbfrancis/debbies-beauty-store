@@ -53,7 +53,7 @@ function CategoryCard({ productName, productPrice, productImage, active }) {
       </div>
       <div className="mx-auto my-4">
         <p className="mb-3 font-medium hover:text-[#e94a6d]">{productName}</p>
-        <p className="text-gray-700 text-[1.2rem]">${productPrice}</p>
+        <p className="text-gray-700 text-[1.2rem]">₦ {productPrice}</p>
       </div>
     </div>
   );

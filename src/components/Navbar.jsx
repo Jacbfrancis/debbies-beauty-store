@@ -14,7 +14,7 @@ function Navbar() {
   return (
     <nav>
       <div className="bg-[#e94a6d] text-[#fff] text-center py-2 hidden lg:block">
-        <p>Welcome to Debbies Beauty Store</p>
+        <p>Order Cosmetics and Enjoy Free Shipping on Purchases Over ₦50,000</p>
       </div>
 
       <div className="flex justify-between items-center py-6 px-6 lg:px-20">
