@@ -25,14 +25,16 @@ function CustomerAssurance() {
       {customerAssurance.map((assurance) => (
         <div
           key={assurance.header}
-          className="text-center py-10 h-[10rem] lg:h-[18.5rem] lg:px-13"
+          className="text-center py-10 h-[10rem] lg:h-[18.5rem]"
         >
-          <span className="w-[18%] block m-auto lg:w-[10%]">
-            <img className="w-full" src={assurance.icon} alt="" />
-          </span>
-          <div className="px-4">
-            <h3 className="font-semibold my-4">{assurance.header}</h3>
-            <p className="hidden lg:block">{assurance.description}</p>
+          <div className="border-[#868686] border-l-1 lg:px-13">
+            <span className="w-[18%] block m-auto  lg:w-[10%]">
+              <img className="w-full" src={assurance.icon} alt="" />
+            </span>
+            <div className="px-4">
+              <h3 className="font-semibold my-4">{assurance.header}</h3>
+              <p className="hidden lg:block">{assurance.description}</p>
+            </div>
           </div>
         </div>
       ))}
