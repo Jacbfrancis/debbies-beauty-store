@@ -16,7 +16,7 @@ function CategorySection({ category, title }) {
         </button>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 lg:flex lg:justify-start lg:items-start">
+      <div className="grid grid-cols-2 gap-5 lg:flex lg:justify-start lg:items-start">
         {category.slice(0, 4).map((product, index) => (
           <div
             key={product.id}
@@ -79,7 +79,7 @@ function CategorySection({ category, title }) {
                 Quick Cart
               </button>
             </div>
-            <div className="mx-auto my-4">
+            <div className="mx-auto mt-5 mb-4">
               <p className="font-semibold hover:text-[#e94a6d]">
                 {product.productName}
               </p>
