@@ -25,9 +25,9 @@ function CustomerAssurance() {
       {customerAssurance.map((assurance) => (
         <div
           key={assurance.header}
-          className="text-center py-10 h-[10rem] lg:h-[18.5rem]"
+          className="text-center w-[50%] m-auto py-10 h-[10rem] lg:h-[18.5rem]"
         >
-          <div className="border-[#868686] border-l-1 lg:px-13">
+          <div className="border-[#868686] px-4 border-l-1">
             <span className="w-[18%] block m-auto  lg:w-[10%]">
               <img className="w-full" src={assurance.icon} alt="" />
             </span>

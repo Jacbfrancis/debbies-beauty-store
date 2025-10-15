@@ -20,14 +20,14 @@ function FeaturedCategories() {
             onMouseOver={() => setCurrentIndex(index)}
             onMouseOut={() => setCurrentIndex(null)}
           >
-            <span className="bg-[#f0f0f0] rounded-full w-[5rem]">
+            <span className="rounded-full bg-[#fa6384] flex justify-center items-center w-[8rem] mb-3">
               <motion.img
                 initial={{ scale: 1 }}
                 animate={
                   currentIndex === index ? { scale: 0.85 } : { scale: 1 }
                 }
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="rounded-full"
+                className="w-full rounded-full"
                 src={category.icon}
                 alt=""
               />
