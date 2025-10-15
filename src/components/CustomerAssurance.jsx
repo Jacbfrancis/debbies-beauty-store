@@ -27,11 +27,11 @@ function CustomerAssurance() {
           key={assurance.header}
           className="text-center w-[50%] m-auto py-10 h-[10rem] lg:h-[18.5rem]"
         >
-          <div className="border-[#868686] px-4 border-l-1">
+          <div className="border-[#868686] border-l-1">
             <span className="w-[18%] block m-auto  lg:w-[10%]">
               <img className="w-full" src={assurance.icon} alt="" />
             </span>
-            <div className="px-4">
+            <div className=" lg:px-12">
               <h3 className="font-semibold my-4">{assurance.header}</h3>
               <p className="hidden lg:block">{assurance.description}</p>
             </div>
