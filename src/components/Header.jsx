@@ -1,9 +1,14 @@
 function Header() {
   return (
-    <div>
-      <span className="flex flex-col justify-center items-center overflow-hidden lg:h-[75vh]">
-        <img src="/images/banner1.webp" alt="header_img" />
-      </span>
+    <div className="bg-[url(/images/banner1.webp)] bg-center bg-cover">
+      <div className=" w-[70%] px-6 py-10 h-[16rem] lg:px-20 lg:h-[75vh] lg:w-[50%] lg:py-30">
+        <h2 className="text-[1.4rem] text-left font-bold lg:text-[3.5rem]">
+          Transform Your Look. Explore Limitless Possibilities.
+        </h2>
+        <button className="border-1 px-5 py-2 mt-5 cursor-pointer hover:border-2 lg:mt-8 lg:px-7">
+          Shop now
+        </button>
+      </div>
     </div>
   );
 }

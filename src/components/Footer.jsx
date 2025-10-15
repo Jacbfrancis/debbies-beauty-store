@@ -34,7 +34,7 @@ function Footer() {
         </div>
       </div>
 
-      <div className="font-bold flex justify-center items-center gap-10 mt-8 mb-2 lg:justify-start">
+      <div className="font-bold flex justify-center items-center gap-10 mt-8 mb-2 lg:justify-end">
         <h3>Refund Policy</h3>
         <h3>Privacy Policy</h3>
       </div>
