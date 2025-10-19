@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import Navmenu from "./Navmenu";
 import { useNavMenu } from "../store/useNavMenuStore";
 import { Categories } from "../constants/categories";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const isNavMenuOpen = useNavMenu((state) => state.isNavMenuOpen);

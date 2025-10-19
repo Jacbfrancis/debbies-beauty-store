@@ -1,7 +1,7 @@
 function Header() {
   return (
     <div className="bg-[url(/images/banner1.webp)] bg-center bg-cover flex justify-start items-center">
-      <div className=" w-[70%] px-6 py-7 h-[16rem] lg:px-20 lg:h-[75vh] lg:w-[50%] lg:py-30">
+      <div className="w-[70%] px-6 py-7 h-[16rem] lg:px-20 lg:h-[75vh] lg:w-[50%] lg:py-30">
         <h2 className="text-[1.4rem] text-left font-bold lg:text-[3.3rem]">
           Transform Your Look. Explore Limitless Possibilities.
         </h2>
