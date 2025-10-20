@@ -1,7 +1,22 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
+import { useCurrentProduct } from "../store/useCurrentProductSrore";
+import { useQuickView } from "../store/useQuickViewStore";
 
-function CategoryCard({ productName, productPrice, productImage, active }) {
+function CategoryCard({
+  productName,
+  productPrice,
+  productImage,
+  productID,
+  active,
+}) {
+  const setCurrentProduct = useCurrentProduct(
+    (state) => state.setCurrentProduct
+  );
+
+  //const QuickView = useQuickView((state) => state.isQuickViewOpen);
+  const openQuickView = useQuickView((state) => state.openQuickView);
+
   return (
     <div className="text-center cursor-pointer">
       <div className="bg-[#f0f0f0] rounded-md py-4 px-3 w-[15rem] lg:w-[19rem]">
@@ -11,6 +26,10 @@ function CategoryCard({ productName, productPrice, productImage, active }) {
             animate={active ? { opacity: 1, x: 0 } : { opacity: 0, x: 10 }}
             transition={{ duration: 0.4 }}
             className="bg-[#e94a6d] shadow-md text-[#fff] w-[2rem] rounded-md justify-center items-center py-1.5 px-1.5 hidden lg:flex"
+            onClick={() => {
+              setCurrentProduct(productID);
+              openQuickView();
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

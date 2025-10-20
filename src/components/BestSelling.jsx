@@ -25,6 +25,7 @@ function BestSelling() {
                 productName={product.productName}
                 productPrice={product.originalPrice}
                 productImage={product.productImage}
+                productID={product.id}
                 currentIndex={currentIndex}
                 active={currentIndex === index && active}
               />

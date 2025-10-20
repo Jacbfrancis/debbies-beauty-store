@@ -6,15 +6,17 @@ import CategorySection from "../components/CategorySection";
 import { useProductCategory } from "../store/useProductCategoryStore";
 import Banner from "../components/Banner";
 import QuickView from "../components/QuickView";
+import { useQuickView } from "../store/useQuickViewStore";
 
 function Homepage() {
   const makeup = useProductCategory((state) => state.makeup);
   const skincare = useProductCategory((state) => state.skincare);
   const haircare = useProductCategory((state) => state.haircare);
 
+  const isQuickViewOpen = useQuickView((state) => state.isQuickViewOpen);
   return (
     <div>
-      <QuickView />
+      {isQuickViewOpen && <QuickView />}
       <Header />
       <CategoryCarousel />
       <BestSelling />
