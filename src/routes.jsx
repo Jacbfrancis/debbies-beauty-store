@@ -1,6 +1,6 @@
-import Footer from "./components/Footer";
 import MainLayout from "./components/MainLayout";
 import Homepage from "./pages/Homepage";
+import CategoriesPage from "./pages/CategoriesPage";
 
 export const routes = [
   {
@@ -8,7 +8,7 @@ export const routes = [
     element: <MainLayout />,
     children: [
       { index: true, element: <Homepage /> },
-      { path: "/footer", element: <Footer /> },
+      { path: "/skincare", element: <CategoriesPage /> },
     ],
   },
 ];

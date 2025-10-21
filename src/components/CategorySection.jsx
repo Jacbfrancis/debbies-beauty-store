@@ -1,9 +1,15 @@
 import { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
+import { useQuickView } from "../store/useQuickViewStore";
+import { useCurrentProduct } from "../store/useCurrentProductSrore";
 
 function CategorySection({ category, title }) {
   const [currentIndex, setCurrentIndex] = useState(null);
+  const setCurrentProduct = useCurrentProduct(
+    (state) => state.setCurrentProduct
+  );
+  const openQuickView = useQuickView((state) => state.openQuickView);
 
   return (
     <div className="mt-16 px-6 lg:px-20">
@@ -35,6 +41,10 @@ function CategorySection({ category, title }) {
                   }
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                   className="bg-[#e94a6d] shadow-md text-[#fff] w-[2rem] rounded-md justify-center items-center py-1.5 px-1.5 hidden lg:flex"
+                  onClick={() => {
+                    openQuickView();
+                    setCurrentProduct(product.id);
+                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -83,9 +93,7 @@ function CategorySection({ category, title }) {
               <p className="font-semibold hover:text-[#e94a6d]">
                 {product.productName}
               </p>
-              <p className="text-gray-700 text-[1.2rem]">
-                ₦ {product.originalPrice}
-              </p>
+              <p className="text-gray-700 text-[1.2rem]">₦ {product.price}</p>
             </div>
           </div>
         ))}

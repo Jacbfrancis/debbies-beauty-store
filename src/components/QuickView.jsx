@@ -3,22 +3,20 @@ import { useQuickView } from "../store/useQuickViewStore";
 
 function QuickView() {
   const currentProduct = useCurrentProduct((state) => state.currentProduct);
-  // const setCurrentProduct = useCurrentProduct(
-  //   (state) => state.setCurrentProduct
-  // );
   const closeQuickView = useQuickView((state) => state.closeQuickView);
+  const clearCurrentProduct = useCurrentProduct(
+    (state) => state.clearCurrentProduct
+  );
 
-  // const productID = null;
-
-  // function handleCloseQuickView() {
-  //   closeQuickView();
-  //   setCurrentProduct(productID);
-  // }
+  function handleCloseQuickView() {
+    closeQuickView();
+    clearCurrentProduct();
+  }
 
   return (
     <div
       className="bg-[#000000a3] h-[100vh] w-full absolute top-0 m-auto flex-col justify-center items-center hidden lg:flex"
-      onClick={() => closeQuickView()}
+      onClick={handleCloseQuickView}
     >
       <div
         className="bg-[#fff] w-[80%] rounded-xl p-10"
@@ -30,7 +28,7 @@ function QuickView() {
               {currentProduct.productName}
             </h4>
           </span>
-          <span onClick={() => closeQuickView()}>
+          <span onClick={handleCloseQuickView}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -60,11 +58,11 @@ function QuickView() {
               {currentProduct.productName}
             </h2>
             <h2 className="text-[#e94a6d] text-[1.4rem] font-bold">
-              ₦{currentProduct.originalPrice}
+              ₦{currentProduct.price}
             </h2>
             <div className="flex justify-start items-center my-6 gap-4">
               <p className="text-[1.2rem] font-semibold">Quantity: </p>
-              <div className="text-[#e94a6d] font-bold border-[#e94a6d] border-1 block rounded-md py-1 px-2.5">
+              <div className="text-[#e94a6d] font-bold border-[#e94a6d] border-1 block rounded-md py-1.5 px-2.5">
                 <span>-</span>
                 <input
                   className="text-[#000] text-center font-normal w-[4rem] focus:ring-0 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
@@ -76,7 +74,7 @@ function QuickView() {
             <p className="text-[1.2rem] font-semibold">
               Total Price:{" "}
               <span className="text-[#e94a6d] text-[1.2rem]">
-                ₦{currentProduct.originalPrice * 200}
+                ₦{currentProduct.price * 200}
               </span>
             </p>
 

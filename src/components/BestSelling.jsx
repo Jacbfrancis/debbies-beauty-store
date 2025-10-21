@@ -23,7 +23,7 @@ function BestSelling() {
             >
               <CategoryCard
                 productName={product.productName}
-                productPrice={product.originalPrice}
+                productPrice={product.price}
                 productImage={product.productImage}
                 productID={product.id}
                 currentIndex={currentIndex}

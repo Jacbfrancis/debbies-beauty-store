@@ -14,7 +14,6 @@ function CategoryCard({
     (state) => state.setCurrentProduct
   );
 
-  //const QuickView = useQuickView((state) => state.isQuickViewOpen);
   const openQuickView = useQuickView((state) => state.openQuickView);
 
   return (
