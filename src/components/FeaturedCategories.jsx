@@ -2,6 +2,7 @@ import { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { easeInOut, motion } from "motion/react";
 import { Categories } from "../constants/categories";
+import { Link } from "react-router-dom";
 
 function FeaturedCategories() {
   const [currentIndex, setCurrentIndex] = useState(null);
@@ -16,21 +17,26 @@ function FeaturedCategories() {
         {Categories.map((category, index) => (
           <motion.div
             key={index}
-            className="flex flex-col justify-center items-center"
             onMouseOver={() => setCurrentIndex(index)}
             onMouseOut={() => setCurrentIndex(null)}
           >
-            <span className="rounded-full bg-[#fa6384] flex justify-center items-center w-[6rem] lg:w-[8rem] mb-3">
-              <motion.img
-                initial={{ scale: 1 }}
-                animate={currentIndex === index ? { scale: 0.9 } : { scale: 1 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="w-full rounded-full"
-                src={category.icon}
-                alt=""
-              />
-            </span>
-            <p>{category.category}</p>
+            <Link to={`/categories/${category.category}`}>
+              <div className="flex flex-col justify-center items-center">
+                <span className="rounded-full bg-[#fa6384] flex justify-center items-center w-[6rem] lg:w-[8rem] mb-3">
+                  <motion.img
+                    initial={{ scale: 1 }}
+                    animate={
+                      currentIndex === index ? { scale: 0.9 } : { scale: 1 }
+                    }
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    className="w-full rounded-full"
+                    src={category.icon}
+                    alt=""
+                  />
+                </span>
+                <p>{category.category}</p>
+              </div>
+            </Link>
           </motion.div>
         ))}
       </div>

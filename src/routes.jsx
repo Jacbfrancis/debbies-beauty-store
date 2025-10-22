@@ -8,7 +8,7 @@ export const routes = [
     element: <MainLayout />,
     children: [
       { index: true, element: <Homepage /> },
-      { path: "/skincare", element: <CategoriesPage /> },
+      { path: "/categories/:category", element: <CategoriesPage /> },
     ],
   },
 ];

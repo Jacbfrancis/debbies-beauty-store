@@ -1,15 +1,14 @@
 import { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 import Navmenu from "./Navmenu";
 import { useNavMenu } from "../store/useNavMenuStore";
 import { Categories } from "../constants/categories";
-import { Link } from "react-router-dom";
 
 function Navbar() {
   const isNavMenuOpen = useNavMenu((state) => state.isNavMenuOpen);
   const openNavMenu = useNavMenu((state) => state.openNavMenu);
-
   const [currentHover, setCurrentHover] = useState(null);
 
   return (
@@ -38,7 +37,9 @@ function Navbar() {
         </span>
 
         <span className="cursor-pointer w-[15%] lg:w-[5%]">
-          <img src="/images/logo.png" alt="" />
+          <Link to="/">
+            <img src="/images/logo.png" alt="" />
+          </Link>
         </span>
 
         <div className="bg-[#fff] border-1 w-[50%] px-5 hidden rounded-3xl justify-between items-center lg:flex">
@@ -148,7 +149,9 @@ function Navbar() {
               onMouseOver={() => setCurrentHover(index)}
               onMouseOut={() => setCurrentHover(null)}
             >
-              <Link to={category.link}>{category.category}</Link>
+              <Link to={`categories/${category.category}`}>
+                {category.category}
+              </Link>
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
                 animate={

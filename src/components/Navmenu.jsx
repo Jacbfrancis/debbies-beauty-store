@@ -2,6 +2,7 @@
 import { motion } from "motion/react";
 import { useNavMenu } from "../store/useNavMenuStore";
 import { Categories } from "../constants/categories";
+import { Link } from "react-router-dom";
 
 function Navmenu() {
   const closeNavMenu = useNavMenu((state) => state.closeNavMenu);
@@ -42,8 +43,13 @@ function Navmenu() {
         </span>
         <ul className="flex flex-col gap-5 px-6 py-7">
           {Categories.map((category, index) => (
-            <li key={index} className="flex justify-between items-center">
-              {category.category} <span className="text-[1.4rem]">&#8964;</span>
+            <li key={index}>
+              <Link
+                to={`/categories/${category.category}`}
+                onClick={closeNavMenu}
+              >
+                {category.category}
+              </Link>
             </li>
           ))}
 

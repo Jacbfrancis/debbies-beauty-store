@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { useQuickView } from "../store/useQuickViewStore";
 import { useCurrentProduct } from "../store/useCurrentProductSrore";
+import { Link } from "react-router-dom";
 
 function CategorySection({ category, title }) {
   const [currentIndex, setCurrentIndex] = useState(null);
@@ -17,9 +18,11 @@ function CategorySection({ category, title }) {
         {title}
       </h1>
       <div className="hidden justify-end items-center mb-8 lg:flex">
-        <button className="text-center font-semibold w-[5.5rem] border-1 rounded-4xl px-3 py-1 cursor-pointer hover:bg-black hover:text-white">
-          View all
-        </button>
+        <Link to={`/categories/${title}`}>
+          <button className="text-center font-semibold w-[5.5rem] border-1 rounded-4xl px-3 py-1 cursor-pointer hover:bg-black hover:text-white">
+            View all
+          </button>
+        </Link>
       </div>
 
       <div className="grid grid-cols-2 gap-5 lg:flex lg:justify-start lg:items-start">

@@ -1,27 +1,22 @@
 export const Categories = [
   {
-    category: "Skincare (Face/Neck)",
+    category: "Skincare (Face)",
     icon: "/images/category icons/skincare.webp",
-    link: "/skincare",
   },
   {
-    category: "Bath & Body",
+    category: "Body Care",
     icon: "/images/category icons/bath&body.webp",
-    link: "/bath&body",
   },
   {
     category: "Makeup",
     icon: "/images/category icons/makeup.webp",
-    link: "/makeup",
   },
   {
     category: "Hair Care",
     icon: "/images/category icons/haircare.webp",
-    link: "/haircare",
   },
   {
     category: "Fragrance",
     icon: "/images/category icons/fragrance.webp",
-    link: "/fragrance",
   },
 ];
