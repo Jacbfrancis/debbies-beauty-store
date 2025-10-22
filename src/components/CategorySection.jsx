@@ -103,9 +103,11 @@ function CategorySection({ category, title }) {
       </div>
 
       <div className="flex justify-center items-center lg:hidden">
-        <button className="text-[#e94a6d] text-center font-semibold w-[5.5rem] cursor-pointer">
-          View all
-        </button>
+        <Link to={`/categories/${title}`}>
+          <button className="text-[#e94a6d] text-center font-semibold w-[5.5rem] cursor-pointer">
+            View all
+          </button>
+        </Link>
       </div>
     </div>
   );
