@@ -5,11 +5,16 @@ import { Link } from "react-router-dom";
 import Navmenu from "./Navmenu";
 import { useNavMenu } from "../store/useNavMenuStore";
 import { Categories } from "../constants/categories";
+import CartMenu from "./CartMenu";
+import { useCartMenu } from "../store/useCartMenuStore";
 
 function Navbar() {
   const isNavMenuOpen = useNavMenu((state) => state.isNavMenuOpen);
   const openNavMenu = useNavMenu((state) => state.openNavMenu);
   const [currentHover, setCurrentHover] = useState(null);
+
+  const isCartMenuOpen = useCartMenu((state) => state.isCartMenuOpen);
+  const openCartMenu = useCartMenu((state) => state.openCartMenu);
 
   return (
     <nav>
@@ -90,7 +95,7 @@ function Navbar() {
               <circle cx="12" cy="7" r="4" />
             </svg>
           </span>
-          <span className="inline-block cursor-pointer">
+          <span className="inline-block cursor-pointer" onClick={openCartMenu}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -139,6 +144,7 @@ function Navbar() {
       </div>
 
       {isNavMenuOpen && <Navmenu />}
+      {isCartMenuOpen && <CartMenu />}
 
       <div className="hidden bg-[#fdf5f7] text-center lg:block">
         <ul className="text-[1rem] font-light tracking-wide flex justify-center items-center gap-10 py-3">

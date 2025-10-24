@@ -28,7 +28,10 @@ function QuickView() {
               {currentProduct.productName}
             </h4>
           </span>
-          <span onClick={handleCloseQuickView}>
+          <span
+            className="hover:bg-[#e94a6d] hover:text-white hover:rounded-full p-1.5 cursor-pointer"
+            onClick={handleCloseQuickView}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -63,12 +66,12 @@ function QuickView() {
             <div className="flex justify-start items-center my-6 gap-4">
               <p className="text-[1.2rem] font-semibold">Quantity: </p>
               <div className="text-[#e94a6d] font-bold border-[#e94a6d] border-1 block rounded-md py-1.5 px-2.5">
-                <span>-</span>
+                <span className="cursor-pointer">-</span>
                 <input
                   className="text-[#000] text-center font-normal w-[4rem] focus:ring-0 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   type="number"
                 />
-                <span>+</span>
+                <span className="cursor-pointer">+</span>
               </div>
             </div>
             <p className="text-[1.2rem] font-semibold">
@@ -79,10 +82,10 @@ function QuickView() {
             </p>
 
             <div className="flex justify-start items-center gap-5 mt-7">
-              <button className="bg-[#e94a6d] text-[#fff] rounded-md px-5 py-3">
+              <button className="bg-[#e94a6d] text-[#fff] rounded-md px-5 py-3 cursor-pointer">
                 Quick Cart
               </button>
-              <button className="bg-[#0b0b90] text-[#fff] rounded-md px-5 py-3">
+              <button className="bg-[#0b0b90] text-[#fff] rounded-md px-5 py-3 cursor-pointer">
                 Buy Now
               </button>
             </div>
