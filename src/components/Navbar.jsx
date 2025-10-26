@@ -1,20 +1,26 @@
 import { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Navmenu from "./Navmenu";
 import { useNavMenu } from "../store/useNavMenuStore";
 import { Categories } from "../constants/categories";
 import CartMenu from "./CartMenu";
 import { useCartMenu } from "../store/useCartMenuStore";
+import { useSearchQuery } from "../store/useSearchStore";
 
 function Navbar() {
+  const navigate = useNavigate();
+  const [currentHover, setCurrentHover] = useState(null);
+
   const isNavMenuOpen = useNavMenu((state) => state.isNavMenuOpen);
   const openNavMenu = useNavMenu((state) => state.openNavMenu);
-  const [currentHover, setCurrentHover] = useState(null);
 
   const isCartMenuOpen = useCartMenu((state) => state.isCartMenuOpen);
   const openCartMenu = useCartMenu((state) => state.openCartMenu);
+
+  const searchQuery = useSearchQuery((state) => state.searchQuery);
+  const setSearchQuery = useSearchQuery((state) => state.setSearchQuery);
 
   return (
     <nav>
@@ -47,8 +53,14 @@ function Navbar() {
           </Link>
         </span>
 
-        <div className="bg-[#fff] border-1 w-[50%] px-5 hidden rounded-3xl justify-between items-center lg:flex">
-          <span className="inline-block cursor-pointer">
+        <form
+          className="bg-[#fff] border-1 w-[50%] px-5 hidden rounded-3xl justify-between items-center lg:flex"
+          onSubmit={(e) => {
+            e.preventDefault();
+            navigate(`/search`);
+          }}
+        >
+          <button className="inline-block cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -64,14 +76,16 @@ function Navbar() {
               <path d="m21 21-4.34-4.34" />
               <circle cx="11" cy="11" r="8" />
             </svg>
-          </span>
+          </button>
           <input
             className="text-slate-700 text-[1.2rem] h-[3rem] w-full px-6 focus:outline-none"
             placeholder="Search for products"
             type="text"
             name="search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
-        </div>
+        </form>
 
         <div className="flex justify-between items-center gap-5">
           <div className="text-[1.15rem] font-semibold hidden lg:flex justify-between items-center gap-8">
@@ -117,8 +131,14 @@ function Navbar() {
           {0}
         </span>
       </div>
-      <div className="bg-[#fdf5f7] px-5 border-1 border-[#e94a6d] flex justify-between items-center lg:hidden">
-        <span className="inline-block">
+      <form
+        className="bg-[#fdf5f7] px-5 border-1 border-[#e94a6d] flex justify-between items-center lg:hidden"
+        onSubmit={(e) => {
+          e.preventDefault();
+          navigate(`/search`);
+        }}
+      >
+        <button className="inline-block cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -134,14 +154,16 @@ function Navbar() {
             <path d="m21 21-4.34-4.34" />
             <circle cx="11" cy="11" r="8" />
           </svg>
-        </span>
+        </button>
         <input
           className="text-[1.2rem] h-[3rem] w-full px-6 focus:outline-none"
           placeholder="Search for products"
           type="text"
           name="search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
-      </div>
+      </form>
 
       {isNavMenuOpen && <Navmenu />}
       {isCartMenuOpen && <CartMenu />}

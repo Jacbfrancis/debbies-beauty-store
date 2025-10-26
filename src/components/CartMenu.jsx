@@ -8,7 +8,7 @@ function CartMenu() {
     <motion.div
       initial={{ x: "90vw" }}
       animate={{ x: 0 }}
-      transition={{ duration: 0.75, ease: easeInOut, type: "tween" }}
+      transition={{ duration: 0.65, ease: easeInOut, type: "tween" }}
       className="w-full h-[100vh] fixed top-0"
       onClick={closeCartMenu}
     >
@@ -39,7 +39,12 @@ function CartMenu() {
           </span>
         </div>
 
-        <div className="text-center mt-15 flex flex-col justify-center items-center gap-8">
+        <motion.div
+          initial={{ y: "100vh" }}
+          animate={{ y: 0 }}
+          transition={{ delay: 0.2, duration: 0.85, ease: easeInOut }}
+          className="text-center mt-20 flex flex-col justify-center items-center gap-8"
+        >
           <span className="w-[20%] m-auto">
             <img src="/images/empty-cart.svg" alt="empty_cart" />
           </span>
@@ -54,7 +59,7 @@ function CartMenu() {
           <button className="bg-[#000] text-[#fff] px-5 py-2.5 rounded-xl">
             Continue Shopping
           </button>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );

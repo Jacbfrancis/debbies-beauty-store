@@ -1,6 +1,7 @@
 import MainLayout from "./components/MainLayout";
 import Homepage from "./pages/Homepage";
 import CategoriesPage from "./pages/CategoriesPage";
+import SearchResultsPage from "./pages/SearchResultsPage";
 
 export const routes = [
   {
@@ -9,6 +10,7 @@ export const routes = [
     children: [
       { index: true, element: <Homepage /> },
       { path: "/categories/:category", element: <CategoriesPage /> },
+      { path: "/search", element: <SearchResultsPage /> },
     ],
   },
 ];

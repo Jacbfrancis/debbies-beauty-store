@@ -15,7 +15,7 @@ function QuickView() {
 
   return (
     <div
-      className="bg-[#000000a3] h-[100vh] w-full absolute top-0 m-auto flex-col justify-center items-center hidden lg:flex"
+      className="bg-[#000000a3] h-[100vh] w-full absolute top-0 m-auto flex-col justify-center items-center hidden z-50 lg:flex"
       onClick={handleCloseQuickView}
     >
       <div
@@ -29,7 +29,7 @@ function QuickView() {
             </h4>
           </span>
           <span
-            className="hover:bg-[#e94a6d] hover:text-white hover:rounded-full p-1.5 cursor-pointer"
+            className="hover:bg-[#000] hover:text-white hover:rounded-full p-1 cursor-pointer"
             onClick={handleCloseQuickView}
           >
             <svg
@@ -70,6 +70,7 @@ function QuickView() {
                 <input
                   className="text-[#000] text-center font-normal w-[4rem] focus:ring-0 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   type="number"
+                  defaultValue={0}
                 />
                 <span className="cursor-pointer">+</span>
               </div>
