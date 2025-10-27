@@ -1,7 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import { easeInOut, motion } from "motion/react";
+import { useCartMenu } from "../store/useCartMenuStore";
 
 function EmptyCart() {
+  const closeCartMenu = useCartMenu((state) => state.closeCartMenu);
+
   return (
     <motion.div
       initial={{ y: "100vh" }}
@@ -20,7 +23,10 @@ function EmptyCart() {
           Check out our selection and buy some of your favorite items today.
         </p>
       </div>
-      <button className="bg-[#000] text-[#fff] px-5 py-2.5 rounded-xl">
+      <button
+        className="bg-[#000] text-[#fff] px-5 py-2.5 rounded-xl"
+        onClick={closeCartMenu}
+      >
         Continue Shopping
       </button>
     </motion.div>
