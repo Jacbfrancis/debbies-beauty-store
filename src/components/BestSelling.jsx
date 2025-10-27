@@ -22,10 +22,7 @@ function BestSelling() {
               className="snap-center"
             >
               <CategoryCard
-                productName={product.productName}
-                productPrice={product.price}
-                productImage={product.productImage}
-                productID={product.id}
+                product={product}
                 currentIndex={currentIndex}
                 active={currentIndex === index && active}
               />

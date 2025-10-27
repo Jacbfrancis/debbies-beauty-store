@@ -22,7 +22,7 @@ function SearchResults() {
         />
       </span>
       <p>
-        No results found for {searchQuery}. Check the spelling or use a
+        No results found for "{searchQuery}". Check the spelling or use a
         different word or phrase.
       </p>
     </div>

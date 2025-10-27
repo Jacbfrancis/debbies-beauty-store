@@ -2,19 +2,16 @@
 import { motion } from "motion/react";
 import { useCurrentProduct } from "../store/useCurrentProductSrore";
 import { useQuickView } from "../store/useQuickViewStore";
+import { useCart } from "../store/useCart";
 
-function CategoryCard({
-  productName,
-  productPrice,
-  productImage,
-  productID,
-  active,
-}) {
+function CategoryCard({ product, active }) {
   const setCurrentProduct = useCurrentProduct(
     (state) => state.setCurrentProduct
   );
 
   const openQuickView = useQuickView((state) => state.openQuickView);
+
+  const addToCart = useCart((state) => state.addToCart);
 
   return (
     <div className="text-center cursor-pointer">
@@ -26,7 +23,7 @@ function CategoryCard({
             transition={{ duration: 0.4 }}
             className="bg-[#e94a6d] shadow-md text-[#fff] w-[2rem] rounded-md justify-center items-center py-1.5 px-1.5 hidden lg:flex"
             onClick={() => {
-              setCurrentProduct(productID);
+              setCurrentProduct(product.id);
               openQuickView();
             }}
           >
@@ -51,12 +48,15 @@ function CategoryCard({
             initial={{ scale: 1 }}
             animate={active ? { scale: 1.15 } : { scale: 1 }}
             transition={{ duration: 0.4 }}
-            src={productImage}
+            src={product.productImage}
             alt="product_image"
           />
         </span>
 
-        <button className="bg-[#e94a6d] text-[#fff] shadow-md w-[90%] rounded-md m-auto py-2 cursor-pointer lg:hidden">
+        <button
+          className="bg-[#e94a6d] text-[#fff] shadow-md w-[90%] rounded-md m-auto py-2 cursor-pointer lg:hidden"
+          onClick={() => addToCart(product)}
+        >
           Quick Cart
         </button>
 
@@ -65,13 +65,16 @@ function CategoryCard({
           animate={active ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
           className="bg-[#e94a6d] text-[#fff] shadow-md w-full rounded-md m-auto py-2.5 lg:hover:bg-[#f4335d] cursor-pointer hidden lg:block"
+          onClick={() => addToCart(product)}
         >
           Quick Cart
         </motion.button>
       </div>
       <div className="mx-auto my-4">
-        <p className="mb-3 font-medium hover:text-[#e94a6d]">{productName}</p>
-        <p className="text-gray-700 text-[1.2rem]">₦ {productPrice}</p>
+        <p className="mb-3 font-medium hover:text-[#e94a6d]">
+          {product.productName}
+        </p>
+        <p className="text-gray-700 text-[1.2rem]">₦ {product.price}</p>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import { Categories } from "../constants/categories";
 import CartMenu from "./CartMenu";
 import { useCartMenu } from "../store/useCartMenuStore";
 import { useSearchQuery } from "../store/useSearchStore";
+import { useCart } from "../store/useCart";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -21,6 +22,8 @@ function Navbar() {
 
   const searchQuery = useSearchQuery((state) => state.searchQuery);
   const setSearchQuery = useSearchQuery((state) => state.setSearchQuery);
+
+  const cart = useCart((state) => state.cart);
 
   return (
     <nav>
@@ -128,7 +131,7 @@ function Navbar() {
           </span>
         </div>
         <span className="bg-[#e94a6d] text-[#fff] py-[0.05rem] px-[0.5rem] rounded-4xl absolute top-6 right-2.5 lg:top-17 lg:right-17">
-          {0}
+          {cart.length}
         </span>
       </div>
       <form

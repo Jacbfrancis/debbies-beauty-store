@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { useQuickView } from "../store/useQuickViewStore";
 import { useCurrentProduct } from "../store/useCurrentProductSrore";
 import { Link } from "react-router-dom";
+import { useCart } from "../store/useCart";
 
 function CategorySection({ category, title }) {
   const [currentIndex, setCurrentIndex] = useState(null);
@@ -11,6 +12,7 @@ function CategorySection({ category, title }) {
     (state) => state.setCurrentProduct
   );
   const openQuickView = useQuickView((state) => state.openQuickView);
+  const addToCart = useCart((state) => state.addToCart);
 
   return (
     <div className="mt-16 px-6 lg:px-20">
@@ -85,10 +87,14 @@ function CategorySection({ category, title }) {
                 }
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="bg-[#e94a6d] text-[#fff] shadow-md w-full rounded-md m-auto py-2.5 lg:hover:bg-[#f4335d] cursor-pointer hidden lg:block"
+                onClick={() => addToCart(product)}
               >
                 QuickCart
               </motion.button>
-              <button className="bg-[#e94a6d] text-[#fff] shadow-md w-[90%] rounded-md m-auto py-1.5 cursor-pointer lg:hidden">
+              <button
+                className="bg-[#e94a6d] text-[#fff] shadow-md w-[90%] rounded-md m-auto py-1.5 cursor-pointer lg:hidden"
+                onClick={() => addToCart(product)}
+              >
                 Quick Cart
               </button>
             </div>
