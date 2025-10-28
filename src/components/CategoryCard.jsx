@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
+import toast, { Toaster } from "react-hot-toast";
 import { useCurrentProduct } from "../store/useCurrentProductSrore";
 import { useQuickView } from "../store/useQuickViewStore";
 import { useCart } from "../store/useCart";
@@ -13,8 +14,25 @@ function CategoryCard({ product, active }) {
 
   const addToCart = useCart((state) => state.addToCart);
 
+  const cart = useCart((state) => state.cart);
+
+  function handleAddToCart(product) {
+    const productExist = cart.some((cartItem) => product.id === cartItem.id);
+
+    if (!productExist) {
+      addToCart(product);
+    } else {
+      toast("Product is already in cart", {
+        duration: 1500,
+        position: "top-right",
+        icon: "😅",
+      });
+    }
+  }
+
   return (
     <div className="text-center cursor-pointer">
+      <Toaster />
       <div className="bg-[#f0f0f0] rounded-md py-4 px-3 w-[15rem] lg:w-[19rem]">
         <div className="flex justify-end items-center">
           <motion.span
@@ -55,7 +73,7 @@ function CategoryCard({ product, active }) {
 
         <button
           className="bg-[#e94a6d] text-[#fff] shadow-md w-[90%] rounded-md m-auto py-2 cursor-pointer lg:hidden"
-          onClick={() => addToCart(product)}
+          onClick={() => handleAddToCart(product)}
         >
           Quick Cart
         </button>
@@ -65,7 +83,7 @@ function CategoryCard({ product, active }) {
           animate={active ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
           className="bg-[#e94a6d] text-[#fff] shadow-md w-full rounded-md m-auto py-2.5 lg:hover:bg-[#f4335d] cursor-pointer hidden lg:block"
-          onClick={() => addToCart(product)}
+          onClick={() => handleAddToCart(product)}
         >
           Quick Cart
         </motion.button>

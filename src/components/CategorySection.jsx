@@ -1,6 +1,7 @@
 import { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
+import toast, { Toaster } from "react-hot-toast";
 import { useQuickView } from "../store/useQuickViewStore";
 import { useCurrentProduct } from "../store/useCurrentProductSrore";
 import { Link } from "react-router-dom";
@@ -12,10 +13,27 @@ function CategorySection({ category, title }) {
     (state) => state.setCurrentProduct
   );
   const openQuickView = useQuickView((state) => state.openQuickView);
+
+  const cart = useCart((state) => state.cart);
   const addToCart = useCart((state) => state.addToCart);
+
+  function handleAddToCart(product) {
+    const productExist = cart.some((cartItem) => product.id === cartItem.id);
+
+    if (!productExist) {
+      addToCart(product);
+    } else {
+      toast("Product is already in cart", {
+        duration: 1500,
+        position: "top-right",
+        icon: "😅",
+      });
+    }
+  }
 
   return (
     <div className="mt-16 px-6 lg:px-20">
+      <Toaster />
       <h1 className="text-center text-[1.8rem] mt-8 mb-5 lg:mb-0 lg:text-[2.2rem]">
         {title}
       </h1>
@@ -87,13 +105,13 @@ function CategorySection({ category, title }) {
                 }
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="bg-[#e94a6d] text-[#fff] shadow-md w-full rounded-md m-auto py-2.5 lg:hover:bg-[#f4335d] cursor-pointer hidden lg:block"
-                onClick={() => addToCart(product)}
+                onClick={() => handleAddToCart(product)}
               >
                 QuickCart
               </motion.button>
               <button
                 className="bg-[#e94a6d] text-[#fff] shadow-md w-[90%] rounded-md m-auto py-1.5 cursor-pointer lg:hidden"
-                onClick={() => addToCart(product)}
+                onClick={() => handleAddToCart(product)}
               >
                 Quick Cart
               </button>

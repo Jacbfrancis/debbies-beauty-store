@@ -2,33 +2,57 @@ import { useCart } from "../store/useCart";
 
 function CartItems() {
   const cart = useCart((state) => state.cart);
+  const removeFromCart = useCart((state) => state.removeFromCart);
 
   return (
     <>
-      <div className="h-[75vh] overflow-y-scroll [scrollbar-width:none]">
+      <div className="h-[70vh] overflow-y-scroll [scrollbar-width:none]">
         {cart.map((cartItem) => (
           <div
             key={cartItem.id}
-            className="mt-10 flex justify-between items-center gap-6 border-b-1 border-[#bcbcbc9e] pb-5"
+            className="mt-10 flex justify-between items-center gap-3 border-b-1 border-[#bcbcbc9e] pb-5"
           >
-            <span className="bg-[#f0f0f0] rounded-lg w-[20%] md:w-[15%] lg:w-[25%]">
+            <span className="bg-[#f0f0f0] rounded-lg w-[30%] md:w-[15%] lg:w-[25%]">
               <img className="w-full" src={cartItem.productImage} alt="" />
             </span>
 
-            <div className="w-[30%] flex flex-col justify-center gap-1 items-start lg:w-[60%]">
-              <h2 className="text-[0.9rem] font-bold">
-                {cartItem.productName.slice(0, 20)}...
+            <div className="w-[30%] flex flex-col justify-start items-start gap-1 lg:w-[60%]">
+              <h2 className="text-[0.9rem] font-bold md:hidden">
+                {cartItem.productName.slice(0, 18)}...
+              </h2>
+              <h2 className="text-[0.9rem] font-bold hidden md:block">
+                {cartItem.productName}
               </h2>
               <p> ₦ {cartItem.price}</p>
-              <span className="w-[40%] flex justify-center rounded-lg items-center px-13 py-[0.4rem] my-1 border-1 border-[#bcbcbc9e]">
+              <span className="w-[40%] flex justify-center items-center rounded-lg px-13 py-[0.4rem] my-1 border-1 border-[#bcbcbc9e]">
                 <button>-</button>
                 <input className="text-center w-[4rem]" defaultValue={0} />
                 <button>+</button>
               </span>
             </div>
 
-            <span>
-              <button className="text-[#868686] underline">Remove</button>
+            <span className="w-[10%]">
+              <button
+                className="cursor-pointer"
+                onClick={() => removeFromCart(cartItem.id)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#eb0000"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-trash-icon lucide-trash"
+                >
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                  <path d="M3 6h18" />
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                </svg>
+              </button>
             </span>
           </div>
         ))}
