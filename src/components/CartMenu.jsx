@@ -7,9 +7,7 @@ import CartItems from "./CartItems";
 
 function CartMenu() {
   const closeCartMenu = useCartMenu((state) => state.closeCartMenu);
-
   const cart = useCart((state) => state.cart);
-  console.log(cart);
 
   return (
     <motion.div

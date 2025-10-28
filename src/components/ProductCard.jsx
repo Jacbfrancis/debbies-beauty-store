@@ -4,6 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useQuickView } from "../store/useQuickViewStore";
 import { useCurrentProduct } from "../store/useCurrentProductSrore";
 import { useCart } from "../store/useCart";
+import { Link } from "react-router-dom";
 
 function ProductCard({ product, currentIndex, index }) {
   const setCurrentProduct = useCurrentProduct(
@@ -27,7 +28,6 @@ function ProductCard({ product, currentIndex, index }) {
       });
     }
   }
-
   return (
     <>
       <Toaster />
@@ -63,15 +63,17 @@ function ProductCard({ product, currentIndex, index }) {
             </svg>
           </motion.span>
         </div>
-        <span className="p-4 lg:p-8 block">
-          <motion.img
-            initial={{ scale: 1 }}
-            animate={currentIndex === index ? { scale: 1.15 } : { scale: 1 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            src={product.productImage}
-            alt=""
-          />
-        </span>
+        <Link to={`/product/${product.slug}`}>
+          <span className="p-4 lg:p-8 block">
+            <motion.img
+              initial={{ scale: 1 }}
+              animate={currentIndex === index ? { scale: 1.15 } : { scale: 1 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              src={product.productImage}
+              alt=""
+            />
+          </span>
+        </Link>
         <motion.button
           initial={{ opacity: 0, y: 20 }}
           animate={
@@ -92,12 +94,14 @@ function ProductCard({ product, currentIndex, index }) {
           Quick Cart
         </button>
       </div>
-      <div className="mx-auto mt-5 mb-4">
-        <p className="font-semibold hover:text-[#e94a6d]">
-          {product.productName}
-        </p>
-        <p className="text-gray-700 text-[1.2rem]">₦ {product.price}</p>
-      </div>
+      <Link to={`/product/${product.slug}`}>
+        <div className="mx-auto mt-5 mb-4">
+          <p className="font-semibold hover:text-[#e94a6d]">
+            {product.productName}
+          </p>
+          <p className="text-gray-700 text-[1.2rem]">₦ {product.price}</p>
+        </div>
+      </Link>
     </>
   );
 }

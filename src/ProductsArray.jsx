@@ -2,6 +2,7 @@ export const products = [
   {
     id: "1",
     productName: "Rose Water Hydrating Face Mist",
+    slug: "Rose-Water-Hydrating-Face-Mist",
     productImage: "/images/productEx4.png",
     brand: "Botanical Glow",
     category: "Skincare (Face)",
@@ -12,6 +13,7 @@ export const products = [
   {
     id: "2",
     productName: "Velvet Matte Lipstick",
+    slug: "Velvet-Matte-Lipstick",
     productImage: "/images/productEx2.png",
     brand: "LuxeCharm",
     category: "Makeup",
@@ -22,6 +24,7 @@ export const products = [
   {
     id: "3",
     productName: "Argan Oil Repair Hair Serum",
+    slug: "Argan-Oil-Repair-Hair-Serum",
     productImage: "/images/productEx3.png",
     brand: "SilkEssence",
     category: "Hair Care",
@@ -32,6 +35,7 @@ export const products = [
   {
     id: "4",
     productName: "Soothing Aloe Vera Gel",
+    slug: "Soothing-Aloe-Vera-Gel",
     productImage: "/images/productEx.png",
     brand: "PureRadiance",
     category: "Skincare (Face)",
@@ -42,6 +46,7 @@ export const products = [
   {
     id: "5",
     productName: "Lavender Shea Body Lotion",
+    slug: "Lavender-Shea-Body-Lotion",
     productImage: "/images/productEx5.png",
     brand: "CalmNest",
     category: "Body Care",
@@ -52,6 +57,7 @@ export const products = [
   {
     id: "6",
     productName: "Coconut Moisture Hair Mask",
+    slug: "Coconut-Moisture-Hair-Mask",
     productImage: "/images/productEx7.png",
     brand: "TropiSilk",
     category: "Hair Care",
@@ -62,6 +68,7 @@ export const products = [
   {
     id: "7",
     productName: "Citrus Refresh Body Wash",
+    slug: "Citrus-Refresh-Body-Wash",
     productImage: "/images/productEx7.png",
     brand: "FreshAura",
     category: "Body Care",
@@ -72,6 +79,7 @@ export const products = [
   {
     id: "8",
     productName: "Radiant Glow Highlighter Palette",
+    slug: "Radiant-Glow-Highlighter-Palette",
     productImage: "/images/productEx8.png",
     brand: "GlamVibe",
     category: "Makeup",
@@ -82,6 +90,7 @@ export const products = [
   {
     id: "9",
     productName: "Refreshing Green Tea Toner",
+    slug: "Refreshing-Green-Tea-Toner",
     productImage: "/images/productEx6.png",
     brand: "Leaf&Bloom",
     category: "Skincare (Face)",
@@ -92,6 +101,7 @@ export const products = [
   {
     id: "10",
     productName: "Soft Touch Beauty Blender",
+    slug: "Soft-Touch-Beauty-Blender",
     productImage: "/images/productEx2.png",
     brand: "Blendify",
     category: "Beauty Tools",
@@ -102,6 +112,7 @@ export const products = [
   {
     id: "11",
     productName: "Silky Night Repair Face Cream",
+    slug: "Silky-Night-Repair-Face-Cream",
     productImage: "/images/productEx3.png",
     brand: "MoonDew",
     category: "Skincare (Face)",
@@ -112,6 +123,7 @@ export const products = [
   {
     id: "12",
     productName: "Berry Tint Lip Balm",
+    slug: "Berry-Tint-Lip-Balm",
     productImage: "/images/productEx5.png",
     brand: "SweetLips",
     category: "Makeup",
@@ -122,6 +134,7 @@ export const products = [
   {
     id: "13",
     productName: "Nourish & Shine Hair Oil",
+    slug: "Nourish-&-Shine-Hair-Oil",
     productImage: "/images/productEx8.png",
     brand: "GlowStrand",
     category: "Hair Care",
@@ -132,6 +145,7 @@ export const products = [
   {
     id: "14",
     productName: "Vanilla Orchid Body Butter",
+    slug: "Vanilla-Orchid-Body-Butter",
     productImage: "/images/productEx6.png",
     brand: "SilkWhip",
     category: "Body Care",
@@ -142,6 +156,7 @@ export const products = [
   {
     id: "15",
     productName: "Blossom Breeze Eau de Parfum",
+    slug: "Blossom-Breeze-Eau-de-Parfum",
     productImage: "/images/productEx7.png",
     brand: "Scentelier",
     category: "Fragrance",
@@ -152,6 +167,7 @@ export const products = [
   {
     id: "16",
     productName: "Amber Wood Perfume Mist",
+    slug: "Amber-Wood-Perfume-Mist",
     productImage: "/images/productEx8.png",
     brand: "MystiScents",
     category: "Fragrance",
@@ -162,6 +178,7 @@ export const products = [
   {
     id: "17",
     productName: "Precision Brow Pencil",
+    slug: "Precision-Brow-Pencil",
     productImage: "/images/productEx7.png",
     brand: "ArchCraft",
     category: "Makeup",
@@ -172,6 +189,7 @@ export const products = [
   {
     id: "18",
     productName: "Hydrating Sheet Mask Set",
+    slug: "Hydrating-Sheet-Mask-Set",
     productImage: "/images/productEx.png",
     brand: "AquaBloom",
     category: "Skincare (Face)",
@@ -182,6 +200,7 @@ export const products = [
   {
     id: "19",
     productName: "Classic Paddle Hair Brush",
+    slug: "Classic-Paddle-Hair-Brush",
     productImage: "/images/productEx2.png",
     brand: "TameTress",
     category: "Fragrance",
@@ -192,6 +211,7 @@ export const products = [
   {
     id: "20",
     productName: "Rose Gold Eyelash Curler",
+    slug: "Rose-Gold-Eyelash-Curler",
     productImage: "/images/productEx2.png",
     brand: "LashLuxe",
     category: "Beauty Tools",
@@ -202,6 +222,7 @@ export const products = [
   {
     id: "21",
     productName: "HydraGlow Vitamin C Serum",
+    slug: "HydraGlow-Vitamin-C-Serum",
     productImage: "/images/productEx3.png",
     brand: "LumiSkin",
     category: "Skincare (Face)",
@@ -212,6 +233,7 @@ export const products = [
   {
     id: "22",
     productName: "Velvet Finish Setting Spray",
+    slug: "Velvet-Finish-Setting-Spray",
     productImage: "/images/productEx4.png",
     brand: "GlowFix",
     category: "Makeup",
@@ -222,6 +244,7 @@ export const products = [
   {
     id: "23",
     productName: "Keratin Smooth Shampoo",
+    slug: "Keratin-Smooth-Shampoo",
     productImage: "/images/productEx5.png",
     brand: "SilkTreat",
     category: "Hair Care",
@@ -232,6 +255,7 @@ export const products = [
   {
     id: "24",
     productName: "Vanilla Bean Body Scrub",
+    slug: "Vanilla-Bean-Body-Scrub",
     productImage: "/images/productEx6.png",
     brand: "SugarBloom",
     category: "Body Care",
@@ -242,6 +266,7 @@ export const products = [
   {
     id: "25",
     productName: "Precision Contour Brush",
+    slug: "Precision-Contour-Brush",
     productImage: "/images/productEx7.png",
     brand: "Blendify",
     category: "Fragrance",
@@ -252,6 +277,7 @@ export const products = [
   {
     id: "26",
     productName: "Peony Dream Eau de Parfum",
+    slug: "Peony-Dream-Eau-de-Parfum",
     productImage: "/images/productEx8.png",
     brand: "AromaLuxe",
     category: "Fragrance",
@@ -262,6 +288,7 @@ export const products = [
   {
     id: "27",
     productName: "Charcoal Detox Clay Mask",
+    slug: "Charcoal-Detox-Clay-Mask",
     productImage: "/images/productEx2.png",
     brand: "PureZen",
     category: "Skincare (Face)",
@@ -272,6 +299,7 @@ export const products = [
   {
     id: "28",
     productName: "Creamy Nude Lip Gloss",
+    slug: "Creamy-Nude-Lip-Gloss",
     productImage: "/images/productEx3.png",
     brand: "LushTint",
     category: "Makeup",
@@ -282,6 +310,7 @@ export const products = [
   {
     id: "29",
     productName: "Coconut Curl Defining Cream",
+    slug: "Coconut-Curl-Defining-Cream",
     productImage: "/images/productEx.png",
     brand: "WaveMuse",
     category: "Hair Care",
@@ -292,6 +321,7 @@ export const products = [
   {
     id: "30",
     productName: "Honey Almond Body Oil",
+    slug: "Honey-Almond-Body-Oil",
     productImage: "/images/productEx.png",
     brand: "NaturaBliss",
     category: "Body Care",
@@ -302,6 +332,7 @@ export const products = [
   {
     id: "31",
     productName: "Rose Quartz Facial Roller",
+    slug: "Rose-Quartz-Facial-Roller",
     productImage: "/images/productEx4.png",
     brand: "GlowStone",
     category: "Hair Care",
@@ -312,6 +343,7 @@ export const products = [
   {
     id: "32",
     productName: "Midnight Oud Perfume Mist",
+    slug: "Midnight-Oud-Perfume-Mist",
     productImage: "/images/productEx5.png",
     brand: "NoirEssence",
     category: "Fragrance",
@@ -322,6 +354,7 @@ export const products = [
   {
     id: "33",
     productName: "Daily Hydration Face Moisturizer",
+    slug: "Daily-Hydration-Face-Moisturizer",
     productImage: "/images/productEx6.png",
     brand: "AquaLeaf",
     category: "Skincare (Face)",
@@ -332,6 +365,7 @@ export const products = [
   {
     id: "34",
     productName: "Satin Finish Foundation",
+    slug: "Satin-Finish-Foundation",
     productImage: "/images/productEx7.png",
     brand: "VelviTone",
     category: "Makeup",
@@ -342,6 +376,7 @@ export const products = [
   {
     id: "35",
     productName: "Avocado Repair Hair Mask",
+    slug: "Avocado-Repair-Hair-Mask",
     productImage: "/images/productEx8.png",
     brand: "NutriSilk",
     category: "Hair Care",
@@ -352,6 +387,7 @@ export const products = [
   {
     id: "36",
     productName: "Tropical Breeze Shower Gel",
+    slug: "Tropical-Breeze-Shower-Gel",
     productImage: "/images/productEx.png",
     brand: "OceanMist",
     category: "Body Care",
@@ -362,6 +398,7 @@ export const products = [
   {
     id: "37",
     productName: "Soft Blend Makeup Sponge Set",
+    slug: "Soft-Blend-Makeup-Sponge-Set",
     productImage: "/images/productEx2.png",
     brand: "ProBlend",
     category: "Beauty Tools",
@@ -372,6 +409,7 @@ export const products = [
   {
     id: "38",
     productName: "Amber Noir Eau de Toilette",
+    slug: "Amber-Noir-Eau-de-Toilette",
     productImage: "/images/productEx3.png",
     brand: "VelvetAura",
     category: "Fragrance",
@@ -382,6 +420,7 @@ export const products = [
   {
     id: "39",
     productName: "Green Clay Purifying Mask",
+    slug: "Green-Clay-Purifying-Mask",
     productImage: "/images/productEx4.png",
     brand: "EarthGlow",
     category: "Skincare (Face)",
@@ -392,6 +431,7 @@ export const products = [
   {
     id: "40",
     productName: "Tint & Glow BB Cream",
+    slug: "Tint-&-Glow-BB-Cream",
     productImage: "/images/productEx5.png",
     brand: "SkinMuse",
     category: "Makeup",
@@ -402,6 +442,7 @@ export const products = [
   {
     id: "41",
     productName: "Caffeine Infused Eye Cream",
+    slug: "Caffeine-Infused-Eye-Cream",
     productImage: "/images/productEx6.png",
     brand: "BrightEyes",
     category: "Skincare (Face)",
@@ -412,6 +453,7 @@ export const products = [
   {
     id: "42",
     productName: "Sheer Blush Compact",
+    slug: "Sheer-Blush-Compact",
     productImage: "/images/productEx7.png",
     brand: "RosyHue",
     category: "Makeup",
@@ -422,6 +464,7 @@ export const products = [
   {
     id: "43",
     productName: "Mint & Tea Tree Scalp Scrub",
+    slug: "Mint-&-Tea-Tree-Scalp-Scrub",
     productImage: "/images/productEx8.png",
     brand: "ScalpPure",
     category: "Hair Care",
@@ -432,6 +475,7 @@ export const products = [
   {
     id: "44",
     productName: "Whipped Shea Body Soufflé",
+    slug: "Whipped=Shea-Body-Soufflé",
     productImage: "/images/productEx.png",
     brand: "VelvaSkin",
     category: "Body Care",
@@ -442,6 +486,7 @@ export const products = [
   {
     id: "45",
     productName: "Dual-Ended Eyeshadow Brush",
+    slug: "Dual-Ended-Eyeshadow-Brush",
     productImage: "/images/productEx.png",
     brand: "Blendistry",
     category: "Hair Care",
@@ -452,6 +497,7 @@ export const products = [
   {
     id: "46",
     productName: "Citrus Bloom Perfume Oil",
+    slug: "Citrus-Bloom-Perfume-Oil",
     productImage: "/images/productEx.png",
     brand: "Essenza",
     category: "Fragrance",
@@ -462,6 +508,7 @@ export const products = [
   {
     id: "47",
     productName: "Hydra Balance Face Toner",
+    slug: "Hydra-Balance-Face-Toner",
     productImage: "/images/productEx.png",
     brand: "PureTone",
     category: "Skincare (Face)",
@@ -472,6 +519,7 @@ export const products = [
   {
     id: "48",
     productName: "Luminous Cream Concealer",
+    slug: "Luminous-Cream-Concealer",
     productImage: "/images/productEx.png",
     brand: "BrightVeil",
     category: "Makeup",
@@ -482,6 +530,7 @@ export const products = [
   {
     id: "49",
     productName: "Argan & Shea Repair Conditioner",
+    slug: "Argan-&-Shea-Repair-Conditioner",
     productImage: "/images/productEx.png",
     brand: "HydraStrand",
     category: "Hair Care",
@@ -492,6 +541,7 @@ export const products = [
   {
     id: "50",
     productName: "Cocoa Bliss Hand Cream",
+    slug: "Cocoa-Bliss-Hand-Cream",
     productImage: "/images/productEx.png",
     brand: "SoftPetal",
     category: "Body Care",
