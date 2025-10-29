@@ -69,7 +69,7 @@ function CategoryCard({ product, active }) {
               animate={active ? { scale: 1.15 } : { scale: 1 }}
               transition={{ duration: 0.4 }}
               src={product.productImage}
-              alt="product_image"
+              alt={product.productName}
             />
           </span>
         </Link>

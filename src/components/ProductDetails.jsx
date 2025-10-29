@@ -1,12 +1,34 @@
 import { useParams } from "react-router-dom";
 import { products } from "../ProductsArray";
+import { useCart } from "../store/useCart";
+import toast, { Toaster } from "react-hot-toast";
 
 function ProductDetails() {
   const { slug } = useParams();
   const currentProduct = products.find((product) => product.slug === slug);
 
+  const cart = useCart((state) => state.cart);
+  const addToCart = useCart((state) => state.addToCart);
+
+  function handleAddToCart(currentProduct) {
+    const productExist = cart.some(
+      (cartItem) => cartItem.id === currentProduct.id
+    );
+
+    if (!productExist) {
+      addToCart(currentProduct);
+    } else {
+      toast("Product is already in cart", {
+        duration: 1500,
+        position: "top-right",
+        icon: "😅",
+      });
+    }
+  }
+
   return (
     <div className="px-6 lg:px-20">
+      <Toaster />
       <div className="flex flex-col justify-center items-start my-10 lg:flex-row lg:gap-10">
         <span className="bg-[#f0f0f0] w-full p-12 block">
           <img
@@ -36,7 +58,10 @@ function ProductDetails() {
               <button className="cursor-pointer">+</button>
             </span>
             <div className="mt-5 lg:flex flex-row-reverse justify-between items-center gap-4">
-              <button className="bg-[#e94a6d] text-[#fff] w-full px-5 py-3.5 rounded-md border-1 my-2">
+              <button
+                className="bg-[#e94a6d] text-[#fff] w-full px-5 py-3.5 rounded-md border-1 my-2"
+                onClick={() => handleAddToCart(currentProduct)}
+              >
                 Add to Cart
               </button>
               <button className="bg-[#fff] text-[#000] w-full px-5 py-3.5 rounded-md border-1 my-2 hover:border-2">

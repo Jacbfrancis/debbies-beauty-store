@@ -94,7 +94,7 @@ function CategorySection({ category, title }) {
                     }
                     transition={{ duration: 0.4 }}
                     src={product.productImage}
-                    alt=""
+                    alt={product.productName}
                   />
                 </span>
               </Link>

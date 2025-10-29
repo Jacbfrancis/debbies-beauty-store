@@ -52,7 +52,7 @@ function Navbar() {
 
         <span className="cursor-pointer w-[15%] lg:w-[5%]">
           <Link to="/">
-            <img src="/images/logo.png" alt="" />
+            <img src="/images/logo.png" alt="logo_img" />
           </Link>
         </span>
 

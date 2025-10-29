@@ -4,7 +4,7 @@ function Banner() {
       <img
         className="rounded-xl h-full w-full"
         src="/images/banner2.webp"
-        alt=""
+        alt="banner_image"
       />
     </div>
   );

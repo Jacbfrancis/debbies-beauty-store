@@ -70,7 +70,7 @@ function ProductCard({ product, currentIndex, index }) {
               animate={currentIndex === index ? { scale: 1.15 } : { scale: 1 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               src={product.productImage}
-              alt=""
+              alt={product.productName}
             />
           </span>
         </Link>

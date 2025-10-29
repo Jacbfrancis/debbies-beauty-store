@@ -13,7 +13,11 @@ function CartItems() {
             className="mt-10 flex justify-between items-center gap-3 border-b-1 border-[#bcbcbc9e] pb-5"
           >
             <span className="bg-[#f0f0f0] rounded-lg w-[30%] md:w-[15%] lg:w-[25%]">
-              <img className="w-full" src={cartItem.productImage} alt="" />
+              <img
+                className="w-full"
+                src={cartItem.productImage}
+                alt={cartItem.productName}
+              />
             </span>
 
             <div className="w-[30%] flex flex-col justify-start items-start gap-1 lg:w-[60%]">

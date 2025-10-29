@@ -31,7 +31,7 @@ function FeaturedCategories() {
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                     className="w-full rounded-full"
                     src={category.icon}
-                    alt=""
+                    alt={category.category}
                   />
                 </span>
                 <p>{category.category}</p>

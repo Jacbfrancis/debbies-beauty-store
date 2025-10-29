@@ -29,7 +29,11 @@ function CustomerAssurance() {
         >
           <div className="border-[#868686] border-l-1">
             <span className="w-[18%] block m-auto  lg:w-[10%]">
-              <img className="w-full" src={assurance.icon} alt="" />
+              <img
+                className="w-full"
+                src={assurance.icon}
+                alt={assurance.header}
+              />
             </span>
             <div className=" lg:px-12">
               <h3 className="font-semibold my-4">{assurance.header}</h3>
