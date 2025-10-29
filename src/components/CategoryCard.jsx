@@ -4,6 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useCurrentProduct } from "../store/useCurrentProductSrore";
 import { useQuickView } from "../store/useQuickViewStore";
 import { useCart } from "../store/useCart";
+import { Link } from "react-router-dom";
 
 function CategoryCard({ product, active }) {
   const setCurrentProduct = useCurrentProduct(
@@ -61,15 +62,17 @@ function CategoryCard({ product, active }) {
             </svg>
           </motion.span>
         </div>
-        <span className="block w-[15rem] m-auto p-8">
-          <motion.img
-            initial={{ scale: 1 }}
-            animate={active ? { scale: 1.15 } : { scale: 1 }}
-            transition={{ duration: 0.4 }}
-            src={product.productImage}
-            alt="product_image"
-          />
-        </span>
+        <Link to={`/product/${product.slug}`}>
+          <span className="block w-[15rem] m-auto p-8">
+            <motion.img
+              initial={{ scale: 1 }}
+              animate={active ? { scale: 1.15 } : { scale: 1 }}
+              transition={{ duration: 0.4 }}
+              src={product.productImage}
+              alt="product_image"
+            />
+          </span>
+        </Link>
 
         <button
           className="bg-[#e94a6d] text-[#fff] shadow-md w-[90%] rounded-md m-auto py-2 cursor-pointer lg:hidden"
@@ -88,12 +91,14 @@ function CategoryCard({ product, active }) {
           Quick Cart
         </motion.button>
       </div>
-      <div className="mx-auto my-4">
-        <p className="mb-3 font-medium hover:text-[#e94a6d]">
-          {product.productName}
-        </p>
-        <p className="text-gray-700 text-[1.2rem]">₦ {product.price}</p>
-      </div>
+      <Link to={`/product/${product.slug}`}>
+        <div className="mx-auto my-4">
+          <p className="mb-3 font-medium hover:text-[#e94a6d]">
+            {product.productName}
+          </p>
+          <p className="text-gray-700 text-[1.2rem]">₦ {product.price}</p>
+        </div>
+      </Link>
     </div>
   );
 }

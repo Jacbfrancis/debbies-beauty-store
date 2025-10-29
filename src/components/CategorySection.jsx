@@ -85,17 +85,19 @@ function CategorySection({ category, title }) {
                   </svg>
                 </motion.span>
               </div>
-              <span className="p-4 lg:p-8 block">
-                <motion.img
-                  initial={{ scale: 1 }}
-                  animate={
-                    currentIndex === index ? { scale: 1.15 } : { scale: 1 }
-                  }
-                  transition={{ duration: 0.4 }}
-                  src={product.productImage}
-                  alt=""
-                />
-              </span>
+              <Link to={`/product/${product.slug}`}>
+                <span className="p-4 lg:p-8 block">
+                  <motion.img
+                    initial={{ scale: 1 }}
+                    animate={
+                      currentIndex === index ? { scale: 1.15 } : { scale: 1 }
+                    }
+                    transition={{ duration: 0.4 }}
+                    src={product.productImage}
+                    alt=""
+                  />
+                </span>
+              </Link>
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
                 animate={
@@ -116,12 +118,14 @@ function CategorySection({ category, title }) {
                 Quick Cart
               </button>
             </div>
-            <div className="mx-auto mt-5 mb-4">
-              <p className="font-semibold hover:text-[#e94a6d]">
-                {product.productName}
-              </p>
-              <p className="text-gray-700 text-[1.2rem]">₦ {product.price}</p>
-            </div>
+            <Link to={`/product/${product.slug}`}>
+              <div className="mx-auto mt-5 mb-4">
+                <p className="font-semibold hover:text-[#e94a6d]">
+                  {product.productName}
+                </p>
+                <p className="text-gray-700 text-[1.2rem]">₦ {product.price}</p>
+              </div>
+            </Link>
           </div>
         ))}
       </div>
