@@ -65,15 +65,15 @@ function QuickView() {
             </h2>
             <div className="flex justify-start items-center my-6 gap-4">
               <p className="text-[1.2rem] font-semibold">Quantity: </p>
-              <div className="text-[#e94a6d] font-bold border-[#e94a6d] border-1 block rounded-md py-1.5 px-2.5">
-                <span className="cursor-pointer">-</span>
+              <span className="text-[#e94a6d] font-bold border-[#e94a6d] border-1 rounded-md py-1.5 px-2.5">
+                <button className="cursor-pointer">-</button>
                 <input
                   className="text-[#000] text-center font-normal w-[4rem] focus:ring-0 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   type="number"
                   defaultValue={0}
                 />
-                <span className="cursor-pointer">+</span>
-              </div>
+                <button className="cursor-pointer">+</button>
+              </span>
             </div>
             <p className="text-[1.2rem] font-semibold">
               Total Price:{" "}

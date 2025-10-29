@@ -1,15 +1,12 @@
-import { useParams } from "react-router-dom";
-import { products } from "../ProductsArray";
+import ProductDetails from "../components/ProductDetails";
+import SuggestProducts from "../components/SuggestProducts";
 
 function ProductDetailsPage() {
-  const { slug } = useParams();
-
-  const currentProduct = products.find((product) => product.slug === slug);
-
   return (
-    <div>
-      <p>{currentProduct.productName}</p>
-    </div>
+    <>
+      <ProductDetails />
+      <SuggestProducts />
+    </>
   );
 }
 
