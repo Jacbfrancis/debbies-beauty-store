@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { products } from "../ProductsArray";
 import CategoryCard from "./CategoryCard";
 
-function SuggestProducts() {
+function SuggestProducts({ setQuantity }) {
   const { slug } = useParams();
   const currentProduct = products.find((product) => slug === product.slug);
   const similarProducts = products.filter(
@@ -18,7 +18,7 @@ function SuggestProducts() {
         <div className="flex justify-start items-start gap-4 snap-x">
           {similarProducts.slice(0, 5).map((product, index) => (
             <div key={index} className="snap-center">
-              <CategoryCard product={product} />
+              <CategoryCard product={product} setQuantity={setQuantity} />
             </div>
           ))}
         </div>

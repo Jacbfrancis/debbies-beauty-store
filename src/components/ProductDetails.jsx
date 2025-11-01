@@ -2,11 +2,8 @@ import { useParams } from "react-router-dom";
 import { products } from "../ProductsArray";
 import { useCart } from "../store/useCart";
 import toast, { Toaster } from "react-hot-toast";
-import { useState } from "react";
 
-function ProductDetails() {
-  const [quantity, setQuantity] = useState(1);
-
+function ProductDetails({ quantity, setQuantity }) {
   const { slug } = useParams();
   const currentProduct = products.find((product) => product.slug === slug);
 
@@ -24,10 +21,11 @@ function ProductDetails() {
       addToCart(currentItem);
       toast.success("Successfully added to cart", {
         position: "top-right",
+        duration: 1000,
       });
     } else {
       toast("Product is already in cart", {
-        duration: 1500,
+        duration: 1000,
         position: "top-right",
         icon: "😅",
       });

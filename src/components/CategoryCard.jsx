@@ -6,7 +6,7 @@ import { useQuickView } from "../store/useQuickViewStore";
 import { useCart } from "../store/useCart";
 import { Link } from "react-router-dom";
 
-function CategoryCard({ product, active }) {
+function CategoryCard({ product, active, setQuantity }) {
   const setCurrentProduct = useCurrentProduct(
     (state) => state.setCurrentProduct
   );
@@ -23,10 +23,11 @@ function CategoryCard({ product, active }) {
       addToCart(currentItem);
       toast.success("Successfully added to cart", {
         position: "top-right",
+        duration: 1000,
       });
     } else {
       toast("Product is already in cart", {
-        duration: 1500,
+        duration: 1000,
         position: "top-right",
         icon: "😅",
       });
@@ -64,7 +65,7 @@ function CategoryCard({ product, active }) {
             </svg>
           </motion.span>
         </div>
-        <Link to={`/product/${product.slug}`}>
+        <Link to={`/product/${product.slug}`} onClick={() => setQuantity(1)}>
           <span className="block w-[15rem] m-auto p-8">
             <motion.img
               initial={{ scale: 1 }}

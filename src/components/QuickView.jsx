@@ -26,10 +26,11 @@ function QuickView() {
       addToCart(currentItem);
       toast.success("Successfully added to cart", {
         position: "top-right",
+        duration: 1000,
       });
     } else {
       toast("Product is already in cart", {
-        duration: 1500,
+        duration: 1000,
         position: "top-right",
         icon: "😅",
       });
