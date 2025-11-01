@@ -1,12 +1,40 @@
+import toast, { Toaster } from "react-hot-toast";
+import { useCart } from "../store/useCart";
 import { useCurrentProduct } from "../store/useCurrentProductSrore";
 import { useQuickView } from "../store/useQuickViewStore";
+import { useState } from "react";
 
 function QuickView() {
+  const [quantity, setQuantity] = useState(1);
+
   const currentProduct = useCurrentProduct((state) => state.currentProduct);
   const closeQuickView = useQuickView((state) => state.closeQuickView);
   const clearCurrentProduct = useCurrentProduct(
     (state) => state.clearCurrentProduct
   );
+  const cart = useCart((state) => state.cart);
+  const addToCart = useCart((state) => state.addToCart);
+
+  const currentItem = { ...currentProduct, quantity };
+
+  function handleAddToCart(currentItem) {
+    const productExist = cart.some(
+      (cartItem) => cartItem.id === currentProduct.id
+    );
+
+    if (!productExist) {
+      addToCart(currentItem);
+      toast.success("Successfully added to cart", {
+        position: "top-right",
+      });
+    } else {
+      toast("Product is already in cart", {
+        duration: 1500,
+        position: "top-right",
+        icon: "😅",
+      });
+    }
+  }
 
   function handleCloseQuickView() {
     closeQuickView();
@@ -18,6 +46,7 @@ function QuickView() {
       className="bg-[#000000a3] h-[100vh] w-full absolute top-0 m-auto flex-col justify-center items-center hidden z-50 lg:flex"
       onClick={handleCloseQuickView}
     >
+      <Toaster />
       <div
         className="bg-[#fff] w-[80%] rounded-xl p-10"
         onClick={(e) => e.stopPropagation()}
@@ -66,13 +95,35 @@ function QuickView() {
             <div className="flex justify-start items-center my-6 gap-4">
               <p className="text-[1.2rem] font-semibold">Quantity: </p>
               <span className="text-[#e94a6d] font-bold border-[#e94a6d] border-1 rounded-md py-1.5 px-2.5">
-                <button className="cursor-pointer">-</button>
+                <button
+                  className="cursor-pointer"
+                  onClick={() => {
+                    if (quantity > 1) {
+                      setQuantity((prev) => prev - 1);
+                    }
+                  }}
+                >
+                  -
+                </button>
                 <input
                   className="text-[#000] text-center font-normal w-[4rem] focus:ring-0 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   type="number"
-                  defaultValue={0}
+                  onChange={(e) => {
+                    const inputValue = e.target.value;
+                    const value =
+                      inputValue === "" || inputValue < 1
+                        ? 1
+                        : Number(inputValue);
+                    setQuantity(value);
+                  }}
+                  value={quantity}
                 />
-                <button className="cursor-pointer">+</button>
+                <button
+                  className="cursor-pointer"
+                  onClick={() => setQuantity((prev) => prev + 1)}
+                >
+                  +
+                </button>
               </span>
             </div>
             <p className="text-[1.2rem] font-semibold">
@@ -83,7 +134,10 @@ function QuickView() {
             </p>
 
             <div className="flex justify-start items-center gap-5 mt-7">
-              <button className="bg-[#e94a6d] text-[#fff] rounded-md px-5 py-3 cursor-pointer">
+              <button
+                className="bg-[#e94a6d] text-[#fff] rounded-md px-5 py-3 cursor-pointer"
+                onClick={() => handleAddToCart(currentItem)}
+              >
                 Quick Cart
               </button>
               <button className="bg-[#0b0b90] text-[#fff] rounded-md px-5 py-3 cursor-pointer">

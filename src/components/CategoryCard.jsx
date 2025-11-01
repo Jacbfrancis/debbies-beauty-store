@@ -10,18 +10,20 @@ function CategoryCard({ product, active }) {
   const setCurrentProduct = useCurrentProduct(
     (state) => state.setCurrentProduct
   );
-
   const openQuickView = useQuickView((state) => state.openQuickView);
-
   const addToCart = useCart((state) => state.addToCart);
-
   const cart = useCart((state) => state.cart);
 
-  function handleAddToCart(product) {
+  const currentItem = { ...product, quantity: 1 };
+
+  function handleAddToCart(currentItem) {
     const productExist = cart.some((cartItem) => product.id === cartItem.id);
 
     if (!productExist) {
-      addToCart(product);
+      addToCart(currentItem);
+      toast.success("Successfully added to cart", {
+        position: "top-right",
+      });
     } else {
       toast("Product is already in cart", {
         duration: 1500,
@@ -76,7 +78,7 @@ function CategoryCard({ product, active }) {
 
         <button
           className="bg-[#e94a6d] text-[#fff] shadow-md w-[90%] rounded-md m-auto py-2 cursor-pointer lg:hidden"
-          onClick={() => handleAddToCart(product)}
+          onClick={() => handleAddToCart(currentItem)}
         >
           Quick Cart
         </button>
@@ -86,7 +88,7 @@ function CategoryCard({ product, active }) {
           animate={active ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
           className="bg-[#e94a6d] text-[#fff] shadow-md w-full rounded-md m-auto py-2.5 lg:hover:bg-[#f4335d] cursor-pointer hidden lg:block"
-          onClick={() => handleAddToCart(product)}
+          onClick={() => handleAddToCart(currentItem)}
         >
           Quick Cart
         </motion.button>

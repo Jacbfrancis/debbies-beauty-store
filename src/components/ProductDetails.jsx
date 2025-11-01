@@ -2,21 +2,29 @@ import { useParams } from "react-router-dom";
 import { products } from "../ProductsArray";
 import { useCart } from "../store/useCart";
 import toast, { Toaster } from "react-hot-toast";
+import { useState } from "react";
 
 function ProductDetails() {
+  const [quantity, setQuantity] = useState(1);
+
   const { slug } = useParams();
   const currentProduct = products.find((product) => product.slug === slug);
 
   const cart = useCart((state) => state.cart);
   const addToCart = useCart((state) => state.addToCart);
 
-  function handleAddToCart(currentProduct) {
+  const currentItem = { ...currentProduct, quantity: quantity };
+
+  function handleAddToCart(currentItem) {
     const productExist = cart.some(
       (cartItem) => cartItem.id === currentProduct.id
     );
 
     if (!productExist) {
-      addToCart(currentProduct);
+      addToCart(currentItem);
+      toast.success("Successfully added to cart", {
+        position: "top-right",
+      });
     } else {
       toast("Product is already in cart", {
         duration: 1500,
@@ -49,18 +57,43 @@ function ProductDetails() {
               Quantity
             </p>
             <span className="text-[#000] font-bold w-[35%] flex justify-between items-center border-[#000] border-1 rounded-md py-1.5 px-2.5 lg:w-[25%]">
-              <button className="cursor-pointer">-</button>
+              <button
+                className="cursor-pointer"
+                onClick={() => {
+                  if (quantity > 1) {
+                    setQuantity((prev) => prev - 1);
+                  }
+                }}
+              >
+                -
+              </button>
               <input
                 className="text-[#000] text-center font-normal w-[4rem] focus:ring-0 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 type="number"
-                defaultValue={0}
+                min="1"
+                value={quantity}
+                onChange={(e) => {
+                  const inputValue = e.target.value;
+                  const value =
+                    inputValue === "" || inputValue < 1
+                      ? 1
+                      : Number(inputValue);
+                  setQuantity(value);
+                }}
               />
-              <button className="cursor-pointer">+</button>
+              <button
+                className="cursor-pointer"
+                onClick={() => {
+                  setQuantity((prev) => prev + 1);
+                }}
+              >
+                +
+              </button>
             </span>
             <div className="mt-5 lg:flex flex-row-reverse justify-between items-center gap-4">
               <button
                 className="bg-[#e94a6d] text-[#fff] w-full px-5 py-3.5 rounded-md border-1 my-2"
-                onClick={() => handleAddToCart(currentProduct)}
+                onClick={() => handleAddToCart(currentItem)}
               >
                 Add to Cart
               </button>
