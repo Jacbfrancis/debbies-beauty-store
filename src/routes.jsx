@@ -3,6 +3,7 @@ import Homepage from "./pages/Homepage";
 import CategoriesPage from "./pages/CategoriesPage";
 import SearchResultsPage from "./pages/SearchResultsPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
+import CartPage from "./pages/CartPage";
 
 export const routes = [
   {
@@ -13,6 +14,7 @@ export const routes = [
       { path: "/categories/:category", element: <CategoriesPage /> },
       { path: "/search", element: <SearchResultsPage /> },
       { path: "/product/:slug", element: <ProductDetailsPage /> },
+      { path: "/cart", element: <CartPage /> },
     ],
   },
 ];

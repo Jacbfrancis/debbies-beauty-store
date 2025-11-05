@@ -2,6 +2,7 @@ import { useState } from "react";
 import ProductCard from "./ProductCard";
 import { useSearchQuery } from "../store/useSearchStore";
 import { products } from "../ProductsArray";
+import { Link } from "react-router-dom";
 
 function SearchResults() {
   const [currentIndex, setCurrentIndex] = useState(null);
@@ -25,6 +26,14 @@ function SearchResults() {
         No results found for "{searchQuery}". Check the spelling or use a
         different word or phrase.
       </p>
+
+      <span className="mt-12 block">
+        <Link to="/">
+          <button className="bg-[#000] text-[#fff] px-5 py-2.5 rounded-xl">
+            Continue Shopping
+          </button>
+        </Link>
+      </span>
     </div>
   ) : (
     <div className="grid grid-cols-2 gap-10 mt-15 px-6 lg:px-20 lg:grid-cols-3 xl:grid-cols-4">

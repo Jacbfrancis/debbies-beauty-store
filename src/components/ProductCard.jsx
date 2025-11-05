@@ -104,7 +104,9 @@ function ProductCard({ product, currentIndex, index }) {
           <p className="font-semibold hover:text-[#e94a6d]">
             {product.productName}
           </p>
-          <p className="text-gray-700 text-[1.2rem]">₦ {product.price}</p>
+          <p className="text-gray-700 text-[1.2rem]">
+            ₦ {product.price.toLocaleString()}
+          </p>
         </div>
       </Link>
     </>

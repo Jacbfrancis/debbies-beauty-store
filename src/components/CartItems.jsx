@@ -7,7 +7,10 @@ function CartItems() {
   const decreaseQuantity = useCart((state) => state.decreaseQuantity);
   const updateQuantity = useCart((state) => state.updateQuantity);
 
-  //console.log(cart);
+  const totalPrice = cart.reduce((acc, item) => {
+    const totalItems = item.price * item.quantity;
+    return acc + totalItems;
+  }, 0);
 
   return (
     <>
@@ -90,7 +93,7 @@ function CartItems() {
       <div className="py-8">
         <span className="px-4 font-semibold flex justify-between items-center">
           <h2>Total</h2>
-          <p>₦{120000}</p>
+          <p>₦{totalPrice.toLocaleString()}</p>
         </span>
         <div className="flex justify-center items-center gap-5 mt-5">
           <button className="bg-[#000] text-[#fff] w-[50%] px-5 py-2.5 rounded-md">

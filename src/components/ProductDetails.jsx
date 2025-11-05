@@ -47,7 +47,9 @@ function ProductDetails({ quantity, setQuantity }) {
         <div className="text-left mt-10">
           <span className="block">
             <h1 className="text-[1.5rem] mb-2">{currentProduct.productName}</h1>
-            <p className="text-[1.3rem] mb-5">₦ {currentProduct.price}</p>
+            <p className="text-[1.3rem] mb-5">
+              ₦ {currentProduct.price.toLocaleString()}
+            </p>
             <p className="text-slate-600">{currentProduct.description}</p>
           </span>
           <div className="block mt-5">
