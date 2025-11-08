@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCart } from "../store/useCart";
 
 function CartItems() {
@@ -35,7 +36,7 @@ function CartItems() {
               <h2 className="text-[0.9rem] font-bold hidden md:block">
                 {cartItem.productName}
               </h2>
-              <p> ₦ {cartItem.price}</p>
+              <p> ₦ {cartItem.price.toLocaleString()}</p>
               <span className="w-[40%] flex justify-center items-center rounded-lg px-13 py-[0.4rem] my-1 border-1 border-[#bcbcbc9e]">
                 <button
                   onClick={() => {
@@ -96,12 +97,16 @@ function CartItems() {
           <p>₦{totalPrice.toLocaleString()}</p>
         </span>
         <div className="flex justify-center items-center gap-5 mt-5">
-          <button className="bg-[#000] text-[#fff] w-[50%] px-5 py-2.5 rounded-md">
-            Check Out
-          </button>
-          <button className="bg-[#e94a6d] text-[#fff] w-[50%] px-5 py-2.5 rounded-md">
-            View Cart
-          </button>
+          <Link to="/cart">
+            <span className="bg-[#000] text-[#fff] w-[50%] px-7 py-3.5 rounded-md">
+              Check Out
+            </span>
+          </Link>
+          <Link to="/cart">
+            <span className="bg-[#e94a6d] text-[#fff] w-[50%] px-7.5 py-3.5 rounded-md">
+              View Cart
+            </span>
+          </Link>
         </div>
       </div>
     </>
