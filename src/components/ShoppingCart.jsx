@@ -3,6 +3,9 @@ import { useCart } from "../store/useCart";
 
 function ShoppingCart() {
   const cart = useCart((state) => state.cart);
+  const increaseQuantity = useCart((state) => state.increaseQuantity);
+  const decreaseQuantity = useCart((state) => state.decreaseQuantity);
+  const updateQuantity = useCart((state) => state.updateQuantity);
 
   return (
     <div className="px-6 lg:px-20">
@@ -25,14 +28,30 @@ function ShoppingCart() {
             </h2>
             <p> ₦ {(cartItem.price * cartItem.quantity).toLocaleString()}</p>
             <span className="w-[40%] flex justify-center items-center rounded-lg px-13 py-[0.4rem] my-1 border-1 border-[#bcbcbc9e]">
-              <button>-</button>
+              <button
+                onClick={() => {
+                  if (cartItem.quantity > 1) {
+                    decreaseQuantity(cartItem.id);
+                  }
+                }}
+              >
+                -
+              </button>
               <input
                 className="text-center w-[4rem] focus:ring-0 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                defaultValue={cartItem.quantity}
+                onChange={(e) => {
+                  const inputValue = e.target.value;
+                  const value =
+                    inputValue === "" || inputValue < 1
+                      ? 1
+                      : Number(inputValue);
+                  updateQuantity(cartItem.id, value);
+                }}
+                value={cartItem.quantity}
                 type="number"
                 min="1"
               />
-              <button>+</button>
+              <button onClick={() => increaseQuantity(cartItem.id)}>+</button>
             </span>
           </div>
 
@@ -83,14 +102,32 @@ function ShoppingCart() {
 
               <div className="col-span-3 flex justify-start gap-4 items-center">
                 <span className=" w-[30%] flex justify-start items-center rounded-lg px-4 py-[0.4rem] my-1 border-1 border-[#bcbcbc9e]">
-                  <button>-</button>
+                  <button
+                    onClick={() => {
+                      if (cartItem.quantity > 1) {
+                        decreaseQuantity(cartItem.id);
+                      }
+                    }}
+                  >
+                    -
+                  </button>
                   <input
                     className="text-center w-[4rem] focus:ring-0 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                    defaultValue={cartItem.quantity}
+                    onChange={(e) => {
+                      const inputValue = e.target.value;
+                      const value =
+                        inputValue === "" || inputValue < 1
+                          ? 1
+                          : Number(inputValue);
+                      updateQuantity(cartItem.id, value);
+                    }}
+                    value={cartItem.quantity}
                     type="number"
                     min="1"
                   />
-                  <button>+</button>
+                  <button onClick={() => increaseQuantity(cartItem.id)}>
+                    +
+                  </button>
                 </span>
 
                 <span>
@@ -120,12 +157,6 @@ function ShoppingCart() {
           ))}
         </div>
       </div>
-
-      <span className="text-center border-1 rounded-2xl w-[55%] m-auto py-1.5 my-8 block lg:hidden">
-        <Link to="/">
-          <p>Continue Shopping</p>
-        </Link>
-      </span>
     </div>
   );
 }

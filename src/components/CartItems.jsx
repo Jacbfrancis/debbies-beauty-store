@@ -97,15 +97,18 @@ function CartItems() {
           <p>₦{totalPrice.toLocaleString()}</p>
         </span>
         <div className="flex justify-center items-center gap-5 mt-5">
-          <Link to="/cart">
-            <span className="bg-[#000] text-[#fff] w-[50%] px-7 py-3.5 rounded-md">
-              Check Out
-            </span>
+          <Link
+            to="/cart"
+            className="bg-[#000] text-[#fff] w-[50%] px-7 py-3.5 rounded-md"
+          >
+            Check Out
           </Link>
-          <Link to="/cart">
-            <span className="bg-[#e94a6d] text-[#fff] w-[50%] px-7.5 py-3.5 rounded-md">
-              View Cart
-            </span>
+
+          <Link
+            to="/cart"
+            className="bg-[#e94a6d] text-[#fff] w-[50%] px-7.5 py-3.5 rounded-md"
+          >
+            View Cart
           </Link>
         </div>
       </div>
