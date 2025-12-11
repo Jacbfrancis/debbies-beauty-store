@@ -6,6 +6,7 @@ function ShoppingCart() {
   const increaseQuantity = useCart((state) => state.increaseQuantity);
   const decreaseQuantity = useCart((state) => state.decreaseQuantity);
   const updateQuantity = useCart((state) => state.updateQuantity);
+  const removeFromCart = useCart((state) => state.removeFromCart);
 
   return (
     <div className="px-6 lg:px-20">
@@ -55,7 +56,7 @@ function ShoppingCart() {
             </span>
           </div>
 
-          <span className="w-[10%]">
+          <span className="w-[10%]" onClick={() => removeFromCart(cartItem.id)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -130,7 +131,7 @@ function ShoppingCart() {
                   </button>
                 </span>
 
-                <span>
+                <span onClick={() => removeFromCart(cartItem.id)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
