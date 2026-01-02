@@ -14,6 +14,8 @@ function ShoppingCart() {
         Your Shopping Cart
       </h2>
 
+      {/* Shopping  Cart for Mobile */}
+
       {cart.map((cartItem) => (
         <div
           key={cartItem.id}
@@ -77,6 +79,7 @@ function ShoppingCart() {
         </div>
       ))}
 
+      {/* Shopping  Cart for Desktop */}
       <div className="hidden lg:block">
         <ul className="text-[#a3a3a3] font-bold border-[#bcbcbc9e] border-b-1 border-t-1 py-4 grid-cols-10 gap-4 lg:grid">
           <li className="col-span-5">Product</li>
@@ -156,6 +159,27 @@ function ShoppingCart() {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Special Instructons & Total Price */}
+      <div className="mt-10 flex flex-col justify-around items-sartt lg:flex-row">
+        <div className="w-full mb-8 lg:text-center lg:w-[37%]">
+          <p className="text-gray-800 mb-4">Order special instructions</p>
+          <textarea className="border-gray-500 border-1 w-full px-3 py-4"></textarea>
+        </div>
+
+        <div className="text-center text-gray-800 w-full lg:w-[37%]">
+          <h3 className="mb-3">Estimated total ₦5,500.0</h3>
+          <p className="text-[0.82rem] mb-5">
+            Taxes, discounts and{" "}
+            <span className="underline tracking-wider"> shipping </span>{" "}
+            calculated at checkout.
+          </p>
+
+          <button className="bg-[#000] text-center text-[#fff] w-full px-7 py-3.5 rounded-md">
+            Check out
+          </button>
         </div>
       </div>
     </div>

@@ -1,12 +1,17 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../store/useCart";
+import { useCartMenu } from "../store/useCartMenuStore";
 
 function CartItems() {
+  const navigate = useNavigate();
+
   const cart = useCart((state) => state.cart);
   const removeFromCart = useCart((state) => state.removeFromCart);
   const increaseQuantity = useCart((state) => state.increaseQuantity);
   const decreaseQuantity = useCart((state) => state.decreaseQuantity);
   const updateQuantity = useCart((state) => state.updateQuantity);
+
+  const closeCartMenu = useCartMenu((state) => state.closeCartMenu);
 
   const totalPrice = cart.reduce((acc, item) => {
     const totalItems = item.price * item.quantity;
@@ -97,19 +102,22 @@ function CartItems() {
           <p>₦{totalPrice.toLocaleString()}</p>
         </span>
         <div className="flex justify-center items-center gap-5 mt-5">
-          <Link
-            to="/cart"
+          <button
+            onClick={() => navigate("/")}
             className="bg-[#000] text-center text-[#fff] w-[50%] px-7 py-3.5 rounded-md"
           >
             Check Out
-          </Link>
+          </button>
 
-          <Link
-            to="/cart"
+          <button
+            onClick={() => {
+              navigate("/cart");
+              closeCartMenu();
+            }}
             className="bg-[#e94a6d] text-center text-[#fff] w-[50%] px-7.5 py-3.5 rounded-md"
           >
             View Cart
-          </Link>
+          </button>
         </div>
       </div>
     </>
