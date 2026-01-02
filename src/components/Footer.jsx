@@ -40,7 +40,7 @@ function Footer() {
       </div>
       <hr />
       <span className="text-center block mt-4 justify-between items-center lg:text-left lg:flex">
-        <p>All Right Reserved © 2025 DebbiesBeautyStore</p>
+        <p>All Right Reserved © 2026 DebbiesBeautyStore</p>
         <p>Terms of Service</p>
       </span>
     </div>

@@ -99,14 +99,14 @@ function CartItems() {
         <div className="flex justify-center items-center gap-5 mt-5">
           <Link
             to="/cart"
-            className="bg-[#000] text-[#fff] w-[50%] px-7 py-3.5 rounded-md"
+            className="bg-[#000] text-center text-[#fff] w-[50%] px-7 py-3.5 rounded-md"
           >
             Check Out
           </Link>
 
           <Link
             to="/cart"
-            className="bg-[#e94a6d] text-[#fff] w-[50%] px-7.5 py-3.5 rounded-md"
+            className="bg-[#e94a6d] text-center text-[#fff] w-[50%] px-7.5 py-3.5 rounded-md"
           >
             View Cart
           </Link>
