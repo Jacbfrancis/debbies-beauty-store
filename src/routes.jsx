@@ -4,6 +4,7 @@ import CategoriesPage from "./pages/CategoriesPage";
 import SearchResultsPage from "./pages/SearchResultsPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import CartPage from "./pages/CartPage";
+import CheckOutPage from "./pages/CheckOutPage";
 
 export const routes = [
   {
@@ -15,6 +16,7 @@ export const routes = [
       { path: "/search", element: <SearchResultsPage /> },
       { path: "/product/:slug", element: <ProductDetailsPage /> },
       { path: "/cart", element: <CartPage /> },
+      { path: "/checkout", element: <CheckOutPage /> },
     ],
   },
 ];

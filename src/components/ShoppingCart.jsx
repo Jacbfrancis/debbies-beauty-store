@@ -1,12 +1,19 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../store/useCart";
 
 function ShoppingCart() {
+  const navigate = useNavigate();
+
   const cart = useCart((state) => state.cart);
   const increaseQuantity = useCart((state) => state.increaseQuantity);
   const decreaseQuantity = useCart((state) => state.decreaseQuantity);
   const updateQuantity = useCart((state) => state.updateQuantity);
   const removeFromCart = useCart((state) => state.removeFromCart);
+
+  const totalPrice = cart.reduce((acc, item) => {
+    const price = item.quantity * item.price;
+    return acc + price;
+  }, 0);
 
   return (
     <div className="px-6 lg:px-20">
@@ -170,14 +177,19 @@ function ShoppingCart() {
         </div>
 
         <div className="text-center text-gray-800 w-full lg:w-[37%]">
-          <h3 className="mb-3">Estimated total ₦5,500.0</h3>
+          <h3 className="mb-3 font-bold">
+            Estimated total ₦{totalPrice.toLocaleString("")}
+          </h3>
           <p className="text-[0.82rem] mb-5">
             Taxes, discounts and{" "}
             <span className="underline tracking-wider"> shipping </span>{" "}
             calculated at checkout.
           </p>
 
-          <button className="bg-[#000] text-center text-[#fff] w-full px-7 py-3.5 rounded-md">
+          <button
+            className="bg-[#000] text-center text-[#fff] w-full px-7 py-3.5 rounded-md"
+            onClick={() => navigate("/checkout")}
+          >
             Check out
           </button>
         </div>
