@@ -84,6 +84,7 @@ function CheckOutForm() {
         <div className="border-1 border-slate-400 px-4 py-1 w-full rounded">
           <p className="text-slate-500 text-[0.8rem]">State</p>
           <select className="w-full focus:outline-none focus:ring-0">
+            <option value={""}>Select your state</option>
             <option value={"Abia"}>Abia</option>
             <option value={"Adamawa"}>Adamawa</option>
             <option value={"Akwa Ibom"}>Akwa Ibom</option>
