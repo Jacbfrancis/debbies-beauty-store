@@ -1,6 +1,6 @@
 function CheckOutForm() {
   return (
-    <div className="px-6 py-10 lg:px-20">
+    <div className="bg-[#fff] px-6 py-10 lg:px-20">
       <form className="flex flex-col gap-7 justify-center">
         <div>
           <label className="text-[1.2rem] mb-2.5 block font-semibold">

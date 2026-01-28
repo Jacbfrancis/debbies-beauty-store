@@ -16,7 +16,7 @@ function Navmenu() {
         ease: "easeInOut",
         type: "tween",
       }}
-      className="w-full h-[100vh] fixed top-0 lg:hidden"
+      className="w-full h-[100vh] fixed top-0 lg:hidden z-50"
       onClick={closeNavMenu}
     >
       <div
