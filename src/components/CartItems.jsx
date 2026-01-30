@@ -103,7 +103,10 @@ function CartItems() {
         </span>
         <div className="flex justify-center items-center gap-5 mt-5">
           <button
-            onClick={() => navigate("/")}
+            onClick={() => {
+              navigate("/checkout");
+              closeCartMenu();
+            }}
             className="bg-[#000] text-center text-[#fff] w-[50%] px-7 py-3.5 rounded-md"
           >
             Check Out

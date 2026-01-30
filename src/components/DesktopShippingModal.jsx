@@ -1,25 +1,22 @@
 import { useShippingModal } from "../store/useShippingModal";
 
-function ShippingModal() {
+function DesktopShippingModal() {
   const closeShippingModal = useShippingModal(
     (state) => state.closeShippingModal
   );
+
   return (
     <div
-      className="bg-[#62626280] w-full h-[100vh] overflow-hidden absolute top-0"
+      className="bg-[#2f2f2f80] backdrop-blur-sm w-full h-[100vh] absolute top-0 flex justify-center items-center px-5"
       onClick={() => closeShippingModal()}
     >
       <div
-        className="bg-white absolute bottom-0 w-full py-5 px-5"
+        className="bg-white w-[35%] rounded-xl p-7"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center">
-          <h1 className="text-[1.2rem] font-semibold">Shipping</h1>
-          <span
-            onClick={() => {
-              closeShippingModal();
-            }}
-          >
+          <h2 className="text-[1.2rem] font-semibold">Shipping</h2>
+          <span onClick={() => closeShippingModal()}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -37,7 +34,7 @@ function ShippingModal() {
           </span>
         </div>
 
-        <div className="text-gray-700 text-[0.94rem] font-normal mt-5.5 flex flex-col justify-center items-center gap-5">
+        <div className="text-[0.94rem] font-normal mt-6 flex flex-col justify-center items-center gap-5">
           <p>
             Interstate delivery takes 4-8 working days (outside Lagos.) Express
             delivery only applies within Lagos and items are delivered 12 - 48
@@ -55,4 +52,4 @@ function ShippingModal() {
   );
 }
 
-export default ShippingModal;
+export default DesktopShippingModal;

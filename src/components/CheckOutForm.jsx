@@ -42,27 +42,75 @@ function CheckOutForm() {
           </label>
         </div>
 
-        <div className="border-1 border-slate-400 px-4 py-1 w-full rounded">
-          <p className="text-slate-500 text-[0.8rem]">Country/Region</p>
-          <select className="w-full focus:outline-none focus:ring-0">
-            <option value={"Nigeria"}>Nigeria</option>
-          </select>
+        <div className="lg:flex justify-start items-center gap-5">
+          <div className="mb-7 lg:w-[50%] lg:mb-0">
+            <input
+              className="border-1 border-slate-400 px-4 py-3 w-full rounded"
+              type="text"
+              placeholder="First Name"
+            />
+          </div>
+
+          <div className="lg:w-[50%]">
+            <input
+              className="border-1 border-slate-400 px-4 py-3 w-full rounded"
+              type="text"
+              placeholder="Last Name"
+            />
+          </div>
         </div>
 
-        <div>
-          <input
-            className="border-1 border-slate-400 px-4 py-3 w-full rounded"
-            type="text"
-            placeholder="First Name"
-          />
-        </div>
+        <div className="lg:flex justify-start items-center gap-5">
+          <div className="border-1 border-slate-400 px-4 py-1 mb-7 rounded lg:w-[50%] lg:mb-0">
+            <p className="text-slate-500 text-[0.8rem]">Country/Region</p>
+            <select className="w-full focus:outline-none focus:ring-0">
+              <option value={"Nigeria"}>Nigeria</option>
+            </select>
+          </div>
 
-        <div>
-          <input
-            className="border-1 border-slate-400 px-4 py-3 w-full rounded"
-            type="text"
-            placeholder="Last Name"
-          />
+          <div className="border-1 border-slate-400 px-4 py-1 w-full rounded lg:w-[50%]">
+            <p className="text-slate-500 text-[0.8rem]">State</p>
+            <select className="w-full focus:outline-none focus:ring-0">
+              <option value={""}>Select your state</option>
+              <option value={"Abia"}>Abia</option>
+              <option value={"Adamawa"}>Adamawa</option>
+              <option value={"Akwa Ibom"}>Akwa Ibom</option>
+              <option value={"Anambra"}>Anambra</option>
+              <option value={"Bauchi"}>Bauchi</option>
+              <option value={"Bayelsa"}>Bayelsa</option>
+              <option value={"Benue"}>Benue</option>
+              <option value={"Borno"}>Borno</option>
+              <option value={"Cross River"}>Cross River</option>
+              <option value={"Delta"}>Delta</option>
+              <option value={"Ebonyi"}>Ebonyi</option>
+              <option value={"Edo"}>Edo</option>
+              <option value={"Ekiti"}>Ekiti</option>
+              <option value={"Enugu"}>Enugu</option>
+              <option value={"FCT"}>FCT (Abuja)</option>
+              <option value={"Gombe"}>Gombe</option>
+              <option value={"Imo"}>Imo</option>
+              <option value={"Jigawa"}>Jigawa</option>
+              <option value={"Kaduna"}>Kaduna</option>
+              <option value={"Kano"}>Kano</option>
+              <option value={"Katsina"}>Katsina</option>
+              <option value={"Kebbi"}>Kebbi</option>
+              <option value={"Kogi"}>Kogi</option>
+              <option value={"Kwara"}>Kwara</option>
+              <option value={"Lagos"}>Lagos</option>
+              <option value={"Nasarawa"}>Nasarawa</option>
+              <option value={"Niger"}>Niger</option>
+              <option value={"Ogun"}>Ogun</option>
+              <option value={"Ondo"}>Ondo</option>
+              <option value={"Osun"}>Osun</option>
+              <option value={"Oyo"}>Oyo</option>
+              <option value={"Plateau"}>Plateau</option>
+              <option value={"Rivers"}>Rivers</option>
+              <option value={"Sokoto"}>Sokoto</option>
+              <option value={"Taraba"}>Taraba</option>
+              <option value={"Yobe"}>Yobe</option>
+              <option value={"Zamfara"}>Zamfara</option>{" "}
+            </select>
+          </div>
         </div>
 
         <div>
@@ -79,50 +127,6 @@ function CheckOutForm() {
             type="text"
             placeholder="Apartment, suite, etc. (optional)"
           />
-        </div>
-
-        <div className="border-1 border-slate-400 px-4 py-1 w-full rounded">
-          <p className="text-slate-500 text-[0.8rem]">State</p>
-          <select className="w-full focus:outline-none focus:ring-0">
-            <option value={""}>Select your state</option>
-            <option value={"Abia"}>Abia</option>
-            <option value={"Adamawa"}>Adamawa</option>
-            <option value={"Akwa Ibom"}>Akwa Ibom</option>
-            <option value={"Anambra"}>Anambra</option>
-            <option value={"Bauchi"}>Bauchi</option>
-            <option value={"Bayelsa"}>Bayelsa</option>
-            <option value={"Benue"}>Benue</option>
-            <option value={"Borno"}>Borno</option>
-            <option value={"Cross River"}>Cross River</option>
-            <option value={"Delta"}>Delta</option>
-            <option value={"Ebonyi"}>Ebonyi</option>
-            <option value={"Edo"}>Edo</option>
-            <option value={"Ekiti"}>Ekiti</option>
-            <option value={"Enugu"}>Enugu</option>
-            <option value={"FCT"}>FCT (Abuja)</option>
-            <option value={"Gombe"}>Gombe</option>
-            <option value={"Imo"}>Imo</option>
-            <option value={"Jigawa"}>Jigawa</option>
-            <option value={"Kaduna"}>Kaduna</option>
-            <option value={"Kano"}>Kano</option>
-            <option value={"Katsina"}>Katsina</option>
-            <option value={"Kebbi"}>Kebbi</option>
-            <option value={"Kogi"}>Kogi</option>
-            <option value={"Kwara"}>Kwara</option>
-            <option value={"Lagos"}>Lagos</option>
-            <option value={"Nasarawa"}>Nasarawa</option>
-            <option value={"Niger"}>Niger</option>
-            <option value={"Ogun"}>Ogun</option>
-            <option value={"Ondo"}>Ondo</option>
-            <option value={"Osun"}>Osun</option>
-            <option value={"Oyo"}>Oyo</option>
-            <option value={"Plateau"}>Plateau</option>
-            <option value={"Rivers"}>Rivers</option>
-            <option value={"Sokoto"}>Sokoto</option>
-            <option value={"Taraba"}>Taraba</option>
-            <option value={"Yobe"}>Yobe</option>
-            <option value={"Zamfara"}>Zamfara</option>{" "}
-          </select>
         </div>
 
         <div>

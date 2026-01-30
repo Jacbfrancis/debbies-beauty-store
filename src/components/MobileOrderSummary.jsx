@@ -23,20 +23,37 @@ function MobileOrderSummary({ isSummaryMenuOpen, setIsSummaryMenu }) {
         <span className="text-blue-600 flex justify-center items-center">
           <p className="mr-2">Order summary</p>
           <span className="font-bold">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-chevron-down-icon lucide-chevron-down"
-            >
-              <path d="m6 9 6 6 6-6" />
-            </svg>
+            {!isSummaryMenuOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-chevron-down-icon lucide-chevron-down"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-up-icon lucide-chevron-up"
+              >
+                <path d="m18 15-6-6-6 6" />
+              </svg>
+            )}
           </span>
         </span>
 
@@ -44,7 +61,6 @@ function MobileOrderSummary({ isSummaryMenuOpen, setIsSummaryMenu }) {
           ₦ {totalPrice.toLocaleString()}
         </h2>
       </div>
-
       {isSummaryMenuOpen && (
         <div
           className="bg-[#f5f5f5] w-full px-6 py-4"

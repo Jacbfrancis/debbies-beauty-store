@@ -44,7 +44,7 @@ function QuickView() {
 
   return (
     <div
-      className="bg-[#000000a3] h-[100vh] w-full absolute top-0 m-auto flex-col justify-center items-center hidden z-50 lg:flex"
+      className="bg-[#000000a3] backdrop-blur-sm h-[100vh] w-full absolute top-0 m-auto flex-col justify-center items-center hidden z-50 lg:flex"
       onClick={handleCloseQuickView}
     >
       <Toaster />
