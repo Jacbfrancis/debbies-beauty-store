@@ -20,7 +20,7 @@ function CartItems() {
 
   return (
     <>
-      <div className="h-[100vh] overflow-y-scroll [scrollbar-width:none]">
+      <div className="h-[70%] overflow-y-scroll [scrollbar-width:none]">
         {cart.map((cartItem) => (
           <div
             key={cartItem.id}
@@ -96,12 +96,12 @@ function CartItems() {
           </div>
         ))}
       </div>
-      <div className="py-8">
+      <div className="py-8 h-[30%]">
         <span className="px-4 font-semibold flex justify-between items-center">
           <h2>Total</h2>
           <p>₦{totalPrice.toLocaleString()}</p>
         </span>
-        <div className="flex justify-center items-center gap-5 my-5">
+        <div className="flex justify-center items-center gap-5 mt-5">
           <button
             onClick={() => {
               navigate("/checkout");
