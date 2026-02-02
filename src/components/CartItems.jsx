@@ -20,7 +20,7 @@ function CartItems() {
 
   return (
     <>
-      <div className="h-[70vh] overflow-y-scroll [scrollbar-width:none]">
+      <div className="h-[100vh] overflow-y-scroll [scrollbar-width:none]">
         {cart.map((cartItem) => (
           <div
             key={cartItem.id}
