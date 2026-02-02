@@ -39,7 +39,10 @@ function DesktopOrderSummary() {
               </span>
 
               <span className="w-[15%]">
-                <h3 className="font-normal"> ₦ {item.price * item.quantity}</h3>
+                <h3 className="font-normal">
+                  {" "}
+                  ₦{(item.price * item.quantity).toLocaleString()}
+                </h3>
               </span>
             </div>
           ))}

@@ -101,7 +101,7 @@ function CartItems() {
           <h2>Total</h2>
           <p>₦{totalPrice.toLocaleString()}</p>
         </span>
-        <div className="flex justify-center items-center gap-5 mt-5">
+        <div className="flex justify-center items-center gap-5 my-5">
           <button
             onClick={() => {
               navigate("/checkout");

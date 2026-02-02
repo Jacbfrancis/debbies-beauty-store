@@ -18,7 +18,7 @@ function CartMenu() {
       onClick={closeCartMenu}
     >
       <div
-        className="bg-[#fff] w-[90%] h-full px-5.5 py-3 lg:w-[34%] fixed top-0 right-0"
+        className="bg-[#fff] w-[90%] h-full px-5.5 py-3 lg:w-[34%] fixed top-0 right-0 z-50"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center">
