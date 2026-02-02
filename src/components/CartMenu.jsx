@@ -14,7 +14,7 @@ function CartMenu() {
       initial={{ x: "90vw" }}
       animate={{ x: 0 }}
       transition={{ duration: 0.65, ease: easeInOut, type: "tween" }}
-      className="w-full h-[100vh] fixed top-0"
+      className="w-full h-[100vh] absolute top-0"
       onClick={closeCartMenu}
     >
       <div
