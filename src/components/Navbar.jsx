@@ -28,7 +28,7 @@ function Navbar() {
   return (
     <nav>
       <div className="bg-[#e94a6d] text-[#fff] text-center py-2 hidden lg:block">
-        <p>Order Cosmetics and Enjoy Free Shipping on Purchases Over ₦50,000</p>
+        <p>Welcome to Debbies Beauty Store</p>
       </div>
 
       <div className="flex justify-between items-center py-6 px-6 lg:px-20">
@@ -92,8 +92,13 @@ function Navbar() {
 
         <div className="flex justify-between items-center gap-5">
           <div className="text-[1.15rem] font-semibold hidden lg:flex justify-between items-center gap-8">
-            <h3 className="cursor-pointer hover:text-[#e94a6d]">Register</h3>
-            <h3 className="cursor-pointer hover:text-[#e94a6d]">Sign in</h3>
+            <h3 className="cursor-pointer hover:text-[#e94a6d]">
+              <Link to={"/register"}> Register</Link>
+            </h3>
+            <h3 className="cursor-pointer hover:text-[#e94a6d]">
+              {" "}
+              <Link to={"/sign-in"}>Sign In</Link>
+            </h3>
           </div>
 
           <span className="lg:hidden">

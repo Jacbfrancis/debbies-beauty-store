@@ -54,8 +54,12 @@ function Navmenu() {
           ))}
 
           <hr />
-          <li>Create Account</li>
-          <li>Sign in</li>
+          <li>
+            <Link to={"/register"}>Register</Link>
+          </li>
+          <li>
+            <Link to={"/sign-in"}>Sign In</Link>
+          </li>
           <li>FAQs</li>
         </ul>
       </div>

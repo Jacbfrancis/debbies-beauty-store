@@ -18,10 +18,10 @@ function CartMenu() {
       onClick={closeCartMenu}
     >
       <div
-        className="bg-[#fff] w-[90%] h-full px-5.5 py-3 lg:w-[34%] fixed top-0 right-0 z-50"
+        className="bg-[#fff] w-[100%] h-full px-5.5 py-3 lg:w-[34%] fixed top-0 right-0 z-50"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center pb-5">
           <h1 className="text-[1.3rem] font-semibold">Shopping Cart</h1>
           <span
             className="hover:bg-[#000] hover:text-white hover:rounded-full p-1.5 cursor-pointer"
