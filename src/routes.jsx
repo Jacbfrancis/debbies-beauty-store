@@ -7,6 +7,7 @@ import CartPage from "./pages/CartPage";
 import CheckOutPage from "./pages/CheckOutPage";
 import SigninPage from "./pages/auth/SigninPage";
 import RegisterPage from "./pages/auth/RegisterPage";
+import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
 
 export const routes = [
   {
@@ -21,6 +22,7 @@ export const routes = [
       { path: "/checkout", element: <CheckOutPage /> },
       { path: "/sign-in", element: <SigninPage /> },
       { path: "/register", element: <RegisterPage /> },
+      { path: "/forgot-password", element: <ForgotPasswordPage /> },
     ],
   },
 ];

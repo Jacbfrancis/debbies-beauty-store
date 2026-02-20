@@ -55,10 +55,14 @@ function Navmenu() {
 
           <hr />
           <li>
-            <Link to={"/register"}>Register</Link>
+            <Link to={"/register"} onClick={closeNavMenu}>
+              Register
+            </Link>
           </li>
           <li>
-            <Link to={"/sign-in"}>Sign In</Link>
+            <Link to={"/sign-in"} onClick={closeNavMenu}>
+              Sign In
+            </Link>
           </li>
           <li>FAQs</li>
         </ul>

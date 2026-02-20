@@ -63,9 +63,12 @@ function SigninForm() {
               />
             </div>
           </div>
-          <span className="text-[#e94a6d] font-semibold text-right block mt-2">
+          <Link
+            to={"/forgot-password"}
+            className="text-[#e94a6d] font-semibold text-right block mt-2"
+          >
             Forgot Password?
-          </span>
+          </Link>
 
           <div className="text-center mt-8">
             <button className="bg-[#e94a6d] text-[#fff] font-extrabold w-[95%] rounded-2xl px-10 py-4">
