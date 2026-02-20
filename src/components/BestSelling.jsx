@@ -7,7 +7,7 @@ function BestSelling() {
   const active = true;
 
   return (
-    <div className="mt-10 px-6 xl:px-20">
+    <div className="mt-10 px-6 lg:px-20">
       <h1 className="text-center text-[1.8rem] mt-8 mb-10 lg:text-[2.2rem]">
         Hot Selling Products
       </h1>

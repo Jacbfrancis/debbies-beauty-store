@@ -13,7 +13,7 @@ function ProductListing() {
   );
 
   return (
-    <div className="grid grid-cols-2 gap-10 mt-15 px-6 lg:px-20 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="grid grid-cols-2 gap-10 mt-15 px-6 lg:px-20 md:grid-cols-4">
       {productCategory.map((product, index) => (
         <div
           key={product.id}

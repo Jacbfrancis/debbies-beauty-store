@@ -48,7 +48,7 @@ function CategorySection({ category, title }) {
         </Link>
       </div>
 
-      <div className="grid grid-cols-2 gap-5 lg:flex lg:justify-start lg:items-start">
+      <div className="grid grid-cols-2 gap-5 md:flex lg:justify-start lg:items-start">
         {category.slice(0, 4).map((product, index) => (
           <div
             key={product.id}

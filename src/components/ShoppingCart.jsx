@@ -16,7 +16,7 @@ function ShoppingCart() {
   }, 0);
 
   return (
-    <div className="px-6 lg:px-20">
+    <div className="px-6 md:px-20">
       <h2 className="text-[2.3rem] text-center font-medium my-8">
         Your Shopping Cart
       </h2>

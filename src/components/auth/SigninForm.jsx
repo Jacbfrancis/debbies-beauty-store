@@ -2,19 +2,20 @@ import { Link } from "react-router-dom";
 
 function SigninForm() {
   return (
-    <div className="pb-30 pt-3 xl:px-20">
-      <div className="bg-[#fff] rounded-t-3xl px-5 py-7 shadow-4xl">
+    <div className="bg-[#fff] pt-3 pb-5 w-full rounded-t-3xl shadow-4xl md:w-[60%] md:rounded-t-none">
+      <div className="px-5 pb-10 py-7 ">
         <span className="text-[1.2rem] font-bold flex justify-around items-center mb-10">
-          <h3 className="border-b-4 border-[#e94a6d] px-3 rounded-xl">
-            <Link to={"/sign-in"}>Sign In</Link>
-          </h3>
           <h3>
             <Link to={"/register"}>Register</Link>
+          </h3>
+
+          <h3 className="border-b-4 border-[#e94a6d] px-3 rounded-xl">
+            <Link to={"/sign-in"}>Sign In</Link>
           </h3>
         </span>
 
         <form>
-          <div className="flex flex-col justify-between items-center gap-5">
+          <div className="flex flex-col justify-between items-center gap-5 md:px-5 md:gap-7">
             <div className="w-full border-2 border-[#d2d2d2] rounded-4xl py-3.5 px-5 flex justify-start items-center gap-3">
               <span>
                 <svg
@@ -63,19 +64,17 @@ function SigninForm() {
               />
             </div>
           </div>
-          <Link
-            to={"/forgot-password"}
-            className="text-[#e94a6d] font-semibold text-right block mt-2"
-          >
-            Forgot Password?
-          </Link>
 
-          <div className="text-center mt-8">
+          <p className="text-[#e94a6d] font-semibold text-right block mt-2 md:mt-8">
+            <Link to={"/forgot-password"}>Forgot Password?</Link>
+          </p>
+
+          <div className="text-center mt-8 md:mt-10">
             <button className="bg-[#e94a6d] text-[#fff] font-extrabold w-[95%] rounded-2xl px-10 py-4">
               Sign In
             </button>
-            <p className="font-light mt-4">
-              Don't have an account?{"   "}
+            <p className="font-light mt-4 md:mt-8">
+              Don't have an account?{""}
               <Link to={"/register"} className="font-bold">
                 Register.
               </Link>

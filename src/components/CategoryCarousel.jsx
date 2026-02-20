@@ -19,7 +19,7 @@ function CategoryCarousel() {
 
   return (
     <div
-      className="bg-[#fdf5f7] whitespace-nowrap overflow-hidden cursor-pointer hidden xl:block"
+      className="bg-[#fdf5f7] whitespace-nowrap overflow-hidden cursor-pointer hidden md:block"
       onMouseOver={() => controls.stop()}
       onMouseLeave={() =>
         controls.start(

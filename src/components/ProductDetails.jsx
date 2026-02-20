@@ -35,7 +35,7 @@ function ProductDetails({ quantity, setQuantity }) {
   return (
     <div className="px-6 lg:px-20">
       <Toaster />
-      <div className="flex flex-col justify-center items-start my-10 lg:flex-row lg:gap-10">
+      <div className="flex flex-col justify-center items-start my-10 md:flex-row md:gap-10">
         <span className="bg-[#f0f0f0] w-full p-12 block">
           <img
             className="m-auto w-full lg:w-[70%]"

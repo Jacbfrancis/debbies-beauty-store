@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 function ForgotPasswordForm() {
   return (
-    <div className="pb-10 pt-3 xl:px-20">
-      <div className="bg-[#fff] rounded-t-3xl px-5 py-7 shadow-4xl">
+    <div className="bg-[#fff] pt-3 pb-5 w-full rounded-t-3xl shadow-4xl md:w-[60%] md:rounded-t-none">
+      <div className="px-5 py-7 pb-10">
         <div className="mb-10">
           <span className="text-[1.2rem] font-bold flex justify-between items-center">
             <Link to={"/sign-in"}>
@@ -35,39 +35,40 @@ function ForgotPasswordForm() {
         </div>
 
         <form>
-          <div className="w-full border-2 border-[#d2d2d2] rounded-4xl py-3.5 px-5 flex justify-start items-center gap-3">
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-              </svg>
-            </span>
-            <input
-              type="e-mail"
-              className="text-[1.2rem] outline-none"
-              placeholder="Email Address"
-            />
+          <div className="md:px-5">
+            <div className="w-full border-2 border-[#d2d2d2] rounded-4xl py-3.5 px-5 flex justify-start items-center gap-3">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                </svg>
+              </span>
+              <input
+                type="e-mail"
+                className="text-[1.2rem] outline-none"
+                placeholder="Email Address"
+              />
+            </div>
           </div>
 
-          <div className="text-center mt-15">
+          <div className="text-center mt-10">
             <button className="bg-[#e94a6d] text-[#fff] font-extrabold w-[95%] rounded-2xl px-10 py-4">
               Reset Password
             </button>
-
             <p className="font-light mt-4">
               Back to{" "}
               <Link to={"/sign-in"} className="font-bold">
-                Sign in
+                Sign In.
               </Link>
             </p>
           </div>
