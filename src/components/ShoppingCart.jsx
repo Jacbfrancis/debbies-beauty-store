@@ -178,7 +178,7 @@ function ShoppingCart() {
 
         <div className="text-center text-gray-800 w-full lg:w-[37%]">
           <h3 className="mb-3 font-bold">
-            Estimated total ₦{totalPrice.toLocaleString("")}
+            Estimated total ₦{totalPrice.toLocaleString()}
           </h3>
           <p className="text-[0.82rem] mb-5">
             Taxes, discounts and{" "}
