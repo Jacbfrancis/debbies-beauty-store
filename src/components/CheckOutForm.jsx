@@ -144,6 +144,12 @@ function CheckOutForm() {
             placeholder="Phone"
           />
         </div>
+
+        <div className="hidden justify-center items-center my-4 lg:flex">
+          <button className="bg-[#e94a6d] text-white w-full py-4 rounded-xl">
+            Place Order
+          </button>
+        </div>
       </form>
     </div>
   );

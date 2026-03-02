@@ -66,9 +66,8 @@ function ForgotPasswordForm() {
               Reset Password
             </button>
             <p className="font-light mt-4">
-              Back to{" "}
-              <Link to={"/sign-in"} className="font-bold">
-                Sign In.
+              <Link to={"/sign-in"} className="text-[#e94a6d] font-bold">
+                Sign In
               </Link>
             </p>
           </div>

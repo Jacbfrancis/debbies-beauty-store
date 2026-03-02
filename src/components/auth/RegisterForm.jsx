@@ -1,6 +1,47 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../../firebase/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import LoadingSpinner from "../LoadingSpinner";
+import getAuthErrorMessage from "../../utils/authErrors";
 
 function RegisterForm() {
+  const navigate = useNavigate();
+
+  // form inputs
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
+
+  async function handleRegister(e) {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+      if (!firstName || !lastName || !email || !mobileNumber || !password) {
+        return setError("All fields are required");
+      }
+      await createUserWithEmailAndPassword(auth, email, password);
+      const user = auth.currentUser;
+      if (user) {
+        console.log(user);
+        navigate("/profile");
+      } else {
+        console.log("failed to get user");
+      }
+    } catch (error) {
+      console.log(error.message);
+      setError(getAuthErrorMessage(error));
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <div className="bg-[#fff] pt-3 pb-5 w-full rounded-t-3xl shadow-4xl md:w-[60%] md:rounded-t-none">
       <div className="px-5 pb-10 py-7">
@@ -14,13 +55,15 @@ function RegisterForm() {
           </h3>
         </span>
 
-        <form>
+        <form onSubmit={handleRegister}>
           <div className="flex flex-col justify-between items-center gap-5 md:px-5">
             <div className="w-full border-2 border-[#d2d2d2] rounded-4xl py-3 px-5">
               <input
                 type="text"
                 className="text-[1.2rem] outline-none"
                 placeholder="First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
 
@@ -29,6 +72,8 @@ function RegisterForm() {
                 type="text"
                 className="text-[1.2rem] outline-none"
                 placeholder="Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
               />
             </div>
 
@@ -37,6 +82,8 @@ function RegisterForm() {
                 type="tel"
                 className="text-[1.2rem] outline-none"
                 placeholder="Mobile Number"
+                value={mobileNumber}
+                onChange={(e) => setMobileNumber(e.target.value)}
               />
             </div>
 
@@ -45,6 +92,8 @@ function RegisterForm() {
                 type="email"
                 className="text-[1.2rem] outline-none"
                 placeholder="Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
@@ -53,6 +102,8 @@ function RegisterForm() {
                 type="password"
                 className="text-[1.2rem] outline-none"
                 placeholder="Create Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
           </div>
@@ -71,12 +122,17 @@ function RegisterForm() {
           </span>
 
           <div className="text-center mt-8">
-            <button className="bg-[#e94a6d] text-[#fff] font-extrabold w-[95%] rounded-2xl px-10 py-4">
-              Register
+            <button
+              disabled={loading}
+              onClick={handleRegister}
+              className="bg-[#e94a6d] text-[#fff] font-extrabold w-[95%] rounded-2xl px-10 py-4"
+            >
+              {loading ? <LoadingSpinner /> : <span>Register</span>}
             </button>
-            <p className="font-light mt-4">
+            {error && <span className="text-red-500 my-3 block">{error}</span>}
+            <p className="font-light mt-5">
               Already have an account?{" "}
-              <Link to={"/sign-in"} className="font-bold">
+              <Link to={"/sign-in"} className="text-[#e94a6d] font-bold">
                 Sign In.
               </Link>
             </p>

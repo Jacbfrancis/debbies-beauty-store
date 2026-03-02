@@ -7,7 +7,7 @@ export const products = [
     brand: "Botanical Glow",
     category: "Skincare (Face)",
     price: 2000,
-    isOnSale: true,
+    availability: true,
     description: `A refreshing facial mist infused with pure rose water to hydrate and soothe the skin. Perfect for daily use, it helps reduce redness and adds a natural glow.`,
   },
   {
@@ -18,7 +18,7 @@ export const products = [
     brand: "LuxeCharm",
     category: "Makeup",
     price: 4000,
-    isOnSale: true,
+    availability: true,
     description: `This creamy matte lipstick delivers intense color payoff with a soft, lightweight feel. Long-lasting and comfortable, it keeps your lips smooth all day.`,
   },
   {
@@ -29,7 +29,7 @@ export const products = [
     brand: "SilkEssence",
     category: "Hair Care",
     price: 3000,
-    isOnSale: false,
+    availability: false,
     description: `A nutrient-rich serum formulated with pure argan oil to repair dry and damaged hair. It adds shine, reduces frizz, and leaves your hair silky smooth.`,
   },
   {
@@ -40,7 +40,7 @@ export const products = [
     brand: "PureRadiance",
     category: "Skincare (Face)",
     price: 1800,
-    isOnSale: true,
+    availability: true,
     description: `This multipurpose gel calms irritated skin and provides instant hydration. Made with natural aloe vera, it absorbs quickly without leaving sticky residue.`,
   },
   {
@@ -51,7 +51,7 @@ export const products = [
     brand: "CalmNest",
     category: "Body Care",
     price: 2500,
-    isOnSale: false,
+    availability: false,
     description: `A luxurious body lotion blended with shea butter and lavender extract for deep hydration. It softens the skin and leaves a relaxing scent that lasts.`,
   },
   {
@@ -62,7 +62,7 @@ export const products = [
     brand: "TropiSilk",
     category: "Hair Care",
     price: 25000,
-    isOnSale: true,
+    availability: true,
     description: `Restore dry, brittle hair with this ultra-moisturizing coconut-based mask. It penetrates deeply to nourish each strand and boost overall hair health.`,
   },
   {
@@ -73,7 +73,7 @@ export const products = [
     brand: "FreshAura",
     category: "Body Care",
     price: 14000,
-    isOnSale: false,
+    availability: false,
     description: `Energize your shower routine with this zesty citrus body wash. It gently cleanses the skin while leaving it soft, refreshed, and revitalized.`,
   },
   {
@@ -84,7 +84,7 @@ export const products = [
     brand: "GlamVibe",
     category: "Makeup",
     price: 2800,
-    isOnSale: true,
+    availability: true,
     description: `This highlighter palette features three luminous shades for a customizable glow. Its silky texture blends effortlessly to enhance your natural features.`,
   },
   {
@@ -95,7 +95,7 @@ export const products = [
     brand: "Leaf&Bloom",
     category: "Skincare (Face)",
     price: 10000,
-    isOnSale: true,
+    availability: true,
     description: `A gentle toner enriched with green tea extract to balance and purify the skin. It minimizes pores and provides lightweight hydration without irritation.`,
   },
   {
@@ -106,7 +106,7 @@ export const products = [
     brand: "Blendify",
     category: "Beauty Tools",
     price: 10000,
-    isOnSale: false,
+    availability: false,
     description: `This soft, latex-free beauty blender blends makeup seamlessly for a flawless finish. Its teardrop shape allows precise application in all areas of the face.`,
   },
   {
@@ -117,7 +117,7 @@ export const products = [
     brand: "MoonDew",
     category: "Skincare (Face)",
     price: 3500,
-    isOnSale: true,
+    availability: true,
     description: `An intensive night cream that deeply nourishes and repairs the skin while you sleep. It reduces fine lines and improves elasticity for a youthful glow.`,
   },
   {
@@ -128,7 +128,7 @@ export const products = [
     brand: "SweetLips",
     category: "Makeup",
     price: 8000,
-    isOnSale: false,
+    availability: false,
     description: `A hydrating lip balm with a sheer berry tint for a natural pop of color. It softens and protects the lips with nourishing botanical oils.`,
   },
   {
@@ -139,7 +139,7 @@ export const products = [
     brand: "GlowStrand",
     category: "Hair Care",
     price: 2500,
-    isOnSale: true,
+    availability: true,
     description: `Lightweight yet powerful, this hair oil tames frizz and adds brilliant shine. It absorbs quickly without weighing the hair down.`,
   },
   {
@@ -150,7 +150,7 @@ export const products = [
     brand: "SilkWhip",
     category: "Body Care",
     price: 6000,
-    isOnSale: false,
+    availability: false,
     description: `This rich body butter melts into the skin, providing long-lasting moisture. The warm vanilla orchid scent creates a calming and luxurious experience.`,
   },
   {
@@ -161,7 +161,7 @@ export const products = [
     brand: "Scentelier",
     category: "Fragrance",
     price: 4500,
-    isOnSale: true,
+    availability: true,
     description: `A delicate floral perfume with notes of jasmine and peony for an elegant aroma. Long-lasting and feminine, it’s perfect for day or night.`,
   },
   {
@@ -172,7 +172,7 @@ export const products = [
     brand: "MystiScents",
     category: "Fragrance",
     price: 3000,
-    isOnSale: false,
+    availability: false,
     description: `A warm, woody mist with hints of amber and vanilla for a cozy, sophisticated scent. Lightweight and versatile, ideal for daily wear.`,
   },
   {
@@ -183,7 +183,7 @@ export const products = [
     brand: "ArchCraft",
     category: "Makeup",
     price: 3000,
-    isOnSale: true,
+    availability: true,
     description: `This ultra-fine brow pencil allows precise shaping and filling for natural-looking brows. The smudge-proof formula ensures long-lasting definition.`,
   },
   {
@@ -194,7 +194,7 @@ export const products = [
     brand: "AquaBloom",
     category: "Skincare (Face)",
     price: 4000,
-    isOnSale: false,
+    availability: false,
     description: `A set of ultra-hydrating sheet masks infused with botanical extracts. Each mask delivers deep moisture and leaves the skin plump and glowing.`,
   },
   {
@@ -205,7 +205,7 @@ export const products = [
     brand: "TameTress",
     category: "Fragrance",
     price: 15000,
-    isOnSale: true,
+    availability: true,
     description: `This durable paddle brush gently detangles hair without causing breakage. Its wide surface makes styling quick, smooth, and effortless.`,
   },
   {
@@ -216,7 +216,7 @@ export const products = [
     brand: "LashLuxe",
     category: "Beauty Tools",
     price: 2000,
-    isOnSale: false,
+    availability: false,
     description: `A sleek, rose gold eyelash curler designed to lift and curl lashes with ease. The ergonomic handle provides comfort and precision in every use.`,
   },
   {
@@ -227,7 +227,7 @@ export const products = [
     brand: "LumiSkin",
     category: "Skincare (Face)",
     price: 13000,
-    isOnSale: true,
+    availability: true,
     description: `A brightening serum infused with Vitamin C to even skin tone and restore radiance. Its lightweight formula absorbs quickly, leaving your skin refreshed and glowing.`,
   },
   {
@@ -238,7 +238,7 @@ export const products = [
     brand: "GlowFix",
     category: "Makeup",
     price: 6000,
-    isOnSale: false,
+    availability: false,
     description: `A weightless mist that locks in makeup for a long-lasting, matte finish. It hydrates while keeping excess oil at bay throughout the day.`,
   },
   {
@@ -249,7 +249,7 @@ export const products = [
     brand: "SilkTreat",
     category: "Hair Care",
     price: 5000,
-    isOnSale: true,
+    availability: true,
     description: `Formulated with keratin protein, this shampoo gently cleanses and strengthens hair. It leaves strands smooth, manageable, and frizz-free.`,
   },
   {
@@ -260,7 +260,7 @@ export const products = [
     brand: "SugarBloom",
     category: "Body Care",
     price: 6000,
-    isOnSale: false,
+    availability: false,
     description: `An exfoliating body scrub enriched with vanilla and natural sugar crystals. It polishes dull skin, leaving it silky smooth and delicately scented.`,
   },
   {
@@ -271,7 +271,7 @@ export const products = [
     brand: "Blendify",
     category: "Fragrance",
     price: 12000,
-    isOnSale: true,
+    availability: true,
     description: `This angled contour brush provides perfect control for sculpting and defining features. Its soft bristles blend seamlessly for a professional finish.`,
   },
   {
@@ -282,7 +282,7 @@ export const products = [
     brand: "AromaLuxe",
     category: "Fragrance",
     price: 52000,
-    isOnSale: true,
+    availability: true,
     description: `A romantic fragrance featuring notes of peony, rose, and sandalwood. This elegant perfume captures the essence of timeless femininity.`,
   },
   {
@@ -293,7 +293,7 @@ export const products = [
     brand: "PureZen",
     category: "Skincare (Face)",
     price: 3000,
-    isOnSale: false,
+    availability: false,
     description: `A deep-cleansing mask that draws out impurities and excess oil using activated charcoal. Leaves the skin purified and refreshed without over-drying.`,
   },
   {
@@ -304,7 +304,7 @@ export const products = [
     brand: "LushTint",
     category: "Makeup",
     price: 4000,
-    isOnSale: true,
+    availability: true,
     description: `A glossy nude lip color enriched with shea butter for moisture and shine. Perfect for everyday wear with a non-sticky finish.`,
   },
   {
@@ -315,7 +315,7 @@ export const products = [
     brand: "WaveMuse",
     category: "Hair Care",
     price: 7000,
-    isOnSale: true,
+    availability: true,
     description: `Define and nourish your curls with this rich coconut cream. It reduces frizz and enhances natural texture for soft, bouncy curls.`,
   },
   {
@@ -326,7 +326,7 @@ export const products = [
     brand: "NaturaBliss",
     category: "Body Care",
     price: 5000,
-    isOnSale: false,
+    availability: false,
     description: `A deeply hydrating body oil blended with honey and almond extract. It leaves skin smooth and radiant with a sweet, warm scent.`,
   },
   {
@@ -337,7 +337,7 @@ export const products = [
     brand: "GlowStone",
     category: "Hair Care",
     price: 7500,
-    isOnSale: true,
+    availability: true,
     description: `A luxury facial roller crafted from natural rose quartz. It helps reduce puffiness, boost circulation, and promote a youthful glow.`,
   },
   {
@@ -348,7 +348,7 @@ export const products = [
     brand: "NoirEssence",
     category: "Fragrance",
     price: 3000,
-    isOnSale: true,
+    availability: true,
     description: `A bold and exotic fragrance with hints of oud, amber, and musk. Perfect for evening wear, exuding confidence and sophistication.`,
   },
   {
@@ -359,7 +359,7 @@ export const products = [
     brand: "AquaLeaf",
     category: "Skincare (Face)",
     price: 1900,
-    isOnSale: false,
+    availability: false,
     description: `A lightweight daily moisturizer enriched with hyaluronic acid. It locks in moisture for soft, plump, and healthy-looking skin.`,
   },
   {
@@ -370,7 +370,7 @@ export const products = [
     brand: "VelviTone",
     category: "Makeup",
     price: 2000,
-    isOnSale: true,
+    availability: true,
     description: `A smooth, buildable foundation offering medium to full coverage. It blends seamlessly, leaving your skin with a natural satin finish.`,
   },
   {
@@ -381,7 +381,7 @@ export const products = [
     brand: "NutriSilk",
     category: "Hair Care",
     price: 2000,
-    isOnSale: true,
+    availability: true,
     description: `A creamy hair mask enriched with avocado oil for deep nourishment. It strengthens and restores dry, damaged strands.`,
   },
   {
@@ -392,7 +392,7 @@ export const products = [
     brand: "OceanMist",
     category: "Body Care",
     price: 1600,
-    isOnSale: false,
+    availability: false,
     description: `A refreshing shower gel with tropical fruit extracts. It gently cleanses while leaving your skin smelling fresh and hydrated.`,
   },
   {
@@ -403,7 +403,7 @@ export const products = [
     brand: "ProBlend",
     category: "Beauty Tools",
     price: 1000,
-    isOnSale: true,
+    availability: true,
     description: `A set of two ultra-soft makeup sponges for flawless application. Suitable for blending liquid, cream, or powder products with ease.`,
   },
   {
@@ -414,7 +414,7 @@ export const products = [
     brand: "VelvetAura",
     category: "Fragrance",
     price: 4200,
-    isOnSale: false,
+    availability: false,
     description: `A sophisticated scent with warm amber and smoky undertones. Crafted for those who appreciate depth and elegance in every spray.`,
   },
   {
@@ -425,7 +425,7 @@ export const products = [
     brand: "EarthGlow",
     category: "Skincare (Face)",
     price: 2500,
-    isOnSale: true,
+    availability: true,
     description: `A detoxifying clay mask designed to clear pores and control oil. Perfect for combination to oily skin types, leaving a smooth matte finish.`,
   },
   {
@@ -436,7 +436,7 @@ export const products = [
     brand: "SkinMuse",
     category: "Makeup",
     price: 1000,
-    isOnSale: false,
+    availability: false,
     description: `A lightweight BB cream that hydrates, blurs imperfections, and adds a natural glow. Ideal for achieving effortless everyday coverage.`,
   },
   {
@@ -447,7 +447,7 @@ export const products = [
     brand: "BrightEyes",
     category: "Skincare (Face)",
     price: 8000,
-    isOnSale: true,
+    availability: true,
     description: `An energizing eye cream formulated with caffeine to reduce puffiness and dark circles. It instantly refreshes tired eyes for a well-rested look.`,
   },
   {
@@ -458,7 +458,7 @@ export const products = [
     brand: "RosyHue",
     category: "Makeup",
     price: 1800,
-    isOnSale: false,
+    availability: false,
     description: `A silky blush compact that adds a natural flush of color to your cheeks. The fine texture ensures smooth application and buildable intensity.`,
   },
   {
@@ -469,7 +469,7 @@ export const products = [
     brand: "ScalpPure",
     category: "Hair Care",
     price: 2000,
-    isOnSale: true,
+    availability: true,
     description: `A refreshing scalp scrub with mint and tea tree oil to exfoliate buildup. It promotes a balanced, clean scalp and healthier hair growth.`,
   },
   {
@@ -480,7 +480,7 @@ export const products = [
     brand: "VelvaSkin",
     category: "Body Care",
     price: 2500,
-    isOnSale: true,
+    availability: true,
     description: `A luxuriously whipped body cream that melts into the skin. Enriched with shea butter for intense hydration and a silky finish.`,
   },
   {
@@ -491,7 +491,7 @@ export const products = [
     brand: "Blendistry",
     category: "Hair Care",
     price: 700,
-    isOnSale: false,
+    availability: false,
     description: `A professional-grade eyeshadow brush featuring two ends for blending and detailing. Crafted with ultra-soft bristles for smooth application.`,
   },
   {
@@ -502,7 +502,7 @@ export const products = [
     brand: "Essenza",
     category: "Fragrance",
     price: 3000,
-    isOnSale: true,
+    availability: true,
     description: `A delicate perfume oil with citrus, jasmine, and amber notes. The roll-on design makes it perfect for on-the-go fragrance touch-ups.`,
   },
   {
@@ -513,7 +513,7 @@ export const products = [
     brand: "PureTone",
     category: "Skincare (Face)",
     price: 8000,
-    isOnSale: false,
+    availability: false,
     description: `A gentle toner designed to balance pH levels and refine pores. Infused with chamomile and cucumber extracts for soothing hydration.`,
   },
   {
@@ -524,7 +524,7 @@ export const products = [
     brand: "BrightVeil",
     category: "Makeup",
     price: 10000,
-    isOnSale: true,
+    availability: true,
     description: `A hydrating concealer that brightens under-eyes and conceals imperfections. The creamy formula blends effortlessly for a natural, radiant look.`,
   },
   {
@@ -535,7 +535,7 @@ export const products = [
     brand: "HydraStrand",
     category: "Hair Care",
     price: 2500,
-    isOnSale: false,
+    availability: false,
     description: `A restorative conditioner infused with argan and shea butter. It smooths, strengthens, and enhances shine for softer, healthier hair.`,
   },
   {
@@ -546,7 +546,7 @@ export const products = [
     brand: "SoftPetal",
     category: "Body Care",
     price: 1500,
-    isOnSale: true,
+    availability: true,
     description: `A rich, non-greasy hand cream infused with cocoa butter for instant hydration. It leaves hands soft, smooth, and delicately scented.`,
   },
 ];

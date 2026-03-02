@@ -2,7 +2,7 @@ function Footer() {
   return (
     <div className="bg-[#e94a6d] text-[#fff] px-12 py-13 lg:px-20 lg:py-20">
       <div className="text-center flex flex-col justify-center items-center lg:flex-row lg:justify-between lg:text-left">
-        <span className="w-[40%] lg:w-[12%] mb-6 block">
+        <span className="w-[40%] md:w-[30%] lg:w-[12%] mb-6 block">
           <img className="w-full" src="/images/logo2.png" />
         </span>
 

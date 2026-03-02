@@ -1,6 +1,35 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import LoadingSpinner from "../LoadingSpinner";
+import getAuthErrorMessage from "../../utils/authErrors";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase/firebase";
 
 function SigninForm() {
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
+
+  async function handleSignin(e) {
+    e.preventDefault();
+    if (!email || !password) {
+      return setError("All fields are required");
+    }
+
+    try {
+      setLoading(true);
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/profile");
+    } catch (error) {
+      setError(getAuthErrorMessage(error));
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <div className="bg-[#fff] pt-3 pb-5 w-full rounded-t-3xl shadow-4xl md:w-[60%] md:rounded-t-none">
       <div className="px-5 pb-10 py-7 ">
@@ -14,7 +43,14 @@ function SigninForm() {
           </h3>
         </span>
 
-        <form>
+        <form onSubmit={handleSignin}>
+          {error && (
+            <span className="text-red-500 text-[1.07rem] text-center mb-4 block">
+              {" "}
+              {error}
+            </span>
+          )}
+
           <div className="flex flex-col justify-between items-center gap-5 md:px-5 md:gap-7">
             <div className="w-full border-2 border-[#d2d2d2] rounded-4xl py-3.5 px-5 flex justify-start items-center gap-3">
               <span>
@@ -37,6 +73,8 @@ function SigninForm() {
                 type="e-mail"
                 className="text-[1.2rem] outline-none"
                 placeholder="Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
@@ -61,21 +99,26 @@ function SigninForm() {
                 type="password"
                 className="text-[1.2rem] outline-none"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
           </div>
 
-          <p className="text-[#e94a6d] font-semibold text-right block mt-2 md:mt-8">
+          <p className="text-[#000] font-semibold text-right block mt-2 md:mt-8">
             <Link to={"/forgot-password"}>Forgot Password?</Link>
           </p>
 
           <div className="text-center mt-8 md:mt-10">
-            <button className="bg-[#e94a6d] text-[#fff] font-extrabold w-[95%] rounded-2xl px-10 py-4">
-              Sign In
+            <button
+              className="bg-[#e94a6d] text-[#fff] font-extrabold w-[95%] rounded-2xl px-10 py-4"
+              onClick={handleSignin}
+            >
+              {loading ? <LoadingSpinner /> : <p>Sign In</p>}
             </button>
             <p className="font-light mt-4 md:mt-8">
-              Don't have an account?{""}
-              <Link to={"/register"} className="font-bold">
+              Don't have an account?{" "}
+              <Link to={"/register"} className="text-[#e94a6d] font-bold">
                 Register.
               </Link>
             </p>

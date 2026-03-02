@@ -20,8 +20,8 @@ function MobileOrderSummary({ isSummaryMenuOpen, setIsSummaryMenu }) {
       onClick={() => setIsSummaryMenu(!isSummaryMenuOpen)}
     >
       <div className="flex justify-between items-center border-b-1 border-slate-400 px-6 pt-4.5 pb-3">
-        <span className="text-blue-600 flex justify-center items-center">
-          <p className="mr-2">Order summary</p>
+        <span className="text-[#000] flex justify-center items-center">
+          <p className="text-[1.15rem] mr-2">Order Summary</p>
           <span className="font-bold">
             {!isSummaryMenuOpen ? (
               <svg

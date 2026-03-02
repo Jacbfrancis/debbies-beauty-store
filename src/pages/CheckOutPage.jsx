@@ -33,6 +33,12 @@ function CheckOutPage() {
           />
         </span>
 
+        <div className="flex justify-center items-center my-4 lg:hidden">
+          <button className="bg-[#e94a6d] text-white w-[90%] py-4 rounded-xl">
+            Place Order
+          </button>
+        </div>
+
         {isShippingModalOpen && (
           <div>
             <ScrollToTop />

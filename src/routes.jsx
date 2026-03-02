@@ -8,6 +8,7 @@ import CheckOutPage from "./pages/CheckOutPage";
 import SigninPage from "./pages/auth/SigninPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
+import ProfilePage from "./pages/ProfilePage";
 
 export const routes = [
   {
@@ -23,6 +24,7 @@ export const routes = [
       { path: "/sign-in", element: <SigninPage /> },
       { path: "/register", element: <RegisterPage /> },
       { path: "/forgot-password", element: <ForgotPasswordPage /> },
+      { path: "/profile", element: <ProfilePage /> },
     ],
   },
 ];
