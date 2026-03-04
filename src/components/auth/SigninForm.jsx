@@ -114,7 +114,11 @@ function SigninForm() {
               className="bg-[#e94a6d] text-[#fff] font-extrabold w-[95%] rounded-2xl px-10 py-4"
               onClick={handleSignin}
             >
-              {loading ? <LoadingSpinner /> : <p>Sign In</p>}
+              {loading ? (
+                <LoadingSpinner borderColor={"border-[#fff]"} />
+              ) : (
+                <p>Sign In</p>
+              )}
             </button>
             <p className="font-light mt-4 md:mt-8">
               Don't have an account?{" "}

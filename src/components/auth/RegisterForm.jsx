@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../firebase/firebase";
+import { auth, db } from "../../firebase/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import LoadingSpinner from "../LoadingSpinner";
 import getAuthErrorMessage from "../../utils/authErrors";
+import { doc, setDoc } from "firebase/firestore";
 
 function RegisterForm() {
   const navigate = useNavigate();
@@ -22,20 +23,21 @@ function RegisterForm() {
     e.preventDefault();
 
     try {
-      setLoading(true);
       if (!firstName || !lastName || !email || !mobileNumber || !password) {
         return setError("All fields are required");
       }
+      setLoading(true);
       await createUserWithEmailAndPassword(auth, email, password);
       const user = auth.currentUser;
-      if (user) {
-        console.log(user);
-        navigate("/profile");
-      } else {
-        console.log("failed to get user");
-      }
+      await setDoc(doc(db, "users", user.uid), {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        mobileNumber: mobileNumber,
+        Orders: [],
+      });
+      navigate("/profile");
     } catch (error) {
-      console.log(error.message);
       setError(getAuthErrorMessage(error));
     } finally {
       setLoading(false);
@@ -127,7 +129,11 @@ function RegisterForm() {
               onClick={handleRegister}
               className="bg-[#e94a6d] text-[#fff] font-extrabold w-[95%] rounded-2xl px-10 py-4"
             >
-              {loading ? <LoadingSpinner /> : <span>Register</span>}
+              {loading ? (
+                <LoadingSpinner borderColor={"border-[#fff]"} />
+              ) : (
+                <span>Register</span>
+              )}
             </button>
             {error && <span className="text-red-500 my-3 block">{error}</span>}
             <p className="font-light mt-5">

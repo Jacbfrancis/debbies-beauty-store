@@ -1,11 +1,29 @@
+import { useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
 import { useNavMenu } from "../store/useNavMenuStore";
 import { Categories } from "../constants/categories";
 import { Link } from "react-router-dom";
+import { auth } from "../firebase/firebase";
 
 function Navmenu() {
   const closeNavMenu = useNavMenu((state) => state.closeNavMenu);
+  const [isUserActive, setIsUserActive] = useState(false);
+
+  useEffect(() => {
+    function unSubscribe() {
+      onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          setIsUserActive(true);
+        } else {
+          setIsUserActive(false);
+        }
+      });
+    }
+    return unSubscribe();
+  }, []);
+
   return (
     <motion.div
       initial={{ x: "-50vw" }}
@@ -55,14 +73,26 @@ function Navmenu() {
 
           <hr />
           <li>
-            <Link to={"/register"} onClick={closeNavMenu}>
-              Register
-            </Link>
+            {isUserActive ? (
+              <Link to={"/profile"} onClick={closeNavMenu}>
+                My Account
+              </Link>
+            ) : (
+              <Link to={"/register"} onClick={closeNavMenu}>
+                Register
+              </Link>
+            )}
           </li>
           <li>
-            <Link to={"/sign-in"} onClick={closeNavMenu}>
-              Sign In
-            </Link>
+            {isUserActive ? (
+              <Link to={"/orders"} onClick={closeNavMenu}>
+                Orders
+              </Link>
+            ) : (
+              <Link to={"/register"} onClick={closeNavMenu}>
+                Sign In
+              </Link>
+            )}
           </li>
           <li>FAQs</li>
         </ul>
