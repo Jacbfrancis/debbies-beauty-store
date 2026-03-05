@@ -89,7 +89,7 @@ function Navmenu() {
                 Orders
               </Link>
             ) : (
-              <Link to={"/register"} onClick={closeNavMenu}>
+              <Link to={"/sign-in"} onClick={closeNavMenu}>
                 Sign In
               </Link>
             )}

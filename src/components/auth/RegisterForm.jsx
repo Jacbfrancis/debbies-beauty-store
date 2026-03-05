@@ -36,7 +36,7 @@ function RegisterForm() {
         mobileNumber: mobileNumber,
         Orders: [],
       });
-      navigate("/profile");
+      navigate("/");
     } catch (error) {
       setError(getAuthErrorMessage(error));
     } finally {

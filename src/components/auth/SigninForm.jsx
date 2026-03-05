@@ -22,7 +22,7 @@ function SigninForm() {
     try {
       setLoading(true);
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/profile");
+      navigate("/");
     } catch (error) {
       setError(getAuthErrorMessage(error));
     } finally {

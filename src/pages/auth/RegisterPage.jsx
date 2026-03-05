@@ -15,7 +15,7 @@ function RegisterPage() {
     function unsubscribe() {
       onAuthStateChanged(auth, async (user) => {
         if (user) {
-          navigate("/profile");
+          navigate("/");
         }
         setLoading(false);
       });

@@ -1,16 +1,21 @@
 //import { useState } from "react";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import LoadingSpinner from "../components/LoadingSpinner";
+import LogoutModal from "../components/LogoutModal";
+import { useLogoutModal } from "../store/useLogoutModal";
 
 export default function MyAccountPage() {
   const navigate = useNavigate();
 
   const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const isLogoutModal = useLogoutModal((state) => state.isLogoutModal);
+  const openLogoutModal = useLogoutModal((state) => state.openLogoutModal);
 
   useEffect(() => {
     function unsubscribe() {
@@ -19,23 +24,13 @@ export default function MyAccountPage() {
           const docSnap = await getDoc(doc(db, "users", user.uid));
           setUserDetails(docSnap.data());
         } else {
-          navigate("/login");
+          navigate("/sign-in");
         }
         setLoading(false);
       });
     }
     unsubscribe();
   }, [navigate]);
-
-  async function handleLogout(e) {
-    e.preventDefault();
-    try {
-      await signOut(auth);
-      navigate("/register");
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
 
   return (
     <div className="bg-[#f3f5f7] tracking-wide px-6 pt-4 md:px-20">
@@ -44,9 +39,11 @@ export default function MyAccountPage() {
       <div className="bg-white rounded-xl py-6 px-5 grid gap-4 md:p-10 md:grid-cols-2">
         <div className="hidden w-[60%] m-auto md:block">
           <span className="block">
-            <img src="/images/logo1.png" alt="logo" />
+            <img src="/images/logo1.png" alt="logo_img" />
           </span>
         </div>
+
+        {isLogoutModal && <LogoutModal />}
 
         {loading ? (
           <LoadingSpinner borderColor={"border-[#e94a6d]"} />
@@ -56,7 +53,7 @@ export default function MyAccountPage() {
               <label className="text-[#676767]">First Name</label>
               <input
                 disabled
-                value={userDetails.firstName}
+                value={userDetails?.firstName || ""}
                 type="text"
                 className="bg-[#f3f5f7] text-[1.2rem] font-light outline-none w-full px-4 py-2 block border-1 border-[#d2d2d2] rounded-4xl"
               />
@@ -66,7 +63,7 @@ export default function MyAccountPage() {
               <label className="text-[#676767]">Last Name</label>
               <input
                 disabled
-                value={userDetails.lastName}
+                value={userDetails?.lastName || ""}
                 type="text"
                 className="bg-[#f3f5f7] text-[1.2rem] font-light outline-none w-full px-4 py-2 block border-1 border-[#d2d2d2] rounded-4xl"
               />
@@ -76,7 +73,7 @@ export default function MyAccountPage() {
               <label className="text-[#676767]">Mobile Number</label>
               <input
                 disabled
-                value={userDetails.mobileNumber}
+                value={userDetails?.mobileNumber || ""}
                 type="number"
                 className="bg-[#f3f5f7] text-[1.2rem] font-light outline-none w-full px-4 py-2 block border-1 border-[#d2d2d2] rounded-4xl"
               />
@@ -86,7 +83,7 @@ export default function MyAccountPage() {
               <label className="text-[#676767]">Email</label>
               <input
                 disabled
-                value={userDetails.email}
+                value={userDetails?.email || ""}
                 type="email"
                 className="bg-[#f3f5f7] text-[1.2rem] font-light outline-none w-full px-4 py-2 block border-1 border-[#d2d2d2] rounded-4xl"
               />
@@ -107,8 +104,8 @@ export default function MyAccountPage() {
 
       <div className="text-center py-8">
         <button
-          onClick={handleLogout}
           className="bg-[#e94a6d] font-bold text-white rounded-4xl px-3 py-3 shadow-lg w-[50%] md:w-[20%]"
+          onClick={openLogoutModal}
         >
           Log out
         </button>

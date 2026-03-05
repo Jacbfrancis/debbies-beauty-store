@@ -10,7 +10,9 @@ import { useCartMenu } from "../store/useCartMenuStore";
 import { useSearchQuery } from "../store/useSearchStore";
 import { useCart } from "../store/useCart";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase/firebase";
+import { auth, db } from "../firebase/firebase";
+import ProfileDropdown from "./ProfileDropDown";
+import { doc, getDoc } from "firebase/firestore";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -27,15 +29,17 @@ function Navbar() {
 
   const cart = useCart((state) => state.cart);
 
-  const [isUserActive, setIsUserActive] = useState(false);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+  const [userDetails, setUserDetails] = useState("");
 
   useEffect(() => {
     function unsubscribe() {
       onAuthStateChanged(auth, async (user) => {
         if (user) {
-          setIsUserActive(true);
+          const docSnap = await getDoc(doc(db, "users", user.uid));
+          setUserDetails(docSnap.data());
         } else {
-          setIsUserActive(false);
+          setUserDetails("");
         }
       });
     }
@@ -107,41 +111,12 @@ function Navbar() {
           />
         </form>
 
-        <div className="flex justify-between items-center gap-6">
-          {isUserActive ? (
-            <span className="hidden lg:block">
-              <Link to={"/profile"}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="28"
-                  height="28"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <circle cx="12" cy="10" r="3" />
-                  <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662" />
-                </svg>
-              </Link>
-            </span>
-          ) : (
-            <div className="text-[1.15rem] font-semibold hidden lg:flex justify-between items-center gap-8">
-              <h3 className="cursor-pointer hover:text-[#e94a6d]">
-                <Link to={"/register"}> Register</Link>
-              </h3>
-              <h3 className="cursor-pointer hover:text-[#e94a6d]">
-                {" "}
-                <Link to={"/sign-in"}>Sign In</Link>
-              </h3>
-            </div>
-          )}
-
-          <span className="lg:hidden">
-            <Link to={"/register"}>
+        <div className="flex justify-between items-center gap-8">
+          {userDetails ? (
+            <span
+              className="hover:bg-[#fdf5f7] p-2 rounded-lg hidden justify-center items-center gap-1 lg:flex"
+              onClick={() => setIsProfileModalOpen(!isProfileModalOpen)}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"
@@ -157,8 +132,55 @@ function Navbar() {
                 <circle cx="12" cy="10" r="3" />
                 <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662" />
               </svg>
-            </Link>
-          </span>
+              <span className="text-[#c6c6c6] block">
+                {isProfileModalOpen ? (
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="m18 15-6-6-6 6" />
+                    </svg>
+                    <ProfileDropdown
+                      setIsProfileModalOpen={setIsProfileModalOpen}
+                      userEmail={userDetails.email}
+                    />
+                  </span>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                )}
+              </span>
+            </span>
+          ) : (
+            <div className="text-[1.15rem] font-semibold hidden lg:flex justify-between items-center gap-8">
+              <h3 className="cursor-pointer hover:text-[#e94a6d]">
+                <Link to={"/register"}> Register</Link>
+              </h3>
+              <h3 className="cursor-pointer hover:text-[#e94a6d]">
+                {" "}
+                <Link to={"/sign-in"}>Sign In</Link>
+              </h3>
+            </div>
+          )}
 
           <span className="inline-block cursor-pointer" onClick={openCartMenu}>
             <svg
@@ -178,7 +200,7 @@ function Navbar() {
             </svg>
           </span>
         </div>
-        <span className="bg-[#e94a6d] text-[#fff] py-[0.05rem] px-[0.5rem] rounded-4xl absolute top-6 right-2.5 lg:top-17 lg:right-17">
+        <span className="bg-[#e94a6d] text-[#fff] py-[0.05rem] px-[0.5rem] rounded-4xl absolute top-6 right-2.5 md:top-12 lg:top-17 lg:right-17">
           {cart.length}
         </span>
       </div>
