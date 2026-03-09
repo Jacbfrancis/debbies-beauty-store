@@ -1,10 +1,13 @@
 import { useState } from "react";
 import CategoryCard from "./CategoryCard";
-import { products } from "../ProductsArray";
+import { useProducts } from "../store/useProductsStore";
+//import { products } from "../ProductsArray";
 
 function BestSelling() {
   const [currentIndex, setCurrentIndex] = useState(null);
   const active = true;
+
+  const products = useProducts((state) => state.products);
 
   return (
     <div className="mt-10 px-6 lg:px-20">
@@ -14,7 +17,7 @@ function BestSelling() {
 
       <div className="overflow-x-scroll [scrollbar-width:none] whitespace-nowrap">
         <div className="flex justify-start items-start gap-4 snap-x">
-          {products.slice(0, 5).map((product, index) => (
+          {products?.slice(0, 5).map((product, index) => (
             <div
               key={index}
               onMouseOver={() => setCurrentIndex(index)}

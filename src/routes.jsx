@@ -10,6 +10,8 @@ import RegisterPage from "./pages/auth/RegisterPage";
 import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
 import ProfilePage from "./pages/ProfilePage";
 import OrdersPage from "./pages/OrdersPage";
+import PrivateRoute from "./components/auth/PrivateRoute";
+import PublicRoute from "./components/auth/PublicRoute";
 
 export const routes = [
   {
@@ -21,12 +23,22 @@ export const routes = [
       { path: "/search", element: <SearchResultsPage /> },
       { path: "/product/:slug", element: <ProductDetailsPage /> },
       { path: "/cart", element: <CartPage /> },
-      { path: "/checkout", element: <CheckOutPage /> },
-      { path: "/sign-in", element: <SigninPage /> },
-      { path: "/register", element: <RegisterPage /> },
+      {
+        element: <PublicRoute />,
+        children: [
+          { path: "/register", element: <RegisterPage /> },
+          { path: "/sign-in", element: <SigninPage /> },
+        ],
+      },
       { path: "/forgot-password", element: <ForgotPasswordPage /> },
-      { path: "/profile", element: <ProfilePage /> },
-      { path: "/orders", element: <OrdersPage /> },
+      {
+        element: <PrivateRoute />,
+        children: [
+          { path: "/profile", element: <ProfilePage /> },
+          { path: "/orders", element: <OrdersPage /> },
+          { path: "/checkout", element: <CheckOutPage /> },
+        ],
+      },
     ],
   },
 ];

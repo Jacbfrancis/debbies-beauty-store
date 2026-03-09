@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navmenu from "./Navmenu";
 import { useNavMenu } from "../store/useNavMenuStore";
 import { Categories } from "../constants/categories";
@@ -9,14 +9,16 @@ import CartMenu from "./CartMenu";
 import { useCartMenu } from "../store/useCartMenuStore";
 import { useSearchQuery } from "../store/useSearchStore";
 import { useCart } from "../store/useCart";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth, db } from "../firebase/firebase";
+import { db } from "../firebase/firebase";
 import ProfileDropdown from "./ProfileDropDown";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
+import { useAuthStore } from "../store/useAuthStore";
 
 function Navbar() {
   const navigate = useNavigate();
   const [currentHover, setCurrentHover] = useState(null);
+
+  const user = useAuthStore((state) => state.user);
 
   const isNavMenuOpen = useNavMenu((state) => state.isNavMenuOpen);
   const openNavMenu = useNavMenu((state) => state.openNavMenu);
@@ -33,18 +35,15 @@ function Navbar() {
   const [userDetails, setUserDetails] = useState("");
 
   useEffect(() => {
-    function unsubscribe() {
-      onAuthStateChanged(auth, async (user) => {
-        if (user) {
-          const docSnap = await getDoc(doc(db, "users", user.uid));
-          setUserDetails(docSnap.data());
-        } else {
-          setUserDetails("");
-        }
-      });
+    function unsubscrbe() {
+      if (user) {
+        onSnapshot(doc(db, "users", user.uid), (snapshot) => {
+          setUserDetails(snapshot.data());
+        });
+      }
     }
-    return unsubscribe();
-  }, []);
+    unsubscrbe();
+  }, [user]);
 
   return (
     <nav>
@@ -112,7 +111,7 @@ function Navbar() {
         </form>
 
         <div className="flex justify-between items-center gap-8">
-          {userDetails ? (
+          {user ? (
             <span
               className="hover:bg-[#fdf5f7] p-2 rounded-lg hidden justify-center items-center gap-1 lg:flex"
               onClick={() => setIsProfileModalOpen(!isProfileModalOpen)}

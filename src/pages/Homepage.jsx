@@ -8,7 +8,6 @@ import Banner from "../components/Banner";
 import QuickView from "../components/QuickView";
 import { useQuickView } from "../store/useQuickViewStore";
 import CustomerAssurance from "../components/CustomerAssurance";
-import ProfileDropdown from "../components/ProfileDropDown";
 
 function Homepage() {
   const makeup = products.filter((product) => product.category === "Makeup");
@@ -20,6 +19,7 @@ function Homepage() {
   );
 
   const isQuickViewOpen = useQuickView((state) => state.isQuickViewOpen);
+
   return (
     <>
       {isQuickViewOpen && <QuickView />}

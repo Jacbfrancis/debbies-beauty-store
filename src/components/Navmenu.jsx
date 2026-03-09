@@ -1,28 +1,13 @@
-import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
 import { useNavMenu } from "../store/useNavMenuStore";
 import { Categories } from "../constants/categories";
 import { Link } from "react-router-dom";
-import { auth } from "../firebase/firebase";
+import { useAuthStore } from "../store/useAuthStore";
 
 function Navmenu() {
   const closeNavMenu = useNavMenu((state) => state.closeNavMenu);
-  const [isUserActive, setIsUserActive] = useState(false);
-
-  useEffect(() => {
-    function unSubscribe() {
-      onAuthStateChanged(auth, async (user) => {
-        if (user) {
-          setIsUserActive(true);
-        } else {
-          setIsUserActive(false);
-        }
-      });
-    }
-    return unSubscribe();
-  }, []);
+  const user = useAuthStore((state) => state.user);
 
   return (
     <motion.div
@@ -73,7 +58,7 @@ function Navmenu() {
 
           <hr />
           <li>
-            {isUserActive ? (
+            {user ? (
               <Link to={"/profile"} onClick={closeNavMenu}>
                 My Account
               </Link>
@@ -84,7 +69,7 @@ function Navmenu() {
             )}
           </li>
           <li>
-            {isUserActive ? (
+            {user ? (
               <Link to={"/orders"} onClick={closeNavMenu}>
                 Orders
               </Link>

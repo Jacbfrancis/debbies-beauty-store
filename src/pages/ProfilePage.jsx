@@ -1,36 +1,31 @@
 //import { useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth, db } from "../firebase/firebase";
-import { useNavigate } from "react-router-dom";
+import { db } from "../firebase/firebase";
 import { useEffect, useState } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import LoadingSpinner from "../components/LoadingSpinner";
 import LogoutModal from "../components/LogoutModal";
 import { useLogoutModal } from "../store/useLogoutModal";
+import { useAuthStore } from "../store/useAuthStore";
 
 export default function MyAccountPage() {
-  const navigate = useNavigate();
-
   const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const isLogoutModal = useLogoutModal((state) => state.isLogoutModal);
   const openLogoutModal = useLogoutModal((state) => state.openLogoutModal);
+  const user = useAuthStore((state) => state.user);
 
   useEffect(() => {
     function unsubscribe() {
-      onAuthStateChanged(auth, async (user) => {
-        if (user) {
-          const docSnap = await getDoc(doc(db, "users", user.uid));
-          setUserDetails(docSnap.data());
-        } else {
-          navigate("/sign-in");
-        }
-        setLoading(false);
-      });
+      if (user) {
+        onSnapshot(doc(db, "users", user.uid), (snapshot) => {
+          setUserDetails(snapshot.data());
+          setLoading(false);
+        });
+      }
     }
     unsubscribe();
-  }, [navigate]);
+  }, [user]);
 
   return (
     <div className="bg-[#f3f5f7] tracking-wide px-6 pt-4 md:px-20">

@@ -4,7 +4,7 @@ import { auth, db } from "../../firebase/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import LoadingSpinner from "../LoadingSpinner";
 import getAuthErrorMessage from "../../utils/authErrors";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 
 function RegisterForm() {
   const navigate = useNavigate();
@@ -34,6 +34,7 @@ function RegisterForm() {
         lastName: lastName,
         email: email,
         mobileNumber: mobileNumber,
+        createdAt: serverTimestamp(),
         Orders: [],
       });
       navigate("/");
