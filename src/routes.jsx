@@ -12,8 +12,10 @@ import ProfilePage from "./pages/ProfilePage";
 import OrdersPage from "./pages/OrdersPage";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import PublicRoute from "./components/auth/PublicRoute";
+import DashboardPage from "./pages/auth/DashboardPage";
 
 export const routes = [
+  { path: "/admin-dashboard", element: <DashboardPage /> },
   {
     path: "/",
     element: <MainLayout />,

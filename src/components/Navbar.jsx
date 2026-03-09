@@ -51,7 +51,7 @@ function Navbar() {
         <p>Welcome to Debbies Beauty Store</p>
       </div>
 
-      <div className="flex justify-between items-center py-6 px-6 lg:px-20">
+      <div className="flex justify-between items-center p-6 lg:px-20">
         <span className="block lg:hidden" onClick={openNavMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
