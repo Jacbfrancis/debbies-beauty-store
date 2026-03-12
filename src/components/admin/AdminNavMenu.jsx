@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAdminNavMenuStore } from "../../store/useAdminNavMenu";
 
 export default function AdminNavMenu() {
+  const navigate = useNavigate("");
+
   const closeIsAdminMenu = useAdminNavMenuStore(
     (state) => state.closeIsAdminMenu
   );
@@ -16,12 +18,25 @@ export default function AdminNavMenu() {
         onClick={(e) => e.stopPropagation()}
       >
         <ul className="font-semibold px-8 py-7 flex flex-col gap-8">
-          <li>
-            <Link to={"/admin-dashboard"}> Dashboard</Link>
+          <li
+            onClick={() => {
+              navigate("/admin/dashboard");
+              closeIsAdminMenu(false);
+            }}
+          >
+            Dashboard
           </li>
           <li>Products</li>
           <li>Orders</li>
-          <li>Costumers</li>
+          <li
+            onClick={() => {
+              navigate("/admin/customers");
+              closeIsAdminMenu(false);
+            }}
+          >
+            {" "}
+            Custumers
+          </li>
         </ul>
       </div>
     </div>

@@ -5,7 +5,6 @@ import {
   ResponsiveContainer,
   Tooltip,
   XAxis,
-  YAxis,
 } from "recharts";
 
 export default function CustomerChart() {
@@ -61,9 +60,9 @@ export default function CustomerChart() {
   ];
 
   return (
-    <div className="bg-white w-[90%] mx-auto mb-10 px-4 rounded-3xl shadow-lg">
+    <div className="bg-white w-[90%] mx-auto mb-10 px-4 rounded-3xl shadow-lg md:w-1/2 md:h-[45vh] md:mb-0">
       <h2 className="text-[1.3rem] font-bold pt-6 px-4">Monthly Customers</h2>
-      <div className="w-full overflow-scroll h-80 p-4">
+      <div className="w-full overflow-scroll h-80 p-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
         <ResponsiveContainer width="250%" height="100%">
           <BarChart data={data} barCategoryGap={20}>
             <Bar dataKey="customers" fill="#e94a6d" radius={[6, 6, 0, 0]} />

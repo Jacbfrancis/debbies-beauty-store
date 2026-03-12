@@ -12,33 +12,48 @@ import ProfilePage from "./pages/ProfilePage";
 import OrdersPage from "./pages/OrdersPage";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import PublicRoute from "./components/auth/PublicRoute";
-import DashboardPage from "./pages/auth/DashboardPage";
+import DashboardPage from "./pages/admin/DashboardPage";
+import AdminLayout from "./components/admin/AdminLayout";
+import CustomersPage from "./pages/admin/CustomersPage";
+import RootLayout from "./components/RootLayout";
 
 export const routes = [
-  { path: "/admin-dashboard", element: <DashboardPage /> },
   {
-    path: "/",
-    element: <MainLayout />,
+    element: <RootLayout />,
     children: [
-      { index: true, element: <Homepage /> },
-      { path: "/categories/:category", element: <CategoriesPage /> },
-      { path: "/search", element: <SearchResultsPage /> },
-      { path: "/product/:slug", element: <ProductDetailsPage /> },
-      { path: "/cart", element: <CartPage /> },
       {
-        element: <PublicRoute />,
+        element: <AdminLayout />,
         children: [
-          { path: "/register", element: <RegisterPage /> },
-          { path: "/sign-in", element: <SigninPage /> },
+          { path: "admin/dashboard", element: <DashboardPage /> },
+          { path: "/admin/customers", element: <CustomersPage /> },
         ],
       },
-      { path: "/forgot-password", element: <ForgotPasswordPage /> },
+
       {
-        element: <PrivateRoute />,
+        path: "/",
+        element: <MainLayout />,
         children: [
-          { path: "/profile", element: <ProfilePage /> },
-          { path: "/orders", element: <OrdersPage /> },
-          { path: "/checkout", element: <CheckOutPage /> },
+          { index: true, element: <Homepage /> },
+          { path: "/categories/:category", element: <CategoriesPage /> },
+          { path: "/search", element: <SearchResultsPage /> },
+          { path: "/product/:slug", element: <ProductDetailsPage /> },
+          { path: "/cart", element: <CartPage /> },
+          {
+            element: <PublicRoute />,
+            children: [
+              { path: "/register", element: <RegisterPage /> },
+              { path: "/sign-in", element: <SigninPage /> },
+            ],
+          },
+          { path: "/forgot-password", element: <ForgotPasswordPage /> },
+          {
+            element: <PrivateRoute />,
+            children: [
+              { path: "/profile", element: <ProfilePage /> },
+              { path: "/orders", element: <OrdersPage /> },
+              { path: "/checkout", element: <CheckOutPage /> },
+            ],
+          },
         ],
       },
     ],
