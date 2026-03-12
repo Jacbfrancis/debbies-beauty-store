@@ -20,9 +20,9 @@ export default function CustomersPage() {
     return getUsers;
   }, []);
 
-  if (users.length === 0) {
-    return <LoadingPage />;
-  }
+  // if (users.length === 0) {
+  //   return <LoadingPage />;
+  // }
 
   return (
     <div className="px-6 md:w-[75%]">
