@@ -1,6 +1,12 @@
+import { useProducts } from "../../store/useProductsStore";
+import { useUsersStore } from "../../store/useUsersStore";
+
 export default function SalesCards() {
+  const users = useUsersStore((state) => state.users);
+  const products = useProducts((state) => state.products);
+
   return (
-    <div className="flex justify-center items-center md:justify-start py-8 w-full md:px-14">
+    <div className="flex justify-center items-center md:justify-start pb-8 w-full md:px-14">
       <div className="grid grid-cols-1 gap-4 w-[90%] md:grid-cols-3">
         {/* Customers */}
         <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-full">
@@ -25,7 +31,7 @@ export default function SalesCards() {
           <p className="text-gray-600 text-md mb-1">Customers</p>
           <div className="flex items-end justify-between">
             <span className="text-3xl font-bold text-gray-900 tracking-tight">
-              12
+              {users?.length}
             </span>
           </div>
         </div>
@@ -82,7 +88,7 @@ export default function SalesCards() {
           <p className="text-gray-600 text-md mb-1">Products</p>
           <div className="flex items-end justify-between">
             <span className="text-3xl font-bold text-gray-900 tracking-tight">
-              30
+              {products?.length}
             </span>
           </div>
         </div>

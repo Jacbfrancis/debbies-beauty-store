@@ -16,6 +16,8 @@ import DashboardPage from "./pages/admin/DashboardPage";
 import AdminLayout from "./components/admin/AdminLayout";
 import CustomersPage from "./pages/admin/CustomersPage";
 import RootLayout from "./components/RootLayout";
+import ProductsPage from "./pages/admin/ProductsPage";
+import CustomerProfilePage from "./pages/admin/customerProfilePage";
 
 export const routes = [
   {
@@ -26,6 +28,8 @@ export const routes = [
         children: [
           { path: "admin/dashboard", element: <DashboardPage /> },
           { path: "/admin/customers", element: <CustomersPage /> },
+          { path: "/admin/customer/:id", element: <CustomerProfilePage /> },
+          { path: "/admin/products", element: <ProductsPage /> },
         ],
       },
 

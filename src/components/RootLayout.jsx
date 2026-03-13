@@ -5,6 +5,8 @@ import { auth, db } from "../firebase/firebase";
 import { useAuthStore } from "../store/useAuthStore";
 import { collection, onSnapshot } from "firebase/firestore";
 import { useProducts } from "../store/useProductsStore";
+import ErrorPage from "../pages/ErrorPage";
+import LoadingPage from "../pages/LoadingPage";
 
 export default function RootLayout() {
   const setUser = useAuthStore((state) => state.setUser);
@@ -41,6 +43,18 @@ export default function RootLayout() {
     );
     return unsubscribe;
   }, []);
+
+  const productsError = useProducts((state) => state.productsError);
+  const productsLoading = useProducts((state) => state.productsLoading);
+  const authLoading = useAuthStore((state) => state.authLoading);
+
+  if (productsError) {
+    return <ErrorPage />;
+  }
+
+  if (productsLoading || authLoading) {
+    return <LoadingPage />;
+  }
 
   return <Outlet />;
 }

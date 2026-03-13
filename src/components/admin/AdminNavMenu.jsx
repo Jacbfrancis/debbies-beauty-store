@@ -26,8 +26,22 @@ export default function AdminNavMenu() {
           >
             Dashboard
           </li>
-          <li>Products</li>
-          <li>Orders</li>
+          <li
+            onClick={() => {
+              navigate("/admin/products");
+              closeIsAdminMenu(false);
+            }}
+          >
+            Products
+          </li>
+          <li
+            onClick={() => {
+              navigate("/admin/orders");
+              closeIsAdminMenu(false);
+            }}
+          >
+            Orders
+          </li>
           <li
             onClick={() => {
               navigate("/admin/customers");

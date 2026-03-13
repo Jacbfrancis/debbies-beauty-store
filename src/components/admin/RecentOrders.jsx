@@ -105,10 +105,10 @@ export default function RecentOrders() {
       {/* Footer / Pagination Placeholder */}
       <div className="p-4 bg-gray-50 border-t border-gray-100 text-center">
         <Link
-          to={"/admin/customers"}
+          to={"/admin/orders"}
           className="text-sm font-medium text-[#e94a6d]"
         >
-          View all customers
+          View all orders
         </Link>
       </div>
     </div>

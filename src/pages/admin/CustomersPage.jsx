@@ -1,28 +1,8 @@
-import { collection, onSnapshot } from "firebase/firestore";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { db } from "../../firebase/firebase";
-import LoadingPage from "../LoadingPage";
+import { useUsersStore } from "../../store/useUsersStore";
 
 export default function CustomersPage() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    const getUsers = onSnapshot(collection(db, "users"), (snapshot) => {
-      setUsers(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }))
-      );
-    });
-
-    return getUsers;
-  }, []);
-
-  // if (users.length === 0) {
-  //   return <LoadingPage />;
-  // }
+  const users = useUsersStore((state) => state.users);
 
   return (
     <div className="px-6 md:w-[75%]">
@@ -41,7 +21,6 @@ export default function CustomersPage() {
       </div>
 
       <div className="bg-white w-full rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-        {/* Header Section */}
         <div className="p-6 border-b border-gray-100">
           <h2 className="text-xl font-bold text-gray-900">Customers</h2>
           <p className="text-sm text-gray-500 mt-1">
@@ -49,11 +28,10 @@ export default function CustomersPage() {
           </p>
         </div>
 
-        {/* Table Container */}
         <div className="overflow-x-auto no-scrollbar">
           <table className="w-full text-left border-collapse min-w-[700px]">
             <thead>
-              <tr className="bg-gray-50/50">
+              <tr className="bg-[#fdf5f7]">
                 <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-gray-500 border-b border-gray-100">
                   Customer
                 </th>
@@ -69,43 +47,46 @@ export default function CustomersPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              {users.map((user, index) => (
+              {users?.map((user, index) => (
                 <tr
                   key={index}
                   className="hover:bg-[#fdf5f7] transition-colors group cursor-default"
                 >
                   {/* Name with Avatar Initials */}
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="flex items-center gap-3">
-                      <div className="h-9 w-9 rounded-full bg-[#fdf5f7] text-[#e94a6d] flex items-center justify-center font-bold text-xs">
-                        {user?.firstName?.[0]}
-                        {user?.lastName?.[0]}
+                    <Link to={`/admin/customer/${user.id}`}>
+                      <div className="flex items-center gap-3">
+                        <div className="h-1 w-1 rounded-full bg-gray-500 flex items-center justify-center font-bold text-xs"></div>
+                        <span className="font-medium text-gray-900">
+                          {user?.firstName} {user?.lastName}
+                        </span>
                       </div>
-                      <span className="font-medium text-gray-900">
-                        {user?.firstName} {user?.lastName}
-                      </span>
-                    </div>
+                    </Link>
                   </td>
 
                   {/* Email */}
                   <td className="px-6 py-4 whitespace-nowrap text-gray-600">
-                    {user?.email}
+                    <Link to={`/admin/customer/${user.id}`}>{user?.email}</Link>
                   </td>
 
                   {/* Number */}
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="px-2.5 py-1 rounded-md bg-gray-100 text-gray-700 text-xs font-medium">
-                      {user?.mobileNumber || "N/A"}
-                    </span>
+                    <Link to={`/admin/customer/${user.id}`}>
+                      <span className="px-2.5 py-1 rounded-md bg-gray-100 text-gray-700 text-xs font-medium">
+                        {user?.mobileNumber || "N/A"}
+                      </span>
+                    </Link>
                   </td>
 
                   {/* Date */}
                   <td className="px-6 py-4 whitespace-nowrap text-right text-gray-500 text-sm">
-                    {user?.createdAt?.toDate().toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    })}
+                    <Link to={`/admin/customer/${user.id}`}>
+                      {user?.createdAt?.toDate().toLocaleDateString("en-US", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </Link>
                   </td>
                 </tr>
               ))}
